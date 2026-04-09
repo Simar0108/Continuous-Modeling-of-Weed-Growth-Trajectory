@@ -1,0 +1,139 @@
+
+  | Name  | Type              | Params | Mode  | FLOPs
+------------------------------------------------------------
+0 | model | GaussianLatentODE | 22.0 K | train | 0
+------------------------------------------------------------
+22.0 K    Trainable params
+0         Non-trainable params
+22.0 K    Total params
+0.088     Total estimated model params size (MB)
+16        Modules in train mode
+0         Modules in eval mode
+0         Total Flops
+Epoch 0:   0%|                                                                                                | 0/72 [00:00<?, ?it/s]
+/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:434: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=7` in the `DataLoader` to improve performance.
+/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79: Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 53. To avoid any miscalculations, use `self.log(..., batch_size=batch_size)`.
+/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79: Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 68. To avoid any miscalculations, use `self.log(..., batch_size=batch_size)`.
+/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:434: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=7` in the `DataLoader` to improve performance.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/simar/Documents/UCR Research/MastersThesis/Thesis/ode/overfit_test.py", line 321, in <module>
+    main()
+    ~~~~^^
+  File "/Users/simar/Documents/UCR Research/MastersThesis/Thesis/ode/overfit_test.py", line 298, in main
+    trainer.fit(model, datamodule=dm)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/trainer/trainer.py", line 584, in fit
+    call._call_and_handle_interrupt(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<6 lines>...
+        weights_only,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/trainer/call.py", line 49, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/trainer/trainer.py", line 630, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/trainer/trainer.py", line 1079, in _run
+    results = self._run_stage()
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/trainer/trainer.py", line 1123, in _run_stage
+    self.fit_loop.run()
+    ~~~~~~~~~~~~~~~~~^^
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/loops/fit_loop.py", line 217, in run
+    self.advance()
+    ~~~~~~~~~~~~^^
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/loops/fit_loop.py", line 465, in advance
+    self.epoch_loop.run(self._data_fetcher)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/loops/training_epoch_loop.py", line 153, in run
+    self.advance(data_fetcher)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/loops/training_epoch_loop.py", line 352, in advance
+    batch_output = self.automatic_optimization.run(trainer.optimizers[0], batch_idx, kwargs)
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/loops/optimization/automatic.py", line 192, in run
+    self._optimizer_step(batch_idx, closure)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/loops/optimization/automatic.py", line 270, in _optimizer_step
+    call._call_lightning_module_hook(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        trainer,
+        ^^^^^^^^
+    ...<4 lines>...
+        train_step_and_backward_closure,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/trainer/call.py", line 177, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/core/module.py", line 1368, in optimizer_step
+    optimizer.step(closure=optimizer_closure)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/core/optimizer.py", line 154, in step
+    step_output = self._strategy.optimizer_step(self._optimizer, closure, **kwargs)
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/strategies/strategy.py", line 239, in optimizer_step
+    return self.precision_plugin.optimizer_step(optimizer, model=model, closure=closure, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/plugins/precision/precision.py", line 123, in optimizer_step
+    return optimizer.step(closure=closure, **kwargs)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/torch/optim/optimizer.py", line 517, in wrapper
+    out = func(*args, **kwargs)
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/torch/optim/optimizer.py", line 82, in _use_grad
+    ret = func(*args, **kwargs)
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/torch/optim/adam.py", line 226, in step
+    loss = closure()
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/plugins/precision/precision.py", line 109, in _wrap_closure
+    closure_result = closure()
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/loops/optimization/automatic.py", line 146, in __call__
+    self._result = self.closure(*args, **kwargs)
+                   ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/loops/optimization/automatic.py", line 131, in closure
+    step_output = self._step_fn()
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/loops/optimization/automatic.py", line 319, in _training_step
+    training_step_output = call._call_strategy_hook(trainer, "training_step", *kwargs.values())
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/trainer/call.py", line 329, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/strategies/strategy.py", line 391, in training_step
+    return self.lightning_module.training_step(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/simar/Documents/UCR Research/MastersThesis/Thesis/ode/overfit_test.py", line 107, in training_step
+    pred, aux = self.model(states_6d, t_abs, return_aux=True)
+                ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/simar/Documents/UCR Research/MastersThesis/Thesis/ode/model.py", line 192, in forward
+    z_traj = odeint_adjoint(
+        wrapped_func,
+    ...<6 lines>...
+        adjoint_params=tuple(self.ode_func.parameters()),
+    )  # (T, B, 16)
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/torchdiffeq/_impl/adjoint.py", line 206, in odeint_adjoint
+    ans = OdeintAdjointMethod.apply(shapes, func, y0, t, rtol, atol, method, options, event_fn, adjoint_rtol, adjoint_atol,
+                                    adjoint_method, adjoint_options, t.requires_grad, *adjoint_params)
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/torch/autograd/function.py", line 581, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/torchdiffeq/_impl/adjoint.py", line 24, in forward
+    ans = odeint(func, y0, t, rtol=rtol, atol=atol, method=method, options=options, event_fn=event_fn)
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/torchdiffeq/_impl/odeint.py", line 80, in odeint
+    solution = solver.integrate(t)
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/torchdiffeq/_impl/solvers.py", line 34, in integrate
+    solution[i] = self._advance(t[i])
+                  ~~~~~~~~~~~~~^^^^^^
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/torchdiffeq/_impl/rk_common.py", line 246, in _advance
+    self.rk_state = self._adaptive_step(self.rk_state)
+                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/torchdiffeq/_impl/rk_common.py", line 284, in _adaptive_step
+    assert t0 + dt > t0, 'underflow in dt {}'.format(dt.item())
+           ^^^^^^^^^^^^
+AssertionError: underflow in dt 0.0

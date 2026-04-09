@@ -1,0 +1,1 @@
+{"_wandb":{"runtime":49},"_runtime":49.400113792,"val_growth_curves":{"path":"media/images/val_growth_curves_0_3db382110d8231f65c9b.png","format":"png","width":1000,"height":400,"_type":"image-file","sha256":"3db382110d8231f65c9be5b788179e6e3f607953cc9fc9fee6198a33a0d46335","size":43847},"_timestamp":1.772168432240577e+09,"_step":0,"trainer/global_step":0}

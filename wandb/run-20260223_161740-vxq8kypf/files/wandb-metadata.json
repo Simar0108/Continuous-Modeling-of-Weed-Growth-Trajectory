@@ -1,0 +1,36 @@
+{
+  "os": "macOS-15.6.1-arm64-arm-64bit-Mach-O",
+  "python": "CPython 3.13.1",
+  "startedAt": "2026-02-24T00:17:40.921462Z",
+  "args": [
+    "--parquet",
+    "Thesis/metrics_with_features.parquet",
+    "--wandb"
+  ],
+  "program": "-m ode.overfit_test",
+  "email": "ssing226@ucr.edu",
+  "root": ".",
+  "host": "Simarpals-MacBook-Air-3.local",
+  "executable": "/Users/simar/Documents/UCR Research/MastersThesis/venv/bin/python",
+  "cpu_count": 8,
+  "cpu_count_logical": 8,
+  "disk": {
+    "/": {
+      "total": "245107195904",
+      "used": "238263197696"
+    }
+  },
+  "memory": {
+    "total": "17179869184"
+  },
+  "apple": {
+    "name": "Apple M1",
+    "ecpuCores": 4,
+    "pcpuCores": 4,
+    "gpuCores": 7,
+    "memoryGb": 16,
+    "swapTotalBytes": "4294967296",
+    "ramTotalBytes": "17179869184"
+  },
+  "writerId": "53hlyaihy81jppzys1cuoa4nd7yytfop"
+}

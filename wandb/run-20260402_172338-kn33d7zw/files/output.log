@@ -1,0 +1,1235 @@
+┏━━━┳━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃[1;35m [0m[1;35m [0m[1;35m [0m┃[1;35m [0m[1;35mName [0m[1;35m [0m┃[1;35m [0m[1;35mType             [0m[1;35m [0m┃[1;35m [0m[1;35mParams[0m[1;35m [0m┃[1;35m [0m[1;35mMode [0m[1;35m [0m┃[1;35m [0m[1;35mFLOPs[0m[1;35m [0m┃
+┡━━━╇━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│[2m [0m[2m0[0m[2m [0m│ model │ GaussianLatentODE │ 22.0 K │ train │     0 │
+└───┴───────┴───────────────────┴────────┴───────┴───────┘
+[1mTrainable params[0m: 22.0 K
+[1mNon-trainable params[0m: 0
+[1mTotal params[0m: 22.0 K
+[1mTotal estimated model params size (MB)[0m: 0
+[1mModules in train mode[0m: 16
+[1mModules in eval mode[0m: 0
+[1mTotal FLOPs[0m: 0
+[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/_pytree.py:21:
+`isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+[2K/Users/simar/Documents/UCR
+Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:434: The
+'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers`
+argument` to `num_workers=7` in the `DataLoader` to improve performance.
+[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 53. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:  -:--:--[0m [2;4m0.00it/s[0m  
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 68. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+[2K/Users/simar/Documents/UCR ;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 2/2 [2m0:00:00 • 0:00:00[0m [2;4m5.70it/s[0m  -[0m [2;4m0.00it/s[0m  
+Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:434: The
+'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers`
+argument` to `num_workers=7` in the `DataLoader` to improve performance.
+[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79: num: d7zw[0m
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 77. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+[2KEpoch 0/299 [38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/72 [2m0:00:05 • -:--:--[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 5199.754     [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 63. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/72 [2m0:00:05 • -:--:--[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 5199.754     [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 2/72 [2m0:00:08 • 0:03:44[0m [2;4m0.31it/s[0m [3mv_num: d7zw train_loss_step: 3167.918     [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 83. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 2/72 [2m0:00:08 • 0:03:44[0m [2;4m0.31it/s[0m [3mv_num: d7zw train_loss_step: 3167.918     [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 3/72 [2m0:00:12 • 0:04:00[0m [2;4m0.29it/s[0m [3mv_num: d7zw train_loss_step: 3075.890     [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 157. To avoid any miscalculations,
+use `self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 3/72 [2m0:00:12 • 0:04:00[0m [2;4m0.29it/s[0m [3mv_num: d7zw train_loss_step: 3075.890     [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 4/72 [2m0:00:19 • 0:05:09[0m [2;4m0.22it/s[0m [3mv_num: d7zw train_loss_step: 6974.714     [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 72. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 4/72 [2m0:00:19 • 0:05:09[0m [2;4m0.22it/s[0m [3mv_num: d7zw train_loss_step: 6974.714     [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 5/72 [2m0:00:23 • 0:04:54[0m [2;4m0.23it/s[0m [3mv_num: d7zw train_loss_step: 1886.395     [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 69. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 5/72 [2m0:00:23 • 0:04:54[0m [2;4m0.23it/s[0m [3mv_num: d7zw train_loss_step: 1886.395     [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 6/72 [2m0:00:26 • 0:04:33[0m [2;4m0.24it/s[0m [3mv_num: d7zw train_loss_step: 6095.183     [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 145. To avoid any miscalculations,
+use `self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 6/72 [2m0:00:26 • 0:04:33[0m [2;4m0.24it/s[0m [3mv_num: d7zw train_loss_step: 6095.183     [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 7/72 [2m0:00:32 • 0:04:49[0m [2;4m0.23it/s[0m [3mv_num: d7zw train_loss_step: 7477.327     [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 29. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 7/72 [2m0:00:32 • 0:04:49[0m [2;4m0.23it/s[0m [3mv_num: d7zw train_loss_step: 7477.327     [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 8/72 [2m0:00:34 • 0:04:25[0m [2;4m0.24it/s[0m [3mv_num: d7zw train_loss_step: 333.773      [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 60. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 8/72 [2m0:00:34 • 0:04:25[0m [2;4m0.24it/s[0m [3mv_num: d7zw train_loss_step: 333.773      [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 9/72 [2m0:00:37 • 0:04:17[0m [2;4m0.25it/s[0m [3mv_num: d7zw train_loss_step: 3175.658     [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 10/72 [2m0:00:39 • 0:04:00[0m [2;4m0.26it/s[0m [3mv_num: d7zw train_loss_step: 2743.867    [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 85. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 10/72 [2m0:00:39 • 0:04:00[0m [2;4m0.26it/s[0m [3mv_num: d7zw train_loss_step: 2743.867    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 11/72 [2m0:00:43 • 0:03:31[0m [2;4m0.29it/s[0m [3mv_num: d7zw train_loss_step: 2743.867    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 11/72 [2m0:00:43 • 0:03:31[0m [2;4m0.29it/s[0m [3mv_num: d7zw train_loss_step: 2330.530    [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 54. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 11/72 [2m0:00:43 • 0:03:31[0m [2;4m0.29it/s[0m [3mv_num: d7zw train_loss_step: 2330.530    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 12/72 [2m0:00:45 • 0:03:19[0m [2;4m0.30it/s[0m [3mv_num: d7zw train_loss_step: 1870.941    [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 66. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 12/72 [2m0:00:45 • 0:03:19[0m [2;4m0.30it/s[0m [3mv_num: d7zw train_loss_step: 1870.941    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 13/72 [2m0:00:48 • 0:03:15[0m [2;4m0.30it/s[0m [3mv_num: d7zw train_loss_step: 3469.747    [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 55. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 13/72 [2m0:00:48 • 0:03:15[0m [2;4m0.30it/s[0m [3mv_num: d7zw train_loss_step: 3469.747    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 14/72 [2m0:00:51 • 0:03:03[0m [2;4m0.32it/s[0m [3mv_num: d7zw train_loss_step: 1695.994    [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 67. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 14/72 [2m0:00:51 • 0:03:03[0m [2;4m0.32it/s[0m [3mv_num: d7zw train_loss_step: 1695.994    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 15/72 [2m0:00:54 • 0:03:00[0m [2;4m0.32it/s[0m [3mv_num: d7zw train_loss_step: 2991.154    [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 82. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 15/72 [2m0:00:54 • 0:03:00[0m [2;4m0.32it/s[0m [3mv_num: d7zw train_loss_step: 2991.154    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 16/72 [2m0:00:58 • 0:02:42[0m [2;4m0.35it/s[0m [3mv_num: d7zw train_loss_step: 2892.110    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 17/72 [2m0:01:00 • 0:02:38[0m [2;4m0.35it/s[0m [3mv_num: d7zw train_loss_step: 1500.738    [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 105. To avoid any miscalculations,
+use `self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 17/72 [2m0:01:00 • 0:02:38[0m [2;4m0.35it/s[0m [3mv_num: d7zw train_loss_step: 1500.738    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 18/72 [2m0:01:05 • 0:02:49[0m [2;4m0.32it/s[0m [3mv_num: d7zw train_loss_step: 3612.214    [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 87. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 18/72 [2m0:01:05 • 0:02:49[0m [2;4m0.32it/s[0m [3mv_num: d7zw train_loss_step: 3612.214    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 19/72 [2m0:01:09 • 0:02:55[0m [2;4m0.30it/s[0m [3mv_num: d7zw train_loss_step: 394.446     [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 132. To avoid any miscalculations,
+use `self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 19/72 [2m0:01:09 • 0:02:55[0m [2;4m0.30it/s[0m [3mv_num: d7zw train_loss_step: 394.446     [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 20/72 [2m0:01:14 • 0:03:10[0m [2;4m0.27it/s[0m [3mv_num: d7zw train_loss_step: 2733.190    [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 89. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 20/72 [2m0:01:14 • 0:03:10[0m [2;4m0.27it/s[0m [3mv_num: d7zw train_loss_step: 2733.190    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 21/72 [2m0:01:18 • 0:03:11[0m [2;4m0.27it/s[0m [3mv_num: d7zw train_loss_step: 4260.491    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 22/72 [2m0:01:22 • 0:03:18[0m [2;4m0.25it/s[0m [3mv_num: d7zw train_loss_step: 3282.011    [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 86. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 22/72 [2m0:01:22 • 0:03:18[0m [2;4m0.25it/s[0m [3mv_num: d7zw train_loss_step: 3282.011    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 23/72 [2m0:01:27 • 0:03:29[0m [2;4m0.24it/s[0m [3mv_num: d7zw train_loss_step: 1760.833    [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 171. To avoid any miscalculations,
+use `self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 23/72 [2m0:01:27 • 0:03:29[0m [2;4m0.24it/s[0m [3mv_num: d7zw train_loss_step: 1760.833    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 24/72 [2m0:01:45 • 0:07:10[0m [2;4m0.11it/s[0m [3mv_num: d7zw train_loss_step: 4774.526    [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 146. To avoid any miscalculations,
+use `self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 24/72 [2m0:01:45 • 0:07:10[0m [2;4m0.11it/s[0m [3mv_num: d7zw train_loss_step: 4774.526    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 25/72 [2m0:02:04 • 0:14:28[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 12435.925   [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 153. To avoid any miscalculations,
+use `self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 25/72 [2m0:02:04 • 0:14:28[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 12435.925   [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━[0m 26/72 [2m0:02:23 • 0:15:12[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 7147.900    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━[0m 27/72 [2m0:02:33 • 0:11:10[0m [2;4m0.07it/s[0m [3mv_num: d7zw train_loss_step: 1150.048    [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 92. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━[0m 27/72 [2m0:02:33 • 0:11:10[0m [2;4m0.07it/s[0m [3mv_num: d7zw train_loss_step: 1150.048    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━[0m 28/72 [2m0:02:47 • 0:08:39[0m [2;4m0.08it/s[0m [3mv_num: d7zw train_loss_step: 747.378     [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 163. To avoid any miscalculations,
+use `self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━[0m 28/72 [2m0:02:47 • 0:08:39[0m [2;4m0.08it/s[0m [3mv_num: d7zw train_loss_step: 747.378     [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━[0m 29/72 [2m0:03:08 • 0:15:03[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 3438.558    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━[0m 30/72 [2m0:03:26 • 0:12:29[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 2630.208    [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 46. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━[0m 30/72 [2m0:03:26 • 0:12:29[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 2630.208    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━[0m 31/72 [2m0:03:39 • 0:09:03[0m [2;4m0.08it/s[0m [3mv_num: d7zw train_loss_step: 1978.784    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━[0m 32/72 [2m0:03:57 • 0:11:55[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 6403.690    [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 62. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━[0m 32/72 [2m0:03:57 • 0:11:55[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 6403.690    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━[0m 33/72 [2m0:04:12 • 0:10:09[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 1085.646    [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 61. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━[0m 33/72 [2m0:04:12 • 0:10:09[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 1085.646    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━[0m 34/72 [2m0:04:29 • 0:10:41[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 1037.521    [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 78. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━[0m 34/72 [2m0:04:29 • 0:10:41[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 1037.521    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━[0m 35/72 [2m0:04:46 • 0:10:29[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 715.912     [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━[0m 36/72 [2m0:05:03 • 0:09:51[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 1900.591    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━[0m 37/72 [2m0:05:13 • 0:07:57[0m [2;4m0.07it/s[0m [3mv_num: d7zw train_loss_step: 95.345      [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 43. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━[0m 37/72 [2m0:05:13 • 0:07:57[0m [2;4m0.07it/s[0m [3mv_num: d7zw train_loss_step: 95.345      [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━[0m 38/72 [2m0:05:29 • 0:07:26[0m [2;4m0.08it/s[0m [3mv_num: d7zw train_loss_step: 1035.248    [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 70. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━[0m 38/72 [2m0:05:29 • 0:07:26[0m [2;4m0.08it/s[0m [3mv_num: d7zw train_loss_step: 1035.248    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━[0m 39/72 [2m0:05:44 • 0:08:04[0m [2;4m0.07it/s[0m [3mv_num: d7zw train_loss_step: 1035.248    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━[0m 39/72 [2m0:05:44 • 0:08:04[0m [2;4m0.07it/s[0m [3mv_num: d7zw train_loss_step: 1128.372    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━[0m 40/72 [2m0:05:58 • 0:07:53[0m [2;4m0.07it/s[0m [3mv_num: d7zw train_loss_step: 1128.372    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━[0m 40/72 [2m0:05:58 • 0:07:53[0m [2;4m0.07it/s[0m [3mv_num: d7zw train_loss_step: 945.689     [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━[0m 41/72 [2m0:06:13 • 0:07:36[0m [2;4m0.07it/s[0m [3mv_num: d7zw train_loss_step: 1111.559    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━[0m 42/72 [2m0:06:27 • 0:07:08[0m [2;4m0.07it/s[0m [3mv_num: d7zw train_loss_step: 773.838     [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 91. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━[0m 42/72 [2m0:06:27 • 0:07:08[0m [2;4m0.07it/s[0m [3mv_num: d7zw train_loss_step: 773.838     [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━[0m 43/72 [2m0:06:43 • 0:07:44[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 2977.877    [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 71. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━[0m 43/72 [2m0:06:43 • 0:07:44[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 2977.877    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━[0m 44/72 [2m0:06:57 • 0:06:37[0m [2;4m0.07it/s[0m [3mv_num: d7zw train_loss_step: 1599.682    [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 64. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━[0m 44/72 [2m0:06:57 • 0:06:37[0m [2;4m0.07it/s[0m [3mv_num: d7zw train_loss_step: 1599.682    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━[0m 45/72 [2m0:07:09 • 0:05:59[0m [2;4m0.08it/s[0m [3mv_num: d7zw train_loss_step: 3896.419    [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 138. To avoid any miscalculations,
+use `self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━[0m 45/72 [2m0:07:09 • 0:05:59[0m [2;4m0.08it/s[0m [3mv_num: d7zw train_loss_step: 3896.419    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━[0m 46/72 [2m0:07:23 • 0:05:39[0m [2;4m0.08it/s[0m [3mv_num: d7zw train_loss_step: 7093.806    [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 198. To avoid any miscalculations,
+use `self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━[0m 46/72 [2m0:07:23 • 0:05:39[0m [2;4m0.08it/s[0m [3mv_num: d7zw train_loss_step: 7093.806    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━[0m 47/72 [2m0:07:44 • 0:08:37[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 4633.557    [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 180. To avoid any miscalculations,
+use `self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━[0m 47/72 [2m0:07:44 • 0:08:37[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 4633.557    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━[0m 48/72 [2m0:08:00 • 0:06:30[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 3853.045    [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 58. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━[0m 48/72 [2m0:08:00 • 0:06:30[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 3853.045    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━[0m 49/72 [2m0:08:09 • 0:04:50[0m [2;4m0.08it/s[0m [3mv_num: d7zw train_loss_step: 873.421     [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━[0m 50/72 [2m0:08:18 • 0:03:18[0m [2;4m0.11it/s[0m [3mv_num: d7zw train_loss_step: 1180.168    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━[0m 51/72 [2m0:08:25 • 0:02:56[0m [2;4m0.12it/s[0m [3mv_num: d7zw train_loss_step: 2006.234    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━[0m 52/72 [2m0:08:32 • 0:02:33[0m [2;4m0.13it/s[0m [3mv_num: d7zw train_loss_step: 2006.234    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━[0m 53/72 [2m0:08:37 • 0:02:13[0m [2;4m0.14it/s[0m [3mv_num: d7zw train_loss_step: 2739.804    [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 162. To avoid any miscalculations,
+use `self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━[0m 53/72 [2m0:08:37 • 0:02:13[0m [2;4m0.14it/s[0m [3mv_num: d7zw train_loss_step: 2739.804    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━[0m 54/72 [2m0:08:46 • 0:02:04[0m [2;4m0.15it/s[0m [3mv_num: d7zw train_loss_step: 1371.382    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━[0m 55/72 [2m0:08:51 • 0:01:49[0m [2;4m0.16it/s[0m [3mv_num: d7zw train_loss_step: 1253.805    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m 56/72 [2m0:08:55 • 0:01:35[0m [2;4m0.17it/s[0m [3mv_num: d7zw train_loss_step: 1559.077    [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 150. To avoid any miscalculations,
+use `self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m 56/72 [2m0:08:55 • 0:01:35[0m [2;4m0.17it/s[0m [3mv_num: d7zw train_loss_step: 1559.077    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━[0m 57/72 [2m0:09:04 • 0:01:40[0m [2;4m0.15it/s[0m [3mv_num: d7zw train_loss_step: 5483.625    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━[0m 58/72 [2m0:09:08 • 0:01:19[0m [2;4m0.18it/s[0m [3mv_num: d7zw train_loss_step: 5483.625    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━[0m 58/72 [2m0:09:08 • 0:01:19[0m [2;4m0.18it/s[0m [3mv_num: d7zw train_loss_step: 1549.398    [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 41. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━[0m 58/72 [2m0:09:08 • 0:01:19[0m [2;4m0.18it/s[0m [3mv_num: d7zw train_loss_step: 1549.398    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━[0m 59/72 [2m0:09:11 • 0:01:06[0m [2;4m0.20it/s[0m [3mv_num: d7zw train_loss_step: 438.474     [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━[0m 60/72 [2m0:09:14 • 0:00:58[0m [2;4m0.21it/s[0m [3mv_num: d7zw train_loss_step: 3716.982    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━[0m 61/72 [2m0:09:18 • 0:00:50[0m [2;4m0.22it/s[0m [3mv_num: d7zw train_loss_step: 700.750     [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 214. To avoid any miscalculations,
+use `self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━[0m 61/72 [2m0:09:18 • 0:00:50[0m [2;4m0.22it/s[0m [3mv_num: d7zw train_loss_step: 700.750     [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━[0m 62/72 [2m0:09:27 • 0:00:48[0m [2;4m0.21it/s[0m [3mv_num: d7zw train_loss_step: 1223.221    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━[0m 63/72 [2m0:09:30 • 0:00:40[0m [2;4m0.23it/s[0m [3mv_num: d7zw train_loss_step: 690.436     [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 154. To avoid any miscalculations,
+use `self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━[0m 63/72 [2m0:09:30 • 0:00:40[0m [2;4m0.23it/s[0m [3mv_num: d7zw train_loss_step: 690.436     [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━[0m 64/72 [2m0:09:38 • 0:00:40[0m [2;4m0.20it/s[0m [3mv_num: d7zw train_loss_step: 3995.175    [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━[0m 65/72 [2m0:09:42 • 0:00:39[0m [2;4m0.18it/s[0m [3mv_num: d7zw train_loss_step: 536.759     [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 75. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━[0m 65/72 [2m0:09:42 • 0:00:39[0m [2;4m0.18it/s[0m [3mv_num: d7zw train_loss_step: 536.759     [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━[0m 66/72 [2m0:09:45 • 0:00:34[0m [2;4m0.18it/s[0m [3mv_num: d7zw train_loss_step: 327.735     [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━[0m 67/72 [2m0:09:49 • 0:00:22[0m [2;4m0.23it/s[0m [3mv_num: d7zw train_loss_step: 242.731     [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 65. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━[0m 67/72 [2m0:09:49 • 0:00:22[0m [2;4m0.23it/s[0m [3mv_num: d7zw train_loss_step: 242.731     [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━[0m 68/72 [2m0:09:54 • 0:00:18[0m [2;4m0.23it/s[0m [3mv_num: d7zw train_loss_step: 267.242     [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 52. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━[0m 68/72 [2m0:09:54 • 0:00:18[0m [2;4m0.23it/s[0m [3mv_num: d7zw train_loss_step: 267.242     [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━[0m 69/72 [2m0:09:57 • 0:00:13[0m [2;4m0.24it/s[0m [3mv_num: d7zw train_loss_step: 554.732     [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━[0m 70/72 [2m0:09:59 • 0:00:09[0m [2;4m0.24it/s[0m [3mv_num: d7zw train_loss_step: 647.365     [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m 71/72 [2m0:10:02 • 0:00:04[0m [2;4m0.29it/s[0m [3mv_num: d7zw train_loss_step: 548.060     [0m
+[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79:
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 20. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m 71/72 [2m0:10:02 • 0:00:04[0m [2;4m0.29it/s[0m [3mv_num: d7zw train_loss_step: 548.060     [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:10:03 • 0:00:00[0m [2;4m0.31it/s[0m [3mv_num: d7zw train_loss_step: 50.475      [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:10:03 • 0:00:00[0m [2;4m0.31it/s[0m [3mv_num: d7zw train_loss_step: 50.475      [0m
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:10:03 • 0:00:00[0m [2;4m0.31it/s[0m [3mv_num: d7zw train_loss_step: 50.475      [0m
+                                                                                      [3mtrain_geo_loss_step: 48.121              [0m
+[2K[1A[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:10:03 • 0:00:00[0m [2;4m0.31it/s[0m [3mv_num: d7zw train_loss_step: 50.475      [0m  
+                                                                                      [3mtrain_geo_loss_step: 48.121              [0m
+[2K[1A[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:10:03 • 0:00:00[0m [2;4m0.31it/s[0m [3mv_num: d7zw train_loss_step: 50.475      [0m  
+                                                                                      [3mtrain_geo_loss_step: 48.121              [0m
+[2K[1A[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79: 6it/s[0m                                          
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 79. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:10:03 • 0:00:00[0m [2;4m0.31it/s[0m [3mv_num: d7zw train_loss_step: 50.475      [0m
+                                                                                      [3mtrain_geo_loss_step: 48.121              [0m
+[2K[1A[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:10:03 • 0:00:00[0m [2;4m0.31it/s[0m [3mv_num: d7zw train_loss_step: 50.475      [0m  
+                                                                                      [3mtrain_geo_loss_step: 48.121              [0m
+[2K[1A[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:10:03 • 0:00:00[0m [2;4m0.31it/s[0m [3mv_num: d7zw train_loss_step: 50.475      [0m  
+                                                                                      [3mtrain_geo_loss_step: 48.121              [0m
+[2K[1A[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:10:03 • 0:00:00[0m [2;4m0.31it/s[0m [3mv_num: d7zw train_loss_step: 50.475      [0m  
+                                                                                      [3mtrain_geo_loss_step: 48.121              [0m
+[2K[1A[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:10:03 • 0:00:00[0m [2;4m0.31it/s[0m [3mv_num: d7zw train_loss_step: 50.475      [0m  
+                                                                                      [3mtrain_geo_loss_step: 48.121              [0m
+[2K[1A[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79: 4m6.42it/s[0m                                          
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 48. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:10:03 • 0:00:00[0m [2;4m0.31it/s[0m [3mv_num: d7zw train_loss_step: 50.475      [0m
+                                                                                      [3mtrain_geo_loss_step: 48.121              [0m
+[2K[1A[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:10:03 • 0:00:00[0m [2;4m0.31it/s[0m [3mv_num: d7zw train_loss_step: 50.475      [0m       
+                                                                                      [3mtrain_geo_loss_step: 48.121              [0m
+[2K[1A[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:10:03 • 0:00:00[0m [2;4m0.31it/s[0m [3mv_num: d7zw train_loss_step: 50.475      [0m       
+                                                                                      [3mtrain_geo_loss_step: 48.121              [0m
+[2K[1A[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:10:03 • 0:00:00[0m [2;4m0.31it/s[0m [3mv_num: d7zw train_loss_step: 50.475      [0m       
+                                                                                      [3mtrain_geo_loss_step: 48.121              [0m
+[2K[1A[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:10:03 • 0:00:00[0m [2;4m0.31it/s[0m [3mv_num: d7zw train_loss_step: 50.475      [0m       
+                                                                                      [3mtrain_geo_loss_step: 48.121              [0m
+[2K[1A[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79: 4m6.42it/s[0m                                          
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 28. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:10:03 • 0:00:00[0m [2;4m0.31it/s[0m [3mv_num: d7zw train_loss_step: 50.475      [0m
+                                                                                      [3mtrain_geo_loss_step: 48.121              [0m
+[2K[1A[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:10:03 • 0:00:00[0m [2;4m0.31it/s[0m [3mv_num: d7zw train_loss_step: 50.475      [0m       
+                                                                                      [3mtrain_geo_loss_step: 48.121              [0m
+[2K[1A[2K[1A[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/data.py:79: 4m6.02it/s[0m                                          
+Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 19. To avoid any miscalculations, use
+`self.log(..., batch_size=batch_size)`.
+Epoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:10:03 • 0:00:00[0m [2;4m0.31it/s[0m [3mv_num: d7zw train_loss_step: 50.475      [0m
+                                                                                      [3mtrain_geo_loss_step: 48.121              [0m
+[2K[1A[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:10:03 • 0:00:00[0m [2;4m0.31it/s[0m [3mv_num: d7zw train_loss_step: 50.475      [0m       
+[2K[1A[2KEpoch 0/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:10:03 • 0:00:00[0m [2;4m0.31it/s[0m [3mv_num: d7zw train_loss_step: 50.475      [0m
+                                                                                      [3mtrain_geo_loss_step: 48.121              [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/72 [2m0:10:03 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 50.475       [0m
+                                                                                     [3mtrain_geo_loss_step: 48.121               [0m
+                                                                                     [3mtrain_loss_epoch: 3084.152                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/72 [2m0:10:03 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 50.475       [0m
+                                                                                     [3mtrain_geo_loss_step: 48.121               [0m
+                                                                                     [3mtrain_loss_epoch: 3084.152                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/72 [2m0:00:02 • -:--:--[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 246.889      [0m
+                                                                                     [3mtrain_geo_loss_step: 243.557              [0m
+                                                                                     [3mtrain_loss_epoch: 3084.152                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 2/72 [2m0:00:05 • 0:03:03[0m [2;4m0.38it/s[0m [3mv_num: d7zw train_loss_step: 2962.932     [0m
+                                                                                     [3mtrain_geo_loss_step: 2960.345             [0m
+                                                                                     [3mtrain_loss_epoch: 3084.152                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 3/72 [2m0:00:08 • 0:03:28[0m [2;4m0.33it/s[0m [3mv_num: d7zw train_loss_step: 3030.028     [0m
+                                                                                     [3mtrain_geo_loss_step: 3025.147             [0m
+                                                                                     [3mtrain_loss_epoch: 3084.152                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 4/72 [2m0:00:15 • 0:04:39[0m [2;4m0.24it/s[0m [3mv_num: d7zw train_loss_step: 1539.780     [0m
+                                                                                     [3mtrain_geo_loss_step: 1538.180             [0m
+                                                                                     [3mtrain_loss_epoch: 3084.152                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 5/72 [2m0:00:17 • 0:04:13[0m [2;4m0.27it/s[0m [3mv_num: d7zw train_loss_step: 331.535      [0m
+                                                                                     [3mtrain_geo_loss_step: 329.213              [0m
+                                                                                     [3mtrain_loss_epoch: 3084.152                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 6/72 [2m0:00:24 • 0:04:44[0m [2;4m0.23it/s[0m [3mv_num: d7zw train_loss_step: 672.229      [0m
+                                                                                     [3mtrain_geo_loss_step: 670.630              [0m
+                                                                                     [3mtrain_loss_epoch: 3084.152                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 7/72 [2m0:00:27 • 0:04:32[0m [2;4m0.24it/s[0m [3mv_num: d7zw train_loss_step: 512.769      [0m
+                                                                                     [3mtrain_geo_loss_step: 511.169              [0m
+                                                                                     [3mtrain_loss_epoch: 3084.152                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 8/72 [2m0:00:36 • 0:05:52[0m [2;4m0.18it/s[0m [3mv_num: d7zw train_loss_step: 1280.550     [0m
+                                                                                     [3mtrain_geo_loss_step: 1278.950             [0m
+                                                                                     [3mtrain_loss_epoch: 3084.152                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 9/72 [2m0:00:39 • 0:05:05[0m [2;4m0.21it/s[0m [3mv_num: d7zw train_loss_step: 313.845      [0m
+                                                                                     [3mtrain_geo_loss_step: 312.245              [0m
+                                                                                     [3mtrain_loss_epoch: 3084.152                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 10/72 [2m0:00:41 • 0:04:37[0m [2;4m0.22it/s[0m [3mv_num: d7zw train_loss_step: 682.659     [0m
+                                                                                      [3mtrain_geo_loss_step: 680.377             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 11/72 [2m0:00:47 • 0:05:01[0m [2;4m0.20it/s[0m [3mv_num: d7zw train_loss_step: 3391.435    [0m
+                                                                                      [3mtrain_geo_loss_step: 3389.834            [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 12/72 [2m0:00:50 • 0:04:21[0m [2;4m0.23it/s[0m [3mv_num: d7zw train_loss_step: 184.492     [0m
+                                                                                      [3mtrain_geo_loss_step: 181.681             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 13/72 [2m0:00:52 • 0:03:56[0m [2;4m0.25it/s[0m [3mv_num: d7zw train_loss_step: 415.708     [0m
+                                                                                      [3mtrain_geo_loss_step: 412.529             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 14/72 [2m0:00:54 • 0:03:44[0m [2;4m0.26it/s[0m [3mv_num: d7zw train_loss_step: 629.029     [0m
+                                                                                      [3mtrain_geo_loss_step: 623.693             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 15/72 [2m0:01:02 • 0:03:29[0m [2;4m0.27it/s[0m [3mv_num: d7zw train_loss_step: 1488.553    [0m
+                                                                                      [3mtrain_geo_loss_step: 1486.267            [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 16/72 [2m0:01:04 • 0:03:15[0m [2;4m0.29it/s[0m [3mv_num: d7zw train_loss_step: 790.684     [0m
+                                                                                      [3mtrain_geo_loss_step: 789.084             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 17/72 [2m0:01:06 • 0:03:10[0m [2;4m0.29it/s[0m [3mv_num: d7zw train_loss_step: 1887.787    [0m
+                                                                                      [3mtrain_geo_loss_step: 1884.559            [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 18/72 [2m0:01:09 • 0:03:08[0m [2;4m0.29it/s[0m [3mv_num: d7zw train_loss_step: 489.117     [0m
+                                                                                      [3mtrain_geo_loss_step: 486.900             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 19/72 [2m0:01:11 • 0:02:55[0m [2;4m0.30it/s[0m [3mv_num: d7zw train_loss_step: 570.071     [0m
+                                                                                      [3mtrain_geo_loss_step: 566.711             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 20/72 [2m0:01:14 • 0:02:34[0m [2;4m0.34it/s[0m [3mv_num: d7zw train_loss_step: 737.063     [0m
+                                                                                      [3mtrain_geo_loss_step: 735.463             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 21/72 [2m0:01:18 • 0:02:41[0m [2;4m0.32it/s[0m [3mv_num: d7zw train_loss_step: 467.582     [0m
+                                                                                      [3mtrain_geo_loss_step: 465.982             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 22/72 [2m0:01:21 • 0:02:44[0m [2;4m0.30it/s[0m [3mv_num: d7zw train_loss_step: 174.188     [0m
+                                                                                      [3mtrain_geo_loss_step: 171.259             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 23/72 [2m0:01:24 • 0:02:42[0m [2;4m0.30it/s[0m [3mv_num: d7zw train_loss_step: 327.129     [0m
+                                                                                      [3mtrain_geo_loss_step: 324.454             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 24/72 [2m0:01:28 • 0:02:20[0m [2;4m0.34it/s[0m [3mv_num: d7zw train_loss_step: 433.122     [0m
+                                                                                      [3mtrain_geo_loss_step: 431.522             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 25/72 [2m0:01:30 • 0:02:12[0m [2;4m0.36it/s[0m [3mv_num: d7zw train_loss_step: 153.609     [0m
+                                                                                      [3mtrain_geo_loss_step: 150.508             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━[0m 26/72 [2m0:01:33 • 0:02:17[0m [2;4m0.34it/s[0m [3mv_num: d7zw train_loss_step: 334.786     [0m
+                                                                                      [3mtrain_geo_loss_step: 332.654             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━[0m 27/72 [2m0:01:37 • 0:02:19[0m [2;4m0.33it/s[0m [3mv_num: d7zw train_loss_step: 334.786     [0m
+                                                                                      [3mtrain_geo_loss_step: 332.654             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━[0m 27/72 [2m0:01:37 • 0:02:19[0m [2;4m0.33it/s[0m [3mv_num: d7zw train_loss_step: 296.716     [0m
+                                                                                      [3mtrain_geo_loss_step: 295.116             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━[0m 28/72 [2m0:01:40 • 0:02:21[0m [2;4m0.31it/s[0m [3mv_num: d7zw train_loss_step: 267.990     [0m
+                                                                                      [3mtrain_geo_loss_step: 266.390             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━[0m 29/72 [2m0:01:46 • 0:02:31[0m [2;4m0.29it/s[0m [3mv_num: d7zw train_loss_step: 2385.514    [0m
+                                                                                      [3mtrain_geo_loss_step: 2380.280            [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━[0m 30/72 [2m0:01:50 • 0:02:31[0m [2;4m0.28it/s[0m [3mv_num: d7zw train_loss_step: 464.049     [0m
+                                                                                      [3mtrain_geo_loss_step: 462.449             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━[0m 31/72 [2m0:01:53 • 0:02:30[0m [2;4m0.27it/s[0m [3mv_num: d7zw train_loss_step: 296.348     [0m
+                                                                                      [3mtrain_geo_loss_step: 294.747             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━[0m 32/72 [2m0:01:57 • 0:02:24[0m [2;4m0.28it/s[0m [3mv_num: d7zw train_loss_step: 568.435     [0m
+                                                                                      [3mtrain_geo_loss_step: 566.835             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━[0m 33/72 [2m0:01:59 • 0:02:25[0m [2;4m0.27it/s[0m [3mv_num: d7zw train_loss_step: 527.212     [0m
+                                                                                      [3mtrain_geo_loss_step: 524.403             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━[0m 34/72 [2m0:02:02 • 0:02:17[0m [2;4m0.28it/s[0m [3mv_num: d7zw train_loss_step: 1267.499    [0m
+                                                                                      [3mtrain_geo_loss_step: 1265.472            [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━[0m 35/72 [2m0:02:05 • 0:02:11[0m [2;4m0.28it/s[0m [3mv_num: d7zw train_loss_step: 218.136     [0m
+                                                                                      [3mtrain_geo_loss_step: 215.162             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━[0m 36/72 [2m0:02:09 • 0:02:11[0m [2;4m0.28it/s[0m [3mv_num: d7zw train_loss_step: 217.447     [0m
+                                                                                      [3mtrain_geo_loss_step: 215.615             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━[0m 37/72 [2m0:02:15 • 0:02:07[0m [2;4m0.28it/s[0m [3mv_num: d7zw train_loss_step: 630.555     [0m
+                                                                                      [3mtrain_geo_loss_step: 628.955             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━[0m 38/72 [2m0:02:16 • 0:01:54[0m [2;4m0.30it/s[0m [3mv_num: d7zw train_loss_step: 174.401     [0m
+                                                                                      [3mtrain_geo_loss_step: 171.795             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━[0m 39/72 [2m0:02:20 • 0:01:49[0m [2;4m0.30it/s[0m [3mv_num: d7zw train_loss_step: 1549.159    [0m
+                                                                                      [3mtrain_geo_loss_step: 1546.491            [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━[0m 40/72 [2m0:02:23 • 0:01:47[0m [2;4m0.30it/s[0m [3mv_num: d7zw train_loss_step: 405.284     [0m
+                                                                                      [3mtrain_geo_loss_step: 403.684             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━[0m 41/72 [2m0:02:27 • 0:01:49[0m [2;4m0.29it/s[0m [3mv_num: d7zw train_loss_step: 237.337     [0m
+                                                                                      [3mtrain_geo_loss_step: 231.765             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━[0m 42/72 [2m0:02:33 • 0:02:00[0m [2;4m0.25it/s[0m [3mv_num: d7zw train_loss_step: 724.030     [0m
+                                                                                      [3mtrain_geo_loss_step: 722.430             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━[0m 43/72 [2m0:02:43 • 0:02:14[0m [2;4m0.22it/s[0m [3mv_num: d7zw train_loss_step: 1346.851    [0m
+                                                                                      [3mtrain_geo_loss_step: 1345.251            [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━[0m 44/72 [2m0:02:46 • 0:02:20[0m [2;4m0.20it/s[0m [3mv_num: d7zw train_loss_step: 304.043     [0m
+                                                                                      [3mtrain_geo_loss_step: 302.443             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━[0m 45/72 [2m0:02:53 • 0:02:56[0m [2;4m0.15it/s[0m [3mv_num: d7zw train_loss_step: 1273.949    [0m
+                                                                                      [3mtrain_geo_loss_step: 1272.349            [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━[0m 46/72 [2m0:02:58 • 0:02:44[0m [2;4m0.16it/s[0m [3mv_num: d7zw train_loss_step: 878.200     [0m
+                                                                                      [3mtrain_geo_loss_step: 875.137             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━[0m 47/72 [2m0:03:01 • 0:02:23[0m [2;4m0.18it/s[0m [3mv_num: d7zw train_loss_step: 330.506     [0m
+                                                                                      [3mtrain_geo_loss_step: 326.033             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━[0m 48/72 [2m0:03:05 • 0:01:47[0m [2;4m0.22it/s[0m [3mv_num: d7zw train_loss_step: 152.676     [0m
+                                                                                      [3mtrain_geo_loss_step: 151.076             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━[0m 49/72 [2m0:03:10 • 0:01:43[0m [2;4m0.22it/s[0m [3mv_num: d7zw train_loss_step: 194.926     [0m
+                                                                                      [3mtrain_geo_loss_step: 191.542             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━[0m 50/72 [2m0:03:23 • 0:02:12[0m [2;4m0.17it/s[0m [3mv_num: d7zw train_loss_step: 1492.318    [0m
+                                                                                      [3mtrain_geo_loss_step: 1490.718            [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━[0m 51/72 [2m0:03:28 • 0:02:06[0m [2;4m0.17it/s[0m [3mv_num: d7zw train_loss_step: 378.367     [0m
+                                                                                      [3mtrain_geo_loss_step: 376.768             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━[0m 52/72 [2m0:03:33 • 0:02:20[0m [2;4m0.14it/s[0m [3mv_num: d7zw train_loss_step: 824.383     [0m
+                                                                                      [3mtrain_geo_loss_step: 822.784             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━[0m 53/72 [2m0:03:36 • 0:02:04[0m [2;4m0.15it/s[0m [3mv_num: d7zw train_loss_step: 55.616      [0m
+                                                                                      [3mtrain_geo_loss_step: 52.702              [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━[0m 54/72 [2m0:03:41 • 0:01:22[0m [2;4m0.22it/s[0m [3mv_num: d7zw train_loss_step: 895.656     [0m
+                                                                                      [3mtrain_geo_loss_step: 894.056             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━[0m 55/72 [2m0:03:47 • 0:01:21[0m [2;4m0.21it/s[0m [3mv_num: d7zw train_loss_step: 320.188     [0m
+                                                                                      [3mtrain_geo_loss_step: 318.589             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m 56/72 [2m0:03:58 • 0:01:41[0m [2;4m0.16it/s[0m [3mv_num: d7zw train_loss_step: 3150.110    [0m
+                                                                                      [3mtrain_geo_loss_step: 3148.510            [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━[0m 57/72 [2m0:04:08 • 0:02:13[0m [2;4m0.11it/s[0m [3mv_num: d7zw train_loss_step: 848.013     [0m
+                                                                                      [3mtrain_geo_loss_step: 846.414             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━[0m 58/72 [2m0:04:12 • 0:01:59[0m [2;4m0.12it/s[0m [3mv_num: d7zw train_loss_step: 250.122     [0m
+                                                                                      [3mtrain_geo_loss_step: 247.356             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━[0m 59/72 [2m0:04:16 • 0:01:35[0m [2;4m0.14it/s[0m [3mv_num: d7zw train_loss_step: 243.107     [0m
+                                                                                      [3mtrain_geo_loss_step: 241.508             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━[0m 60/72 [2m0:04:22 • 0:01:12[0m [2;4m0.17it/s[0m [3mv_num: d7zw train_loss_step: 243.107     [0m
+                                                                                      [3mtrain_geo_loss_step: 241.508             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━[0m 60/72 [2m0:04:22 • 0:01:12[0m [2;4m0.17it/s[0m [3mv_num: d7zw train_loss_step: 526.446     [0m
+                                                                                      [3mtrain_geo_loss_step: 524.847             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━[0m 61/72 [2m0:04:31 • 0:01:03[0m [2;4m0.18it/s[0m [3mv_num: d7zw train_loss_step: 961.612     [0m
+                                                                                      [3mtrain_geo_loss_step: 960.012             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━[0m 62/72 [2m0:04:36 • 0:00:56[0m [2;4m0.18it/s[0m [3mv_num: d7zw train_loss_step: 704.959     [0m
+                                                                                      [3mtrain_geo_loss_step: 703.360             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━[0m 63/72 [2m0:04:42 • 0:00:54[0m [2;4m0.17it/s[0m [3mv_num: d7zw train_loss_step: 704.959     [0m
+                                                                                      [3mtrain_geo_loss_step: 703.360             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━[0m 63/72 [2m0:04:42 • 0:00:54[0m [2;4m0.17it/s[0m [3mv_num: d7zw train_loss_step: 714.188     [0m
+                                                                                      [3mtrain_geo_loss_step: 712.589             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━[0m 64/72 [2m0:04:49 • 0:00:55[0m [2;4m0.15it/s[0m [3mv_num: d7zw train_loss_step: 714.188     [0m
+                                                                                      [3mtrain_geo_loss_step: 712.589             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━[0m 64/72 [2m0:04:49 • 0:00:55[0m [2;4m0.15it/s[0m [3mv_num: d7zw train_loss_step: 313.951     [0m
+                                                                                      [3mtrain_geo_loss_step: 312.352             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━[0m 65/72 [2m0:05:00 • 0:00:52[0m [2;4m0.14it/s[0m [3mv_num: d7zw train_loss_step: 1506.429    [0m
+                                                                                      [3mtrain_geo_loss_step: 1504.830            [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━[0m 66/72 [2m0:05:09 • 0:00:55[0m [2;4m0.11it/s[0m [3mv_num: d7zw train_loss_step: 301.857     [0m
+                                                                                      [3mtrain_geo_loss_step: 297.215             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━[0m 67/72 [2m0:05:17 • 0:00:47[0m [2;4m0.11it/s[0m [3mv_num: d7zw train_loss_step: 512.408     [0m
+                                                                                      [3mtrain_geo_loss_step: 510.810             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━[0m 68/72 [2m0:05:25 • 0:00:34[0m [2;4m0.12it/s[0m [3mv_num: d7zw train_loss_step: 1573.091    [0m
+                                                                                      [3mtrain_geo_loss_step: 1571.116            [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━[0m 69/72 [2m0:05:32 • 0:00:24[0m [2;4m0.13it/s[0m [3mv_num: d7zw train_loss_step: 57.669      [0m
+                                                                                      [3mtrain_geo_loss_step: 54.653              [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━[0m 70/72 [2m0:05:40 • 0:00:16[0m [2;4m0.13it/s[0m [3mv_num: d7zw train_loss_step: 226.811     [0m
+                                                                                      [3mtrain_geo_loss_step: 225.214             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m 71/72 [2m0:05:47 • 0:00:08[0m [2;4m0.14it/s[0m [3mv_num: d7zw train_loss_step: 711.283     [0m
+                                                                                      [3mtrain_geo_loss_step: 709.512             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:05:56 • 0:00:00[0m [2;4m0.12it/s[0m [3mv_num: d7zw train_loss_step: 170.094     [0m
+                                                                                      [3mtrain_geo_loss_step: 168.497             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:05:56 • 0:00:00[0m [2;4m0.12it/s[0m [3mv_num: d7zw train_loss_step: 170.094     [0m
+                                                                                      [3mtrain_geo_loss_step: 168.497             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:05:56 • 0:00:00[0m [2;4m0.12it/s[0m [3mv_num: d7zw train_loss_step: 170.094     [0m
+                                                                                      [3mtrain_geo_loss_step: 168.497             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+                                                                                      [3mtrain_geo_loss_epoch: 3081.827           [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:05:56 • 0:00:00[0m [2;4m0.12it/s[0m [3mv_num: d7zw train_loss_step: 170.094     [0m
+                                                                                      [3mtrain_geo_loss_step: 168.497             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+                                                                                      [3mtrain_geo_loss_epoch: 3081.827           [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:05:56 • 0:00:00[0m [2;4m0.12it/s[0m [3mv_num: d7zw train_loss_step: 170.094     [0m
+                                                                                      [3mtrain_geo_loss_step: 168.497             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+                                                                                      [3mtrain_geo_loss_epoch: 3081.827           [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:05:56 • 0:00:00[0m [2;4m0.12it/s[0m [3mv_num: d7zw train_loss_step: 170.094     [0m
+                                                                                      [3mtrain_geo_loss_step: 168.497             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+                                                                                      [3mtrain_geo_loss_epoch: 3081.827           [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:05:56 • 0:00:00[0m [2;4m0.12it/s[0m [3mv_num: d7zw train_loss_step: 170.094     [0m
+                                                                                      [3mtrain_geo_loss_step: 168.497             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+                                                                                      [3mtrain_geo_loss_epoch: 3081.827           [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:05:56 • 0:00:00[0m [2;4m0.12it/s[0m [3mv_num: d7zw train_loss_step: 170.094     [0m
+                                                                                      [3mtrain_geo_loss_step: 168.497             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+                                                                                      [3mtrain_geo_loss_epoch: 3081.827           [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:05:56 • 0:00:00[0m [2;4m0.12it/s[0m [3mv_num: d7zw train_loss_step: 170.094     [0m
+                                                                                      [3mtrain_geo_loss_step: 168.497             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+                                                                                      [3mtrain_geo_loss_epoch: 3081.827           [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:05:56 • 0:00:00[0m [2;4m0.12it/s[0m [3mv_num: d7zw train_loss_step: 170.094     [0m
+                                                                                      [3mtrain_geo_loss_step: 168.497             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+                                                                                      [3mtrain_geo_loss_epoch: 3081.827           [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:05:56 • 0:00:00[0m [2;4m0.12it/s[0m [3mv_num: d7zw train_loss_step: 170.094     [0m
+                                                                                      [3mtrain_geo_loss_step: 168.497             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+                                                                                      [3mtrain_geo_loss_epoch: 3081.827           [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:05:56 • 0:00:00[0m [2;4m0.12it/s[0m [3mv_num: d7zw train_loss_step: 170.094     [0m
+                                                                                      [3mtrain_geo_loss_step: 168.497             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+                                                                                      [3mtrain_geo_loss_epoch: 3081.827           [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:05:56 • 0:00:00[0m [2;4m0.12it/s[0m [3mv_num: d7zw train_loss_step: 170.094     [0m
+                                                                                      [3mtrain_geo_loss_step: 168.497             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+                                                                                      [3mtrain_geo_loss_epoch: 3081.827           [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:05:56 • 0:00:00[0m [2;4m0.12it/s[0m [3mv_num: d7zw train_loss_step: 170.094     [0m
+                                                                                      [3mtrain_geo_loss_step: 168.497             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+                                                                                      [3mtrain_geo_loss_epoch: 3081.827           [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:05:56 • 0:00:00[0m [2;4m0.12it/s[0m [3mv_num: d7zw train_loss_step: 170.094     [0m
+                                                                                      [3mtrain_geo_loss_step: 168.497             [0m
+                                                                                      [3mtrain_loss_epoch: 3084.152               [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:05:56 • 0:00:00[0m [2;4m0.12it/s[0m [3mv_num: d7zw train_loss_step: 170.094     [0m
+                                                                                      [3mtrain_geo_loss_step: 168.497             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/72 [2m0:05:56 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 170.094      [0m
+                                                                                     [3mtrain_geo_loss_step: 168.497              [0m
+                                                                                     [3mtrain_loss_epoch: 948.733                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/72 [2m0:05:56 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 170.094      [0m
+                                                                                     [3mtrain_geo_loss_step: 168.497              [0m
+                                                                                     [3mtrain_loss_epoch: 948.733                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/72 [2m0:00:10 • -:--:--[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 242.221      [0m
+                                                                                     [3mtrain_geo_loss_step: 240.624              [0m
+                                                                                     [3mtrain_loss_epoch: 948.733                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 2/72 [2m0:00:25 • 0:17:39[0m [2;4m0.07it/s[0m [3mv_num: d7zw train_loss_step: 1281.206     [0m
+                                                                                     [3mtrain_geo_loss_step: 1278.841             [0m
+                                                                                     [3mtrain_loss_epoch: 948.733                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 3/72 [2m0:00:33 • 0:13:31[0m [2;4m0.09it/s[0m [3mv_num: d7zw train_loss_step: 508.461      [0m
+                                                                                     [3mtrain_geo_loss_step: 506.863              [0m
+                                                                                     [3mtrain_loss_epoch: 948.733                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 4/72 [2m0:00:47 • 0:12:33[0m [2;4m0.09it/s[0m [3mv_num: d7zw train_loss_step: 823.185      [0m
+                                                                                     [3mtrain_geo_loss_step: 818.246              [0m
+                                                                                     [3mtrain_loss_epoch: 948.733                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 5/72 [2m0:00:55 • 0:12:17[0m [2;4m0.09it/s[0m [3mv_num: d7zw train_loss_step: 145.047      [0m
+                                                                                     [3mtrain_geo_loss_step: 143.456              [0m
+                                                                                     [3mtrain_loss_epoch: 948.733                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 6/72 [2m0:01:04 • 0:09:07[0m [2;4m0.12it/s[0m [3mv_num: d7zw train_loss_step: 197.739      [0m
+                                                                                     [3mtrain_geo_loss_step: 195.354              [0m
+                                                                                     [3mtrain_loss_epoch: 948.733                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 7/72 [2m0:01:14 • 0:09:34[0m [2;4m0.11it/s[0m [3mv_num: d7zw train_loss_step: 351.247      [0m
+                                                                                     [3mtrain_geo_loss_step: 349.655              [0m
+                                                                                     [3mtrain_loss_epoch: 948.733                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 8/72 [2m0:01:23 • 0:09:58[0m [2;4m0.11it/s[0m [3mv_num: d7zw train_loss_step: 351.247      [0m
+                                                                                     [3mtrain_geo_loss_step: 349.655              [0m
+                                                                                     [3mtrain_loss_epoch: 948.733                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 9/72 [2m0:01:36 • 0:11:37[0m [2;4m0.09it/s[0m [3mv_num: d7zw train_loss_step: 281.040      [0m
+                                                                                     [3mtrain_geo_loss_step: 279.445              [0m
+                                                                                     [3mtrain_loss_epoch: 948.733                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 10/72 [2m0:01:45 • 0:11:26[0m [2;4m0.09it/s[0m [3mv_num: d7zw train_loss_step: 517.320     [0m
+                                                                                      [3mtrain_geo_loss_step: 514.704             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 11/72 [2m0:02:01 • 0:12:39[0m [2;4m0.08it/s[0m [3mv_num: d7zw train_loss_step: 1907.991    [0m
+                                                                                      [3mtrain_geo_loss_step: 1904.536            [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 12/72 [2m0:02:07 • 0:10:48[0m [2;4m0.09it/s[0m [3mv_num: d7zw train_loss_step: 31.955      [0m
+                                                                                      [3mtrain_geo_loss_step: 29.070              [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 13/72 [2m0:02:19 • 0:09:18[0m [2;4m0.11it/s[0m [3mv_num: d7zw train_loss_step: 444.268     [0m
+                                                                                      [3mtrain_geo_loss_step: 440.820             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 14/72 [2m0:02:41 • 0:21:05[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 3158.651    [0m
+                                                                                      [3mtrain_geo_loss_step: 3157.058            [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 15/72 [2m0:02:56 • 0:13:51[0m [2;4m0.07it/s[0m [3mv_num: d7zw train_loss_step: 687.691     [0m
+                                                                                      [3mtrain_geo_loss_step: 686.102             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 16/72 [2m0:03:08 • 0:12:35[0m [2;4m0.07it/s[0m [3mv_num: d7zw train_loss_step: 687.691     [0m
+                                                                                      [3mtrain_geo_loss_step: 686.102             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 16/72 [2m0:03:08 • 0:12:35[0m [2;4m0.07it/s[0m [3mv_num: d7zw train_loss_step: 695.470     [0m
+                                                                                      [3mtrain_geo_loss_step: 693.711             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 17/72 [2m0:03:28 • 0:18:03[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 1294.166    [0m
+                                                                                      [3mtrain_geo_loss_step: 1292.574            [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 18/72 [2m0:03:48 • 0:18:04[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 1337.539    [0m
+                                                                                      [3mtrain_geo_loss_step: 1335.943            [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 19/72 [2m0:03:53 • 0:11:06[0m [2;4m0.08it/s[0m [3mv_num: d7zw train_loss_step: 285.764     [0m
+                                                                                      [3mtrain_geo_loss_step: 279.677             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 20/72 [2m0:04:07 • 0:08:24[0m [2;4m0.10it/s[0m [3mv_num: d7zw train_loss_step: 204.302     [0m
+                                                                                      [3mtrain_geo_loss_step: 202.714             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 21/72 [2m0:04:20 • 0:11:30[0m [2;4m0.07it/s[0m [3mv_num: d7zw train_loss_step: 135.140     [0m
+                                                                                      [3mtrain_geo_loss_step: 132.288             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 22/72 [2m0:04:39 • 0:15:29[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 1999.918    [0m
+                                                                                      [3mtrain_geo_loss_step: 1997.620            [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 23/72 [2m0:04:49 • 0:12:02[0m [2;4m0.07it/s[0m [3mv_num: d7zw train_loss_step: 220.700     [0m
+                                                                                      [3mtrain_geo_loss_step: 218.574             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 24/72 [2m0:05:00 • 0:08:46[0m [2;4m0.09it/s[0m [3mv_num: d7zw train_loss_step: 119.704     [0m
+                                                                                      [3mtrain_geo_loss_step: 116.127             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 25/72 [2m0:05:34 • -:--:--[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 119.704     [0m
+                                                                                      [3mtrain_geo_loss_step: 116.127             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 25/72 [2m0:05:34 • -:--:--[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 2654.922    [0m
+                                                                                      [3mtrain_geo_loss_step: 2653.326            [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━[0m 26/72 [2m0:06:00 • 0:20:11[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 840.037     [0m
+                                                                                      [3mtrain_geo_loss_step: 838.449             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━[0m 27/72 [2m0:06:16 • 0:11:57[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 341.942     [0m
+                                                                                      [3mtrain_geo_loss_step: 340.352             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━[0m 28/72 [2m0:06:40 • 0:17:35[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 320.564     [0m
+                                                                                      [3mtrain_geo_loss_step: 318.983             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━[0m 29/72 [2m0:07:08 • 0:20:04[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 562.306     [0m
+                                                                                      [3mtrain_geo_loss_step: 560.720             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━[0m 30/72 [2m0:07:29 • 0:14:24[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 599.896     [0m
+                                                                                      [3mtrain_geo_loss_step: 598.314             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━[0m 31/72 [2m0:07:45 • 0:11:27[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 648.610     [0m
+                                                                                      [3mtrain_geo_loss_step: 647.036             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━[0m 32/72 [2m0:07:58 • 0:09:55[0m [2;4m0.07it/s[0m [3mv_num: d7zw train_loss_step: 90.809      [0m
+                                                                                      [3mtrain_geo_loss_step: 88.345              [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━[0m 33/72 [2m0:08:24 • 0:16:57[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 213.947     [0m
+                                                                                      [3mtrain_geo_loss_step: 212.372             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━[0m 34/72 [2m0:08:50 • 0:15:52[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 1261.347    [0m
+                                                                                      [3mtrain_geo_loss_step: 1259.760            [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━[0m 35/72 [2m0:09:07 • 0:10:57[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 895.441     [0m
+                                                                                      [3mtrain_geo_loss_step: 893.862             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━[0m 36/72 [2m0:09:22 • 0:08:42[0m [2;4m0.07it/s[0m [3mv_num: d7zw train_loss_step: 109.090     [0m
+                                                                                      [3mtrain_geo_loss_step: 107.140             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━[0m 37/72 [2m0:09:38 • 0:09:38[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 725.223     [0m
+                                                                                      [3mtrain_geo_loss_step: 723.689             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━[0m 38/72 [2m0:09:54 • 0:09:10[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 641.526     [0m
+                                                                                      [3mtrain_geo_loss_step: 639.986             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━[0m 39/72 [2m0:10:11 • 0:08:52[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 331.145     [0m
+                                                                                      [3mtrain_geo_loss_step: 329.615             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━[0m 40/72 [2m0:10:19 • 0:06:27[0m [2;4m0.08it/s[0m [3mv_num: d7zw train_loss_step: 102.468     [0m
+                                                                                      [3mtrain_geo_loss_step: 100.634             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━[0m 41/72 [2m0:10:34 • 0:06:02[0m [2;4m0.09it/s[0m [3mv_num: d7zw train_loss_step: 168.677     [0m
+                                                                                      [3mtrain_geo_loss_step: 164.646             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━[0m 42/72 [2m0:10:45 • 0:06:44[0m [2;4m0.07it/s[0m [3mv_num: d7zw train_loss_step: 317.540     [0m
+                                                                                      [3mtrain_geo_loss_step: 315.980             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━[0m 43/72 [2m0:11:12 • 0:12:44[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 657.292     [0m
+                                                                                      [3mtrain_geo_loss_step: 655.701             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━[0m 44/72 [2m0:11:36 • 0:11:06[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 1650.874    [0m
+                                                                                      [3mtrain_geo_loss_step: 1648.600            [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━[0m 45/72 [2m0:11:53 • 0:07:52[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 605.881     [0m
+                                                                                      [3mtrain_geo_loss_step: 603.306             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━[0m 46/72 [2m0:12:13 • 0:08:27[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 1298.532    [0m
+                                                                                      [3mtrain_geo_loss_step: 1295.633            [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━[0m 47/72 [2m0:12:28 • 0:06:39[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 222.379     [0m
+                                                                                      [3mtrain_geo_loss_step: 220.632             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━[0m 48/72 [2m0:12:46 • 0:07:00[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 181.648     [0m
+                                                                                      [3mtrain_geo_loss_step: 178.336             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━[0m 49/72 [2m0:12:55 • 0:05:07[0m [2;4m0.08it/s[0m [3mv_num: d7zw train_loss_step: 15.466      [0m
+                                                                                      [3mtrain_geo_loss_step: 12.753              [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━[0m 50/72 [2m0:13:17 • 0:07:59[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 827.698     [0m
+                                                                                      [3mtrain_geo_loss_step: 826.147             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━[0m 51/72 [2m0:13:36 • 0:06:33[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 737.751     [0m
+                                                                                      [3mtrain_geo_loss_step: 736.196             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━[0m 52/72 [2m0:13:52 • 0:05:23[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 202.150     [0m
+                                                                                      [3mtrain_geo_loss_step: 200.599             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━[0m 53/72 [2m0:14:09 • 0:05:39[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 698.528     [0m
+                                                                                      [3mtrain_geo_loss_step: 696.951             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━[0m 54/72 [2m0:14:15 • 0:03:28[0m [2;4m0.09it/s[0m [3mv_num: d7zw train_loss_step: 8.663       [0m
+                                                                                      [3mtrain_geo_loss_step: 5.798               [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━[0m 55/72 [2m0:14:34 • 0:03:31[0m [2;4m0.08it/s[0m [3mv_num: d7zw train_loss_step: 257.317     [0m
+                                                                                      [3mtrain_geo_loss_step: 254.812             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m 56/72 [2m0:14:52 • 0:04:51[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 546.297     [0m
+                                                                                      [3mtrain_geo_loss_step: 544.718             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━[0m 57/72 [2m0:15:09 • 0:04:06[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 275.457     [0m
+                                                                                      [3mtrain_geo_loss_step: 273.002             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━[0m 58/72 [2m0:15:32 • 0:05:19[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 1868.747    [0m
+                                                                                      [3mtrain_geo_loss_step: 1865.177            [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━[0m 59/72 [2m0:15:51 • 0:04:09[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 692.737     [0m
+                                                                                      [3mtrain_geo_loss_step: 690.381             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━[0m 60/72 [2m0:16:19 • 0:05:36[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 1481.126    [0m
+                                                                                      [3mtrain_geo_loss_step: 1478.655            [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━[0m 61/72 [2m0:16:32 • 0:02:25[0m [2;4m0.08it/s[0m [3mv_num: d7zw train_loss_step: 152.578     [0m
+                                                                                      [3mtrain_geo_loss_step: 151.022             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━[0m 62/72 [2m0:16:53 • 0:03:30[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 775.067     [0m
+                                                                                      [3mtrain_geo_loss_step: 773.501             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━[0m 63/72 [2m0:17:05 • 0:01:54[0m [2;4m0.08it/s[0m [3mv_num: d7zw train_loss_step: 389.473     [0m
+                                                                                      [3mtrain_geo_loss_step: 387.905             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━[0m 64/72 [2m0:17:29 • 0:03:10[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 1791.406    [0m
+                                                                                      [3mtrain_geo_loss_step: 1789.831            [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━[0m 65/72 [2m0:17:41 • 0:01:23[0m [2;4m0.09it/s[0m [3mv_num: d7zw train_loss_step: 212.040     [0m
+                                                                                      [3mtrain_geo_loss_step: 210.467             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━[0m 66/72 [2m0:18:02 • 0:02:10[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 233.111     [0m
+                                                                                      [3mtrain_geo_loss_step: 231.531             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━[0m 67/72 [2m0:18:27 • 0:02:05[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 265.425     [0m
+                                                                                      [3mtrain_geo_loss_step: 263.856             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━[0m 68/72 [2m0:18:45 • 0:01:12[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 1135.582    [0m
+                                                                                      [3mtrain_geo_loss_step: 1133.998            [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━[0m 69/72 [2m0:19:10 • 0:01:17[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 183.805     [0m
+                                                                                      [3mtrain_geo_loss_step: 182.233             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━[0m 70/72 [2m0:19:39 • 0:00:57[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 1008.563    [0m
+                                                                                      [3mtrain_geo_loss_step: 1006.626            [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m 71/72 [2m0:20:01 • 0:00:23[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 156.641     [0m
+                                                                                      [3mtrain_geo_loss_step: 154.055             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:20:18 • 0:00:00[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 243.519     [0m
+                                                                                      [3mtrain_geo_loss_step: 240.495             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:20:18 • 0:00:00[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 243.519     [0m
+                                                                                      [3mtrain_geo_loss_step: 240.495             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:20:18 • 0:00:00[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 243.519     [0m
+                                                                                      [3mtrain_geo_loss_step: 240.495             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:20:18 • 0:00:00[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 243.519     [0m
+                                                                                      [3mtrain_geo_loss_step: 240.495             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+                                                                                      [3mtrain_geo_loss_epoch: 946.560            [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:20:18 • 0:00:00[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 243.519     [0m
+                                                                                      [3mtrain_geo_loss_step: 240.495             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+                                                                                      [3mtrain_geo_loss_epoch: 946.560            [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:20:18 • 0:00:00[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 243.519     [0m
+                                                                                      [3mtrain_geo_loss_step: 240.495             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+                                                                                      [3mtrain_geo_loss_epoch: 946.560            [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:20:18 • 0:00:00[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 243.519     [0m
+                                                                                      [3mtrain_geo_loss_step: 240.495             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+                                                                                      [3mtrain_geo_loss_epoch: 946.560            [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:20:18 • 0:00:00[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 243.519     [0m
+                                                                                      [3mtrain_geo_loss_step: 240.495             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+                                                                                      [3mtrain_geo_loss_epoch: 946.560            [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:20:18 • 0:00:00[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 243.519     [0m
+                                                                                      [3mtrain_geo_loss_step: 240.495             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+                                                                                      [3mtrain_geo_loss_epoch: 946.560            [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:20:18 • 0:00:00[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 243.519     [0m
+                                                                                      [3mtrain_geo_loss_step: 240.495             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+                                                                                      [3mtrain_geo_loss_epoch: 946.560            [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:20:18 • 0:00:00[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 243.519     [0m
+                                                                                      [3mtrain_geo_loss_step: 240.495             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+                                                                                      [3mtrain_geo_loss_epoch: 946.560            [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:20:18 • 0:00:00[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 243.519     [0m
+                                                                                      [3mtrain_geo_loss_step: 240.495             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+                                                                                      [3mtrain_geo_loss_epoch: 946.560            [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:20:18 • 0:00:00[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 243.519     [0m
+                                                                                      [3mtrain_geo_loss_step: 240.495             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+                                                                                      [3mtrain_geo_loss_epoch: 946.560            [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:20:18 • 0:00:00[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 243.519     [0m
+                                                                                      [3mtrain_geo_loss_step: 240.495             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+                                                                                      [3mtrain_geo_loss_epoch: 946.560            [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:20:18 • 0:00:00[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 243.519     [0m
+                                                                                      [3mtrain_geo_loss_step: 240.495             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+                                                                                      [3mtrain_geo_loss_epoch: 946.560            [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:20:18 • 0:00:00[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 243.519     [0m
+                                                                                      [3mtrain_geo_loss_step: 240.495             [0m
+                                                                                      [3mtrain_loss_epoch: 948.733                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:20:18 • 0:00:00[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 243.519     [0m
+                                                                                      [3mtrain_geo_loss_step: 240.495             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/72 [2m0:20:18 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 243.519      [0m
+                                                                                     [3mtrain_geo_loss_step: 240.495              [0m
+                                                                                     [3mtrain_loss_epoch: 830.039                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/72 [2m0:20:18 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 243.519      [0m
+                                                                                     [3mtrain_geo_loss_step: 240.495              [0m
+                                                                                     [3mtrain_loss_epoch: 830.039                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/72 [2m0:00:29 • -:--:--[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 895.689      [0m
+                                                                                     [3mtrain_geo_loss_step: 894.106              [0m
+                                                                                     [3mtrain_loss_epoch: 830.039                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 2/72 [2m0:00:54 • 0:28:26[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 94.404       [0m
+                                                                                     [3mtrain_geo_loss_step: 92.226               [0m
+                                                                                     [3mtrain_loss_epoch: 830.039                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 3/72 [2m0:01:18 • 0:27:53[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 621.443      [0m
+                                                                                     [3mtrain_geo_loss_step: 619.877              [0m
+                                                                                     [3mtrain_loss_epoch: 830.039                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 4/72 [2m0:01:47 • 0:32:46[0m [2;4m0.03it/s[0m [3mv_num: d7zw train_loss_step: 1294.289     [0m
+                                                                                     [3mtrain_geo_loss_step: 1291.816             [0m
+                                                                                     [3mtrain_loss_epoch: 830.039                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 5/72 [2m0:02:10 • 0:25:32[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 387.269      [0m
+                                                                                     [3mtrain_geo_loss_step: 385.714              [0m
+                                                                                     [3mtrain_loss_epoch: 830.039                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 6/72 [2m0:02:35 • 0:27:31[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 326.159      [0m
+                                                                                     [3mtrain_geo_loss_step: 324.594              [0m
+                                                                                     [3mtrain_loss_epoch: 830.039                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 7/72 [2m0:02:49 • 0:15:16[0m [2;4m0.07it/s[0m [3mv_num: d7zw train_loss_step: 27.533       [0m
+                                                                                     [3mtrain_geo_loss_step: 24.924               [0m
+                                                                                     [3mtrain_loss_epoch: 830.039                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 8/72 [2m0:03:10 • 0:22:31[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 27.533       [0m
+                                                                                     [3mtrain_geo_loss_step: 24.924               [0m
+                                                                                     [3mtrain_loss_epoch: 830.039                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 9/72 [2m0:03:35 • 0:26:15[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 214.916      [0m
+                                                                                     [3mtrain_geo_loss_step: 213.346              [0m
+                                                                                     [3mtrain_loss_epoch: 830.039                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 10/72 [2m0:03:59 • 0:25:23[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 325.326     [0m
+                                                                                      [3mtrain_geo_loss_step: 322.347             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 11/72 [2m0:04:36 • -:--:--[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 1073.906    [0m
+                                                                                      [3mtrain_geo_loss_step: 1072.314            [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 12/72 [2m0:04:47 • 0:10:48[0m [2;4m0.09it/s[0m [3mv_num: d7zw train_loss_step: 81.569      [0m
+                                                                                      [3mtrain_geo_loss_step: 78.809              [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 13/72 [2m0:05:23 • -:--:--[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 3383.162    [0m
+                                                                                      [3mtrain_geo_loss_step: 3381.576            [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 14/72 [2m0:05:47 • 0:22:58[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 579.580     [0m
+                                                                                      [3mtrain_geo_loss_step: 577.891             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 15/72 [2m0:06:11 • 0:22:16[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 218.072     [0m
+                                                                                      [3mtrain_geo_loss_step: 216.523             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 16/72 [2m0:06:37 • 0:24:24[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 218.928     [0m
+                                                                                      [3mtrain_geo_loss_step: 217.369             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 17/72 [2m0:07:08 • -:--:--[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 1058.274    [0m
+                                                                                      [3mtrain_geo_loss_step: 1056.703            [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 18/72 [2m0:07:31 • 0:21:25[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 103.917     [0m
+                                                                                      [3mtrain_geo_loss_step: 101.968             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 19/72 [2m0:07:54 • 0:20:24[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 178.029     [0m
+                                                                                      [3mtrain_geo_loss_step: 175.221             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 20/72 [2m0:08:18 • 0:20:13[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 236.553     [0m
+                                                                                      [3mtrain_geo_loss_step: 235.013             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 21/72 [2m0:08:38 • 0:17:08[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 172.980     [0m
+                                                                                      [3mtrain_geo_loss_step: 171.050             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 22/72 [2m0:09:07 • 0:23:57[0m [2;4m0.03it/s[0m [3mv_num: d7zw train_loss_step: 1910.442    [0m
+                                                                                      [3mtrain_geo_loss_step: 1908.068            [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 23/72 [2m0:09:36 • 0:23:59[0m [2;4m0.03it/s[0m [3mv_num: d7zw train_loss_step: 1485.090    [0m
+                                                                                      [3mtrain_geo_loss_step: 1483.220            [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 24/72 [2m0:10:06 • 0:23:56[0m [2;4m0.03it/s[0m [3mv_num: d7zw train_loss_step: 856.424     [0m
+                                                                                      [3mtrain_geo_loss_step: 850.945             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 25/72 [2m0:10:12 • 0:04:44[0m [2;4m0.17it/s[0m [3mv_num: d7zw train_loss_step: 856.424     [0m
+                                                                                      [3mtrain_geo_loss_step: 850.945             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 25/72 [2m0:10:12 • 0:04:44[0m [2;4m0.17it/s[0m [3mv_num: d7zw train_loss_step: 7.819       [0m
+                                                                                      [3mtrain_geo_loss_step: 5.196               [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━[0m 26/72 [2m0:10:43 • -:--:--[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 566.098     [0m
+                                                                                      [3mtrain_geo_loss_step: 564.526             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━[0m 27/72 [2m0:11:15 • -:--:--[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 1524.004    [0m
+                                                                                      [3mtrain_geo_loss_step: 1519.053            [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━[0m 28/72 [2m0:11:40 • 0:17:53[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 390.044     [0m
+                                                                                      [3mtrain_geo_loss_step: 388.461             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━[0m 29/72 [2m0:12:07 • 0:19:18[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 166.475     [0m
+                                                                                      [3mtrain_geo_loss_step: 164.922             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━[0m 30/72 [2m0:12:32 • 0:17:56[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 223.664     [0m
+                                                                                      [3mtrain_geo_loss_step: 222.126             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━[0m 31/72 [2m0:12:53 • 0:14:02[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 331.734     [0m
+                                                                                      [3mtrain_geo_loss_step: 330.191             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━[0m 32/72 [2m0:13:18 • 0:17:03[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 479.102     [0m
+                                                                                      [3mtrain_geo_loss_step: 476.390             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━[0m 33/72 [2m0:13:43 • 0:16:05[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 479.102     [0m
+                                                                                      [3mtrain_geo_loss_step: 476.390             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━[0m 33/72 [2m0:13:43 • 0:16:05[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 110.599     [0m
+                                                                                      [3mtrain_geo_loss_step: 108.513             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━[0m 34/72 [2m0:14:07 • 0:15:01[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 231.155     [0m
+                                                                                      [3mtrain_geo_loss_step: 227.160             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━[0m 35/72 [2m0:14:33 • 0:15:57[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 150.239     [0m
+                                                                                      [3mtrain_geo_loss_step: 147.752             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━[0m 36/72 [2m0:15:07 • -:--:--[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 1525.589    [0m
+                                                                                      [3mtrain_geo_loss_step: 1524.025            [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━[0m 37/72 [2m0:15:36 • 0:17:08[0m [2;4m0.03it/s[0m [3mv_num: d7zw train_loss_step: 244.802     [0m
+                                                                                      [3mtrain_geo_loss_step: 243.245             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━[0m 38/72 [2m0:16:07 • -:--:--[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 2004.851    [0m
+                                                                                      [3mtrain_geo_loss_step: 2000.060            [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━[0m 39/72 [2m0:16:31 • 0:13:30[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 124.011     [0m
+                                                                                      [3mtrain_geo_loss_step: 122.498             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━[0m 40/72 [2m0:16:57 • 0:13:32[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 124.011     [0m
+                                                                                      [3mtrain_geo_loss_step: 122.498             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━[0m 40/72 [2m0:16:57 • 0:13:32[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 304.455     [0m
+                                                                                      [3mtrain_geo_loss_step: 300.418             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━[0m 41/72 [2m0:17:30 • -:--:--[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 908.893     [0m
+                                                                                      [3mtrain_geo_loss_step: 907.332             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━[0m 42/72 [2m0:17:59 • 0:14:32[0m [2;4m0.03it/s[0m [3mv_num: d7zw train_loss_step: 199.478     [0m
+                                                                                      [3mtrain_geo_loss_step: 197.923             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━[0m 43/72 [2m0:18:21 • 0:10:42[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 109.449     [0m
+                                                                                      [3mtrain_geo_loss_step: 107.907             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━[0m 44/72 [2m0:18:56 • -:--:--[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 1109.435    [0m
+                                                                                      [3mtrain_geo_loss_step: 1105.863            [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━[0m 45/72 [2m0:19:19 • 0:10:23[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 234.182     [0m
+                                                                                      [3mtrain_geo_loss_step: 232.631             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━[0m 46/72 [2m0:19:53 • -:--:--[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 919.054     [0m
+                                                                                      [3mtrain_geo_loss_step: 917.475             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━[0m 47/72 [2m0:20:21 • 0:11:29[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 919.054     [0m
+                                                                                      [3mtrain_geo_loss_step: 917.475             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━[0m 47/72 [2m0:20:21 • 0:11:29[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 294.184     [0m
+                                                                                      [3mtrain_geo_loss_step: 291.822             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━[0m 48/72 [2m0:20:47 • 0:10:34[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 216.278     [0m
+                                                                                      [3mtrain_geo_loss_step: 214.748             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━[0m 49/72 [2m0:21:16 • 0:11:06[0m [2;4m0.03it/s[0m [3mv_num: d7zw train_loss_step: 368.668     [0m
+                                                                                      [3mtrain_geo_loss_step: 366.450             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━[0m 50/72 [2m0:21:44 • 0:10:06[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 333.323     [0m
+                                                                                      [3mtrain_geo_loss_step: 331.477             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━[0m 51/72 [2m0:22:05 • 0:07:22[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 333.323     [0m
+                                                                                      [3mtrain_geo_loss_step: 331.477             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━[0m 52/72 [2m0:22:37 • -:--:--[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 459.228     [0m
+                                                                                      [3mtrain_geo_loss_step: 457.673             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━[0m 53/72 [2m0:23:04 • 0:08:38[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 341.210     [0m
+                                                                                      [3mtrain_geo_loss_step: 339.714             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━[0m 54/72 [2m0:23:30 • 0:07:50[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 693.096     [0m
+                                                                                      [3mtrain_geo_loss_step: 691.572             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━[0m 55/72 [2m0:24:06 • -:--:--[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 1199.095    [0m
+                                                                                      [3mtrain_geo_loss_step: 1197.521            [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m 56/72 [2m0:24:30 • 0:06:15[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 1199.095    [0m
+                                                                                      [3mtrain_geo_loss_step: 1197.521            [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━[0m 57/72 [2m0:24:55 • 0:06:17[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 997.358     [0m
+                                                                                      [3mtrain_geo_loss_step: 995.498             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━[0m 58/72 [2m0:25:15 • 0:04:39[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 568.476     [0m
+                                                                                      [3mtrain_geo_loss_step: 566.938             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━[0m 59/72 [2m0:25:27 • 0:02:48[0m [2;4m0.08it/s[0m [3mv_num: d7zw train_loss_step: 450.768     [0m
+                                                                                      [3mtrain_geo_loss_step: 449.219             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━[0m 60/72 [2m0:25:50 • 0:04:36[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 694.456     [0m
+                                                                                      [3mtrain_geo_loss_step: 692.896             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━[0m 61/72 [2m0:25:58 • 0:01:27[0m [2;4m0.13it/s[0m [3mv_num: d7zw train_loss_step: 102.288     [0m
+                                                                                      [3mtrain_geo_loss_step: 100.500             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━[0m 62/72 [2m0:26:12 • 0:01:47[0m [2;4m0.09it/s[0m [3mv_num: d7zw train_loss_step: 35.167      [0m
+                                                                                      [3mtrain_geo_loss_step: 32.765              [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━[0m 63/72 [2m0:26:28 • 0:02:32[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 392.608     [0m
+                                                                                      [3mtrain_geo_loss_step: 391.069             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━[0m 64/72 [2m0:26:49 • 0:02:46[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 798.548     [0m
+                                                                                      [3mtrain_geo_loss_step: 796.974             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━[0m 65/72 [2m0:27:15 • 0:02:58[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 1872.649    [0m
+                                                                                      [3mtrain_geo_loss_step: 1871.076            [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━[0m 66/72 [2m0:27:39 • 0:02:27[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 162.912     [0m
+                                                                                      [3mtrain_geo_loss_step: 160.998             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━[0m 67/72 [2m0:28:00 • 0:01:46[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 288.709     [0m
+                                                                                      [3mtrain_geo_loss_step: 286.405             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━[0m 68/72 [2m0:28:26 • 0:01:46[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 305.822     [0m
+                                                                                      [3mtrain_geo_loss_step: 304.271             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━[0m 69/72 [2m0:28:55 • 0:01:26[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 348.636     [0m
+                                                                                      [3mtrain_geo_loss_step: 345.203             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;98;6;224m╸[0m[38;5;237m━[0m 70/72 [2m0:29:22 • 0:00:55[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 940.079     [0m
+                                                                                      [3mtrain_geo_loss_step: 937.858             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m 71/72 [2m0:29:47 • 0:00:26[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 1304.089    [0m
+                                                                                      [3mtrain_geo_loss_step: 1302.525            [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:30:09 • 0:00:00[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 486.790     [0m
+                                                                                      [3mtrain_geo_loss_step: 485.239             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:30:09 • 0:00:00[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 486.790     [0m
+                                                                                      [3mtrain_geo_loss_step: 485.239             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:30:09 • 0:00:00[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 486.790     [0m
+                                                                                      [3mtrain_geo_loss_step: 485.239             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+                                                                                      [3mtrain_geo_loss_epoch: 828.020            [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:30:09 • 0:00:00[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 486.790     [0m
+                                                                                      [3mtrain_geo_loss_step: 485.239             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+                                                                                      [3mtrain_geo_loss_epoch: 828.020            [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:30:09 • 0:00:00[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 486.790     [0m
+                                                                                      [3mtrain_geo_loss_step: 485.239             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+                                                                                      [3mtrain_geo_loss_epoch: 828.020            [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:30:09 • 0:00:00[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 486.790     [0m
+                                                                                      [3mtrain_geo_loss_step: 485.239             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+                                                                                      [3mtrain_geo_loss_epoch: 828.020            [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:30:09 • 0:00:00[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 486.790     [0m
+                                                                                      [3mtrain_geo_loss_step: 485.239             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+                                                                                      [3mtrain_geo_loss_epoch: 828.020            [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:30:09 • 0:00:00[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 486.790     [0m
+                                                                                      [3mtrain_geo_loss_step: 485.239             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+                                                                                      [3mtrain_geo_loss_epoch: 828.020            [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:30:09 • 0:00:00[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 486.790     [0m
+                                                                                      [3mtrain_geo_loss_step: 485.239             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+                                                                                      [3mtrain_geo_loss_epoch: 828.020            [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:30:09 • 0:00:00[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 486.790     [0m
+                                                                                      [3mtrain_geo_loss_step: 485.239             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+                                                                                      [3mtrain_geo_loss_epoch: 828.020            [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:30:09 • 0:00:00[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 486.790     [0m
+                                                                                      [3mtrain_geo_loss_step: 485.239             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+                                                                                      [3mtrain_geo_loss_epoch: 828.020            [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:30:09 • 0:00:00[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 486.790     [0m
+                                                                                      [3mtrain_geo_loss_step: 485.239             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+                                                                                      [3mtrain_geo_loss_epoch: 828.020            [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:30:09 • 0:00:00[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 486.790     [0m
+                                                                                      [3mtrain_geo_loss_step: 485.239             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+                                                                                      [3mtrain_geo_loss_epoch: 828.020            [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:30:09 • 0:00:00[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 486.790     [0m
+                                                                                      [3mtrain_geo_loss_step: 485.239             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+                                                                                      [3mtrain_geo_loss_epoch: 828.020            [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:30:09 • 0:00:00[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 486.790     [0m
+                                                                                      [3mtrain_geo_loss_step: 485.239             [0m
+                                                                                      [3mtrain_loss_epoch: 830.039                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/299 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 72/72 [2m0:30:09 • 0:00:00[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 486.790     [0m
+                                                                                      [3mtrain_geo_loss_step: 485.239             [0m
+                                                                                      [3mtrain_loss_epoch: 764.438                [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 4/299 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/72 [2m0:30:09 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 486.790      [0m
+                                                                                     [3mtrain_geo_loss_step: 485.239              [0m
+                                                                                     [3mtrain_loss_epoch: 764.438                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 4/299 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/72 [2m0:30:09 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 486.790      [0m
+                                                                                     [3mtrain_geo_loss_step: 485.239              [0m
+                                                                                     [3mtrain_loss_epoch: 764.438                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 4/299 [38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/72 [2m0:00:10 • -:--:--[0m [2;4m0.00it/s[0m [3mv_num: d7zw train_loss_step: 174.242      [0m
+                                                                                     [3mtrain_geo_loss_step: 170.057              [0m
+                                                                                     [3mtrain_loss_epoch: 764.438                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 4/299 [38;2;98;6;224m━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 2/72 [2m0:00:27 • 0:20:03[0m [2;4m0.06it/s[0m [3mv_num: d7zw train_loss_step: 80.724       [0m
+                                                                                     [3mtrain_geo_loss_step: 77.925               [0m
+                                                                                     [3mtrain_loss_epoch: 764.438                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 4/299 [38;2;98;6;224m━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 3/72 [2m0:00:51 • 0:27:36[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 397.340      [0m
+                                                                                     [3mtrain_geo_loss_step: 395.770              [0m
+                                                                                     [3mtrain_loss_epoch: 764.438                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 4/299 [38;2;98;6;224m━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 4/72 [2m0:01:09 • 0:21:04[0m [2;4m0.05it/s[0m [3mv_num: d7zw train_loss_step: 341.269      [0m
+                                                                                     [3mtrain_geo_loss_step: 338.819              [0m
+                                                                                     [3mtrain_loss_epoch: 764.438                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 4/299 [38;2;98;6;224m━━[0m[38;2;98;6;224m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 5/72 [2m0:01:32 • 0:25:03[0m [2;4m0.04it/s[0m [3mv_num: d7zw train_loss_step: 2712.254     [0m
+                                                                                     [3mtrain_geo_loss_step: 2709.586             [0m
+                                                                                     [3mtrain_loss_epoch: 764.438                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 4/299 [38;2;98;6;224m━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 6/72 [2m0:01:43 • 0:12:48[0m [2;4m0.09it/s[0m [3mv_num: d7zw train_loss_step: 126.070      [0m
+                                                                                     [3mtrain_geo_loss_step: 123.911              [0m
+                                                                                     [3mtrain_loss_epoch: 764.438                 [0m
+                                                                                     [3mtrain_geo_loss_epoch: 762.421             [0m

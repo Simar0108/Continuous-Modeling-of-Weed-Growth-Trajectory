@@ -1,0 +1,15 @@
+# Python
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE / OS
+.cursor/
+.DS_Store
+
+# Nested git repositories (add as submodules if you need them, or remove this to absorb them)
+Continuous-Modeling-of-Weed-Growth-Trajectory/

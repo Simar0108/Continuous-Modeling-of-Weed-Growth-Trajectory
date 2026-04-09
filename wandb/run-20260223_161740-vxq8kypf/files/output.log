@@ -1,0 +1,60 @@
+
+  | Name  | Type              | Params | Mode  | FLOPs
+------------------------------------------------------------
+0 | model | GaussianLatentODE | 22.0 K | train | 0
+------------------------------------------------------------
+22.0 K    Trainable params
+0         Non-trainable params
+22.0 K    Total params
+0.088     Total estimated model params size (MB)
+16        Modules in train mode
+0         Modules in eval mode
+0         Total Flops
+Traceback (most recent call last):
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/trainer/connectors/data_connector.py", line 395, in _check_dataloader_iterable
+    iter(dataloader)  # type: ignore[call-overload]
+    ~~~~^^^^^^^^^^^^
+TypeError: 'PlantTrackDataModule' object is not iterable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/simar/Documents/UCR Research/MastersThesis/Thesis/ode/overfit_test.py", line 321, in <module>
+    main()
+    ~~~~^^
+  File "/Users/simar/Documents/UCR Research/MastersThesis/Thesis/ode/overfit_test.py", line 298, in main
+    trainer.fit(model, dm)
+    ~~~~~~~~~~~^^^^^^^^^^^
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/trainer/trainer.py", line 584, in fit
+    call._call_and_handle_interrupt(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<6 lines>...
+        weights_only,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/trainer/call.py", line 49, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/trainer/trainer.py", line 630, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/trainer/trainer.py", line 1079, in _run
+    results = self._run_stage()
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/trainer/trainer.py", line 1123, in _run_stage
+    self.fit_loop.run()
+    ~~~~~~~~~~~~~~~~~^^
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/loops/fit_loop.py", line 209, in run
+    self.setup_data()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/loops/fit_loop.py", line 253, in setup_data
+    _check_dataloader_iterable(dl, source, trainer_fn)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/trainer/connectors/data_connector.py", line 400, in _check_dataloader_iterable
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: An invalid dataloader was passed to `Trainer.fit(train_dataloaders=...)`. Found <ode.data.datamodule.PlantTrackDataModule object at 0x168dfeba0>.

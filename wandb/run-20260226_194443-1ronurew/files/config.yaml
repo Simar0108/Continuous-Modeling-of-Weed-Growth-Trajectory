@@ -1,0 +1,76 @@
+_wandb:
+    value:
+        cli_version: 0.25.0
+        e:
+            eavgstbb9ja17lbzfo14apv2depgwlxe:
+                apple:
+                    ecpuCores: 4
+                    gpuCores: 7
+                    memoryGb: 16
+                    name: Apple M1
+                    pcpuCores: 4
+                    ramTotalBytes: "17179869184"
+                    swapTotalBytes: "7516192768"
+                args:
+                    - --parquet
+                    - Thesis/metrics_with_features.parquet
+                    - --wandb
+                cpu_count: 8
+                cpu_count_logical: 8
+                disk:
+                    /:
+                        total: "245107195904"
+                        used: "232878956544"
+                email: ssing226@ucr.edu
+                executable: /Users/simar/Documents/UCR Research/MastersThesis/venv/bin/python
+                host: Simarpals-MacBook-Air-3.local
+                memory:
+                    total: "17179869184"
+                os: macOS-15.6.1-arm64-arm-64bit-Mach-O
+                program: -m ode.overfit_test
+                python: CPython 3.13.1
+                root: .
+                startedAt: "2026-02-27T03:44:43.472875Z"
+                writerId: eavgstbb9ja17lbzfo14apv2depgwlxe
+        m:
+            - "1": trainer/global_step
+              "6":
+                - 3
+              "7": []
+            - "2": '*'
+              "5": 1
+              "6":
+                - 1
+              "7": []
+        python_version: 3.13.1
+        t:
+            "1":
+                - 1
+                - 41
+                - 106
+            "2":
+                - 1
+                - 41
+                - 106
+            "3":
+                - 7
+                - 61
+                - 66
+            "4": 3.13.1
+            "5": 0.25.0
+            "12": 0.25.0
+            "13": darwin-arm64
+encoder_frames:
+    value: 5
+encoder_hidden:
+    value: 64
+kinetic_reg_weight:
+    value: 0.001
+latent_dim:
+    value: 16
+lr:
+    value: 0.001
+ode_hidden:
+    value: 64
+ode_weight_decay:
+    value: 1e-05

@@ -1,0 +1,1008 @@
+/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/callbacks/model_checkpoint.py:881: Checkpoint directory /Users/simar/Documents/UCR Research/MastersThesis/checkpoints exists and is not empty.
+┏━━━┳━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃[1;35m [0m[1;35m [0m[1;35m [0m┃[1;35m [0m[1;35mName [0m[1;35m [0m┃[1;35m [0m[1;35mType             [0m[1;35m [0m┃[1;35m [0m[1;35mParams[0m[1;35m [0m┃[1;35m [0m[1;35mMode [0m[1;35m [0m┃[1;35m [0m[1;35mFLOPs[0m[1;35m [0m┃
+┡━━━╇━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│[2m [0m[2m0[0m[2m [0m│ model │ GaussianLatentODE │ 22.0 K │ train │     0 │
+└───┴───────┴───────────────────┴────────┴───────┴───────┘
+[1mTrainable params[0m: 22.0 K
+[1mNon-trainable params[0m: 0
+[1mTotal params[0m: 22.0 K
+[1mTotal estimated model params size (MB)[0m: 0
+[1mModules in train mode[0m: 16
+[1mModules in eval mode[0m: 0
+[1mTotal FLOPs[0m: 0
+[2K/Users/simar/Documents/UCR Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/utilities/_pytree.py:21:
+`isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+[2K/Users/simar/Documents/UCR
+Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:434: The
+'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers`
+argument` to `num_workers=7` in the `DataLoader` to improve performance.
+[2K/Users/simar/Documents/UCR ;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:00 • 0:00:00[0m [2;4m0.00it/s[0m  
+Research/MastersThesis/venv/lib/python3.13/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:434: The
+'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers`
+argument` to `num_workers=7` in the `DataLoader` to improve performance.
+[2KEpoch 0/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:07 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8168.303       [0m
+[2K[1A[2KEpoch 0/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:07 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8168.303       [0m
+[2K[1A[2KEpoch 0/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:07 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8168.303       [0m
+[2K[1A[2KEpoch 0/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:07 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8168.303       [0m
+[2K[1A[2KEpoch 0/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:07 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8168.303       [0m
+                                                                                   [3mtrain_geo_loss_step: 8166.566               [0m
+                                                                                   [3mtrain_loss_epoch: 8168.303                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:07 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8168.303       [0m
+                                                                                   [3mtrain_geo_loss_step: 8166.566               [0m
+                                                                                   [3mtrain_loss_epoch: 8168.303                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:07 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8168.303       [0m
+                                                                                   [3mtrain_geo_loss_step: 8166.566               [0m
+                                                                                   [3mtrain_loss_epoch: 8168.303                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8160.931       [0m
+                                                                                   [3mtrain_geo_loss_step: 8159.316               [0m
+                                                                                   [3mtrain_loss_epoch: 8168.303                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8160.931       [0m
+                                                                                   [3mtrain_geo_loss_step: 8159.316               [0m
+                                                                                   [3mtrain_loss_epoch: 8168.303                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8160.931       [0m
+                                                                                   [3mtrain_geo_loss_step: 8159.316               [0m
+                                                                                   [3mtrain_loss_epoch: 8168.303                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8160.931       [0m
+                                                                                   [3mtrain_geo_loss_step: 8159.316               [0m
+                                                                                   [3mtrain_loss_epoch: 8168.303                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 1/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8160.931       [0m
+                                                                                   [3mtrain_geo_loss_step: 8159.316               [0m
+                                                                                   [3mtrain_loss_epoch: 8160.931                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8160.931       [0m
+                                                                                   [3mtrain_geo_loss_step: 8159.316               [0m
+                                                                                   [3mtrain_loss_epoch: 8160.931                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8160.931       [0m
+                                                                                   [3mtrain_geo_loss_step: 8159.316               [0m
+                                                                                   [3mtrain_loss_epoch: 8160.931                  [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 2 that is less than the current step 4. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 2/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8160.931       [0m
+                                                                                   [3mtrain_geo_loss_step: 8159.316               [0m
+                                                                                   [3mtrain_loss_epoch: 8160.931                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8153.154       [0m
+                                                                                   [3mtrain_geo_loss_step: 8151.589               [0m
+                                                                                   [3mtrain_loss_epoch: 8160.931                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8153.154       [0m
+                                                                                   [3mtrain_geo_loss_step: 8151.589               [0m
+                                                                                   [3mtrain_loss_epoch: 8160.931                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8153.154       [0m
+                                                                                   [3mtrain_geo_loss_step: 8151.589               [0m
+                                                                                   [3mtrain_loss_epoch: 8160.931                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 2/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8153.154       [0m
+                                                                                   [3mtrain_geo_loss_step: 8151.589               [0m
+                                                                                   [3mtrain_loss_epoch: 8153.154                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8153.154       [0m
+                                                                                   [3mtrain_geo_loss_step: 8151.589               [0m
+                                                                                   [3mtrain_loss_epoch: 8153.154                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8153.154       [0m
+                                                                                   [3mtrain_geo_loss_step: 8151.589               [0m
+                                                                                   [3mtrain_loss_epoch: 8153.154                  [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 3 that is less than the current step 7. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 3/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8153.154       [0m
+                                                                                   [3mtrain_geo_loss_step: 8151.589               [0m
+                                                                                   [3mtrain_loss_epoch: 8153.154                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8144.643       [0m
+                                                                                   [3mtrain_geo_loss_step: 8143.026               [0m
+                                                                                   [3mtrain_loss_epoch: 8153.154                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8144.643       [0m
+                                                                                   [3mtrain_geo_loss_step: 8143.026               [0m
+                                                                                   [3mtrain_loss_epoch: 8153.154                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8144.643       [0m
+                                                                                   [3mtrain_geo_loss_step: 8143.026               [0m
+                                                                                   [3mtrain_loss_epoch: 8153.154                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 3/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8144.643       [0m
+                                                                                   [3mtrain_geo_loss_step: 8143.026               [0m
+                                                                                   [3mtrain_loss_epoch: 8144.643                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 4/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8144.643       [0m
+                                                                                   [3mtrain_geo_loss_step: 8143.026               [0m
+                                                                                   [3mtrain_loss_epoch: 8144.643                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 4/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8144.643       [0m
+                                                                                   [3mtrain_geo_loss_step: 8143.026               [0m
+                                                                                   [3mtrain_loss_epoch: 8144.643                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 4/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8144.643       [0m
+                                                                                   [3mtrain_geo_loss_step: 8143.026               [0m
+                                                                                   [3mtrain_loss_epoch: 8144.643                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 4/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8134.948       [0m
+                                                                                   [3mtrain_geo_loss_step: 8133.242               [0m
+                                                                                   [3mtrain_loss_epoch: 8144.643                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 4/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8134.948       [0m
+                                                                                   [3mtrain_geo_loss_step: 8133.242               [0m
+                                                                                   [3mtrain_loss_epoch: 8144.643                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 4/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8134.948       [0m
+                                                                                   [3mtrain_geo_loss_step: 8133.242               [0m
+                                                                                   [3mtrain_loss_epoch: 8144.643                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 4/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8134.948       [0m
+                                                                                   [3mtrain_geo_loss_step: 8133.242               [0m
+                                                                                   [3mtrain_loss_epoch: 8134.948                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 5/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8134.948       [0m
+                                                                                   [3mtrain_geo_loss_step: 8133.242               [0m
+                                                                                   [3mtrain_loss_epoch: 8134.948                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 5/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8134.948       [0m
+                                                                                   [3mtrain_geo_loss_step: 8133.242               [0m
+                                                                                   [3mtrain_loss_epoch: 8134.948                  [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 4 that is less than the current step 10. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 5/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8134.948       [0m
+                                                                                   [3mtrain_geo_loss_step: 8133.242               [0m
+                                                                                   [3mtrain_loss_epoch: 8134.948                  [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 5 that is less than the current step 13. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 5/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8134.948       [0m
+                                                                                   [3mtrain_geo_loss_step: 8133.242               [0m
+                                                                                   [3mtrain_loss_epoch: 8134.948                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 5/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8123.466       [0m
+                                                                                   [3mtrain_geo_loss_step: 8121.825               [0m
+                                                                                   [3mtrain_loss_epoch: 8134.948                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 5/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8123.466       [0m
+                                                                                   [3mtrain_geo_loss_step: 8121.825               [0m
+                                                                                   [3mtrain_loss_epoch: 8134.948                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 5/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8123.466       [0m
+                                                                                   [3mtrain_geo_loss_step: 8121.825               [0m
+                                                                                   [3mtrain_loss_epoch: 8134.948                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 5/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8123.466       [0m
+                                                                                   [3mtrain_geo_loss_step: 8121.825               [0m
+                                                                                   [3mtrain_loss_epoch: 8123.466                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 6/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8123.466       [0m
+                                                                                   [3mtrain_geo_loss_step: 8121.825               [0m
+                                                                                   [3mtrain_loss_epoch: 8123.466                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 6/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8123.466       [0m
+                                                                                   [3mtrain_geo_loss_step: 8121.825               [0m
+                                                                                   [3mtrain_loss_epoch: 8123.466                  [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 6 that is less than the current step 16. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 6/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8123.466       [0m
+                                                                                   [3mtrain_geo_loss_step: 8121.825               [0m
+                                                                                   [3mtrain_loss_epoch: 8123.466                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 6/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8109.908       [0m
+                                                                                   [3mtrain_geo_loss_step: 8108.287               [0m
+                                                                                   [3mtrain_loss_epoch: 8123.466                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 6/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8109.908       [0m
+                                                                                   [3mtrain_geo_loss_step: 8108.287               [0m
+                                                                                   [3mtrain_loss_epoch: 8123.466                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 6/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8109.908       [0m
+                                                                                   [3mtrain_geo_loss_step: 8108.287               [0m
+                                                                                   [3mtrain_loss_epoch: 8123.466                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 6/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8109.908       [0m
+                                                                                   [3mtrain_geo_loss_step: 8108.287               [0m
+                                                                                   [3mtrain_loss_epoch: 8109.908                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 7/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8109.908       [0m
+                                                                                   [3mtrain_geo_loss_step: 8108.287               [0m
+                                                                                   [3mtrain_loss_epoch: 8109.908                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 7/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8109.908       [0m
+                                                                                   [3mtrain_geo_loss_step: 8108.287               [0m
+                                                                                   [3mtrain_loss_epoch: 8109.908                  [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 7 that is less than the current step 19. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 7/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8109.908       [0m
+                                                                                   [3mtrain_geo_loss_step: 8108.287               [0m
+                                                                                   [3mtrain_loss_epoch: 8109.908                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 7/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8093.791       [0m
+                                                                                   [3mtrain_geo_loss_step: 8092.072               [0m
+                                                                                   [3mtrain_loss_epoch: 8109.908                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 7/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8093.791       [0m
+                                                                                   [3mtrain_geo_loss_step: 8092.072               [0m
+                                                                                   [3mtrain_loss_epoch: 8109.908                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 7/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8093.791       [0m
+                                                                                   [3mtrain_geo_loss_step: 8092.072               [0m
+                                                                                   [3mtrain_loss_epoch: 8109.908                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 7/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8093.791       [0m
+                                                                                   [3mtrain_geo_loss_step: 8092.072               [0m
+                                                                                   [3mtrain_loss_epoch: 8093.791                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 8/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8093.791       [0m
+                                                                                   [3mtrain_geo_loss_step: 8092.072               [0m
+                                                                                   [3mtrain_loss_epoch: 8093.791                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 8/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8093.791       [0m
+                                                                                   [3mtrain_geo_loss_step: 8092.072               [0m
+                                                                                   [3mtrain_loss_epoch: 8093.791                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 8/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8074.247       [0m
+                                                                                   [3mtrain_geo_loss_step: 8072.495               [0m
+                                                                                   [3mtrain_loss_epoch: 8093.791                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 8/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8074.247       [0m
+                                                                                   [3mtrain_geo_loss_step: 8072.495               [0m
+                                                                                   [3mtrain_loss_epoch: 8093.791                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 8/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8074.247       [0m
+                                                                                   [3mtrain_geo_loss_step: 8072.495               [0m
+                                                                                   [3mtrain_loss_epoch: 8093.791                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 8/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8074.247       [0m
+                                                                                   [3mtrain_geo_loss_step: 8072.495               [0m
+                                                                                   [3mtrain_loss_epoch: 8093.791                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 8/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8074.247       [0m
+                                                                                   [3mtrain_geo_loss_step: 8072.495               [0m
+                                                                                   [3mtrain_loss_epoch: 8074.247                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 9/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8074.247       [0m
+                                                                                   [3mtrain_geo_loss_step: 8072.495               [0m
+                                                                                   [3mtrain_loss_epoch: 8074.247                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 9/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8074.247       [0m
+                                                                                   [3mtrain_geo_loss_step: 8072.495               [0m
+                                                                                   [3mtrain_loss_epoch: 8074.247                  [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 8 that is less than the current step 22. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 9/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8074.247       [0m
+                                                                                   [3mtrain_geo_loss_step: 8072.495               [0m
+                                                                                   [3mtrain_loss_epoch: 8074.247                  [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 9 that is less than the current step 25. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 9/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8074.247       [0m
+                                                                                   [3mtrain_geo_loss_step: 8072.495               [0m
+                                                                                   [3mtrain_loss_epoch: 8074.247                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 9/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8050.452       [0m
+                                                                                   [3mtrain_geo_loss_step: 8048.689               [0m
+                                                                                   [3mtrain_loss_epoch: 8074.247                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 9/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8050.452       [0m
+                                                                                   [3mtrain_geo_loss_step: 8048.689               [0m
+                                                                                   [3mtrain_loss_epoch: 8074.247                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 9/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8050.452       [0m
+                                                                                   [3mtrain_geo_loss_step: 8048.689               [0m
+                                                                                   [3mtrain_loss_epoch: 8074.247                  [0m
+                                                                                   [3mtrain_geo_loss_epoch: 8072.495              [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 9/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8050.452       [0m
+                                                                                   [3mtrain_geo_loss_step: 8048.689               [0m
+                                                                                   [3mtrain_loss_epoch: 8074.247                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 9/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8050.452       [0m
+                                                                                   [3mtrain_geo_loss_step: 8048.689               [0m
+                                                                                   [3mtrain_loss_epoch: 8050.452                  [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 10/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8050.452      [0m
+                                                                                    [3mtrain_geo_loss_step: 8048.689              [0m
+                                                                                    [3mtrain_loss_epoch: 8050.452                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 10/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8050.452      [0m
+                                                                                    [3mtrain_geo_loss_step: 8048.689              [0m
+                                                                                    [3mtrain_loss_epoch: 8050.452                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 10 that is less than the current step 29. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 10/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8050.452      [0m
+                                                                                    [3mtrain_geo_loss_step: 8048.689              [0m
+                                                                                    [3mtrain_loss_epoch: 8050.452                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 10/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8021.295      [0m
+                                                                                    [3mtrain_geo_loss_step: 8019.503              [0m
+                                                                                    [3mtrain_loss_epoch: 8050.452                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 10/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8021.295      [0m
+                                                                                    [3mtrain_geo_loss_step: 8019.503              [0m
+                                                                                    [3mtrain_loss_epoch: 8050.452                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 10/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8021.295      [0m
+                                                                                    [3mtrain_geo_loss_step: 8019.503              [0m
+                                                                                    [3mtrain_loss_epoch: 8050.452                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 10/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8021.295      [0m
+                                                                                    [3mtrain_geo_loss_step: 8019.503              [0m
+                                                                                    [3mtrain_loss_epoch: 8050.452                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 10/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8021.295      [0m
+                                                                                    [3mtrain_geo_loss_step: 8019.503              [0m
+                                                                                    [3mtrain_loss_epoch: 8021.295                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 11/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8021.295      [0m
+                                                                                    [3mtrain_geo_loss_step: 8019.503              [0m
+                                                                                    [3mtrain_loss_epoch: 8021.295                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 11/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 8021.295      [0m
+                                                                                    [3mtrain_geo_loss_step: 8019.503              [0m
+                                                                                    [3mtrain_loss_epoch: 8021.295                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 11/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7985.193      [0m
+                                                                                    [3mtrain_geo_loss_step: 7983.336              [0m
+                                                                                    [3mtrain_loss_epoch: 8021.295                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 11/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7985.193      [0m
+                                                                                    [3mtrain_geo_loss_step: 7983.336              [0m
+                                                                                    [3mtrain_loss_epoch: 8021.295                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 11/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7985.193      [0m
+                                                                                    [3mtrain_geo_loss_step: 7983.336              [0m
+                                                                                    [3mtrain_loss_epoch: 8021.295                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 11 that is less than the current step 32. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 11/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7985.193      [0m
+                                                                                    [3mtrain_geo_loss_step: 7983.336              [0m
+                                                                                    [3mtrain_loss_epoch: 8021.295                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 11/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7985.193      [0m
+                                                                                    [3mtrain_geo_loss_step: 7983.336              [0m
+                                                                                    [3mtrain_loss_epoch: 8021.295                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 11/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7985.193      [0m
+                                                                                    [3mtrain_geo_loss_step: 7983.336              [0m
+                                                                                    [3mtrain_loss_epoch: 7985.193                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 12/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7985.193      [0m
+                                                                                    [3mtrain_geo_loss_step: 7983.336              [0m
+                                                                                    [3mtrain_loss_epoch: 7985.193                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 12/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7985.193      [0m
+                                                                                    [3mtrain_geo_loss_step: 7983.336              [0m
+                                                                                    [3mtrain_loss_epoch: 7985.193                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 12/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7985.193      [0m
+                                                                                    [3mtrain_geo_loss_step: 7983.336              [0m
+                                                                                    [3mtrain_loss_epoch: 7985.193                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 12/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7939.824      [0m
+                                                                                    [3mtrain_geo_loss_step: 7937.867              [0m
+                                                                                    [3mtrain_loss_epoch: 7985.193                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 12/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7939.824      [0m
+                                                                                    [3mtrain_geo_loss_step: 7937.867              [0m
+                                                                                    [3mtrain_loss_epoch: 7985.193                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 12/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7939.824      [0m
+                                                                                    [3mtrain_geo_loss_step: 7937.867              [0m
+                                                                                    [3mtrain_loss_epoch: 7985.193                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 12/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7939.824      [0m
+                                                                                    [3mtrain_geo_loss_step: 7937.867              [0m
+                                                                                    [3mtrain_loss_epoch: 7939.824                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 13/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7939.824      [0m
+                                                                                    [3mtrain_geo_loss_step: 7937.867              [0m
+                                                                                    [3mtrain_loss_epoch: 7939.824                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 13/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7939.824      [0m
+                                                                                    [3mtrain_geo_loss_step: 7937.867              [0m
+                                                                                    [3mtrain_loss_epoch: 7939.824                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 12 that is less than the current step 35. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 13/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7939.824      [0m
+                                                                                    [3mtrain_geo_loss_step: 7937.867              [0m
+                                                                                    [3mtrain_loss_epoch: 7939.824                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 13 that is less than the current step 38. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 13/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7939.824      [0m
+                                                                                    [3mtrain_geo_loss_step: 7937.867              [0m
+                                                                                    [3mtrain_loss_epoch: 7939.824                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 13/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7881.833      [0m
+                                                                                    [3mtrain_geo_loss_step: 7879.758              [0m
+                                                                                    [3mtrain_loss_epoch: 7939.824                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 13/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7881.833      [0m
+                                                                                    [3mtrain_geo_loss_step: 7879.758              [0m
+                                                                                    [3mtrain_loss_epoch: 7939.824                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 13/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7881.833      [0m
+                                                                                    [3mtrain_geo_loss_step: 7879.758              [0m
+                                                                                    [3mtrain_loss_epoch: 7939.824                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 13/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7881.833      [0m
+                                                                                    [3mtrain_geo_loss_step: 7879.758              [0m
+                                                                                    [3mtrain_loss_epoch: 7881.833                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 14/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7881.833      [0m
+                                                                                    [3mtrain_geo_loss_step: 7879.758              [0m
+                                                                                    [3mtrain_loss_epoch: 7881.833                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 14/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7881.833      [0m
+                                                                                    [3mtrain_geo_loss_step: 7879.758              [0m
+                                                                                    [3mtrain_loss_epoch: 7881.833                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 14 that is less than the current step 41. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 14/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7881.833      [0m
+                                                                                    [3mtrain_geo_loss_step: 7879.758              [0m
+                                                                                    [3mtrain_loss_epoch: 7881.833                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 14/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7806.295      [0m
+                                                                                    [3mtrain_geo_loss_step: 7804.064              [0m
+                                                                                    [3mtrain_loss_epoch: 7881.833                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 14/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7806.295      [0m
+                                                                                    [3mtrain_geo_loss_step: 7804.064              [0m
+                                                                                    [3mtrain_loss_epoch: 7881.833                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 14/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7806.295      [0m
+                                                                                    [3mtrain_geo_loss_step: 7804.064              [0m
+                                                                                    [3mtrain_loss_epoch: 7881.833                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 14/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7806.295      [0m
+                                                                                    [3mtrain_geo_loss_step: 7804.064              [0m
+                                                                                    [3mtrain_loss_epoch: 7806.295                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 15/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7806.295      [0m
+                                                                                    [3mtrain_geo_loss_step: 7804.064              [0m
+                                                                                    [3mtrain_loss_epoch: 7806.295                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 15/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7806.295      [0m
+                                                                                    [3mtrain_geo_loss_step: 7804.064              [0m
+                                                                                    [3mtrain_loss_epoch: 7806.295                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 15 that is less than the current step 44. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 15/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:06 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7806.295      [0m
+                                                                                    [3mtrain_geo_loss_step: 7804.064              [0m
+                                                                                    [3mtrain_loss_epoch: 7806.295                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 15/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:10 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7706.364      [0m
+                                                                                    [3mtrain_geo_loss_step: 7703.903              [0m
+                                                                                    [3mtrain_loss_epoch: 7806.295                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 15/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:10 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7706.364      [0m
+                                                                                    [3mtrain_geo_loss_step: 7703.903              [0m
+                                                                                    [3mtrain_loss_epoch: 7806.295                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 15/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:10 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7706.364      [0m
+                                                                                    [3mtrain_geo_loss_step: 7703.903              [0m
+                                                                                    [3mtrain_loss_epoch: 7806.295                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 15/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:10 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7706.364      [0m
+                                                                                    [3mtrain_geo_loss_step: 7703.903              [0m
+                                                                                    [3mtrain_loss_epoch: 7706.364                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 16/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:10 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7706.364      [0m
+                                                                                    [3mtrain_geo_loss_step: 7703.903              [0m
+                                                                                    [3mtrain_loss_epoch: 7706.364                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 16/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:10 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7706.364      [0m
+                                                                                    [3mtrain_geo_loss_step: 7703.903              [0m
+                                                                                    [3mtrain_loss_epoch: 7706.364                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 16 that is less than the current step 47. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 16/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:10 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7706.364      [0m
+                                                                                    [3mtrain_geo_loss_step: 7703.903              [0m
+                                                                                    [3mtrain_loss_epoch: 7706.364                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 16/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:16 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7578.986      [0m
+                                                                                    [3mtrain_geo_loss_step: 7576.218              [0m
+                                                                                    [3mtrain_loss_epoch: 7706.364                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 16/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:16 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7578.986      [0m
+                                                                                    [3mtrain_geo_loss_step: 7576.218              [0m
+                                                                                    [3mtrain_loss_epoch: 7706.364                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 16/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:16 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7578.986      [0m
+                                                                                    [3mtrain_geo_loss_step: 7576.218              [0m
+                                                                                    [3mtrain_loss_epoch: 7706.364                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 16/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:16 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7578.986      [0m
+                                                                                    [3mtrain_geo_loss_step: 7576.218              [0m
+                                                                                    [3mtrain_loss_epoch: 7578.986                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 17/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:16 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7578.986      [0m
+                                                                                    [3mtrain_geo_loss_step: 7576.218              [0m
+                                                                                    [3mtrain_loss_epoch: 7578.986                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 17/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:16 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7578.986      [0m
+                                                                                    [3mtrain_geo_loss_step: 7576.218              [0m
+                                                                                    [3mtrain_loss_epoch: 7578.986                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 17 that is less than the current step 50. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 17/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:16 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7578.986      [0m
+                                                                                    [3mtrain_geo_loss_step: 7576.218              [0m
+                                                                                    [3mtrain_loss_epoch: 7578.986                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 17/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:20 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7430.378      [0m
+                                                                                    [3mtrain_geo_loss_step: 7427.289              [0m
+                                                                                    [3mtrain_loss_epoch: 7578.986                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 17/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:20 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7430.378      [0m
+                                                                                    [3mtrain_geo_loss_step: 7427.289              [0m
+                                                                                    [3mtrain_loss_epoch: 7578.986                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 17/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:20 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7430.378      [0m
+                                                                                    [3mtrain_geo_loss_step: 7427.289              [0m
+                                                                                    [3mtrain_loss_epoch: 7578.986                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 17/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:20 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7430.378      [0m
+                                                                                    [3mtrain_geo_loss_step: 7427.289              [0m
+                                                                                    [3mtrain_loss_epoch: 7430.378                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 18/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:20 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7430.378      [0m
+                                                                                    [3mtrain_geo_loss_step: 7427.289              [0m
+                                                                                    [3mtrain_loss_epoch: 7430.378                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 18/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:20 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7430.378      [0m
+                                                                                    [3mtrain_geo_loss_step: 7427.289              [0m
+                                                                                    [3mtrain_loss_epoch: 7430.378                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 18 that is less than the current step 53. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 18/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:20 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7430.378      [0m
+                                                                                    [3mtrain_geo_loss_step: 7427.289              [0m
+                                                                                    [3mtrain_loss_epoch: 7430.378                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 18/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7430.378      [0m
+                                                                                    [3mtrain_geo_loss_step: 7427.289              [0m
+                                                                                    [3mtrain_loss_epoch: 7430.378                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 18/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7268.884      [0m
+                                                                                    [3mtrain_geo_loss_step: 7265.466              [0m
+                                                                                    [3mtrain_loss_epoch: 7430.378                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 18/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7268.884      [0m
+                                                                                    [3mtrain_geo_loss_step: 7265.466              [0m
+                                                                                    [3mtrain_loss_epoch: 7430.378                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 18/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7268.884      [0m
+                                                                                    [3mtrain_geo_loss_step: 7265.466              [0m
+                                                                                    [3mtrain_loss_epoch: 7430.378                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 18/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7268.884      [0m
+                                                                                    [3mtrain_geo_loss_step: 7265.466              [0m
+                                                                                    [3mtrain_loss_epoch: 7268.884                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 19/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7268.884      [0m
+                                                                                    [3mtrain_geo_loss_step: 7265.466              [0m
+                                                                                    [3mtrain_loss_epoch: 7268.884                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 19/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7268.884      [0m
+                                                                                    [3mtrain_geo_loss_step: 7265.466              [0m
+                                                                                    [3mtrain_loss_epoch: 7268.884                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 19 that is less than the current step 56. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 19/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7268.884      [0m
+                                                                                    [3mtrain_geo_loss_step: 7265.466              [0m
+                                                                                    [3mtrain_loss_epoch: 7268.884                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 19/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:27 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7102.501      [0m
+                                                                                    [3mtrain_geo_loss_step: 7098.728              [0m
+                                                                                    [3mtrain_loss_epoch: 7268.884                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 19/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:27 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7102.501      [0m
+                                                                                    [3mtrain_geo_loss_step: 7098.728              [0m
+                                                                                    [3mtrain_loss_epoch: 7268.884                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 19/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:27 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7102.501      [0m
+                                                                                    [3mtrain_geo_loss_step: 7098.728              [0m
+                                                                                    [3mtrain_loss_epoch: 7268.884                 [0m
+                                                                                    [3mtrain_geo_loss_epoch: 7265.466             [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 19/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:27 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7102.501      [0m
+                                                                                    [3mtrain_geo_loss_step: 7098.728              [0m
+                                                                                    [3mtrain_loss_epoch: 7268.884                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 19/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:27 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7102.501      [0m
+                                                                                    [3mtrain_geo_loss_step: 7098.728              [0m
+                                                                                    [3mtrain_loss_epoch: 7102.501                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 20/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:27 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7102.501      [0m
+                                                                                    [3mtrain_geo_loss_step: 7098.728              [0m
+                                                                                    [3mtrain_loss_epoch: 7102.501                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 20/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:27 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7102.501      [0m
+                                                                                    [3mtrain_geo_loss_step: 7098.728              [0m
+                                                                                    [3mtrain_loss_epoch: 7102.501                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 20 that is less than the current step 60. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 20/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:27 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 7102.501      [0m
+                                                                                    [3mtrain_geo_loss_step: 7098.728              [0m
+                                                                                    [3mtrain_loss_epoch: 7102.501                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 20/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:27 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6938.806      [0m
+                                                                                    [3mtrain_geo_loss_step: 6934.776              [0m
+                                                                                    [3mtrain_loss_epoch: 7102.501                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 20/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:27 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6938.806      [0m
+                                                                                    [3mtrain_geo_loss_step: 6934.776              [0m
+                                                                                    [3mtrain_loss_epoch: 7102.501                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 20/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:27 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6938.806      [0m
+                                                                                    [3mtrain_geo_loss_step: 6934.776              [0m
+                                                                                    [3mtrain_loss_epoch: 7102.501                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 20/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:27 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6938.806      [0m
+                                                                                    [3mtrain_geo_loss_step: 6934.776              [0m
+                                                                                    [3mtrain_loss_epoch: 7102.501                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 20/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:27 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6938.806      [0m
+                                                                                    [3mtrain_geo_loss_step: 6934.776              [0m
+                                                                                    [3mtrain_loss_epoch: 6938.806                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 21/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:27 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6938.806      [0m
+                                                                                    [3mtrain_geo_loss_step: 6934.776              [0m
+                                                                                    [3mtrain_loss_epoch: 6938.806                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 21/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:27 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6938.806      [0m
+                                                                                    [3mtrain_geo_loss_step: 6934.776              [0m
+                                                                                    [3mtrain_loss_epoch: 6938.806                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 21 that is less than the current step 63. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 21/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:27 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6938.806      [0m
+                                                                                    [3mtrain_geo_loss_step: 6934.776              [0m
+                                                                                    [3mtrain_loss_epoch: 6938.806                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 21/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:31 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6782.192      [0m
+                                                                                    [3mtrain_geo_loss_step: 6778.180              [0m
+                                                                                    [3mtrain_loss_epoch: 6938.806                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 21/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:31 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6782.192      [0m
+                                                                                    [3mtrain_geo_loss_step: 6778.180              [0m
+                                                                                    [3mtrain_loss_epoch: 6938.806                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 21/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:31 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6782.192      [0m
+                                                                                    [3mtrain_geo_loss_step: 6778.180              [0m
+                                                                                    [3mtrain_loss_epoch: 6938.806                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 21/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:31 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6782.192      [0m
+                                                                                    [3mtrain_geo_loss_step: 6778.180              [0m
+                                                                                    [3mtrain_loss_epoch: 6782.192                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 22/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:31 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6782.192      [0m
+                                                                                    [3mtrain_geo_loss_step: 6778.180              [0m
+                                                                                    [3mtrain_loss_epoch: 6782.192                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 22/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:31 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6782.192      [0m
+                                                                                    [3mtrain_geo_loss_step: 6778.180              [0m
+                                                                                    [3mtrain_loss_epoch: 6782.192                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 22 that is less than the current step 66. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 22/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:31 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6782.192      [0m
+                                                                                    [3mtrain_geo_loss_step: 6778.180              [0m
+                                                                                    [3mtrain_loss_epoch: 6782.192                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 22/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:32 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6630.150      [0m
+                                                                                    [3mtrain_geo_loss_step: 6626.495              [0m
+                                                                                    [3mtrain_loss_epoch: 6782.192                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 22/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:32 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6630.150      [0m
+                                                                                    [3mtrain_geo_loss_step: 6626.495              [0m
+                                                                                    [3mtrain_loss_epoch: 6782.192                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 22/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:32 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6630.150      [0m
+                                                                                    [3mtrain_geo_loss_step: 6626.495              [0m
+                                                                                    [3mtrain_loss_epoch: 6782.192                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 22/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:32 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6630.150      [0m
+                                                                                    [3mtrain_geo_loss_step: 6626.495              [0m
+                                                                                    [3mtrain_loss_epoch: 6630.150                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 23/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:32 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6630.150      [0m
+                                                                                    [3mtrain_geo_loss_step: 6626.495              [0m
+                                                                                    [3mtrain_loss_epoch: 6630.150                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 23/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:32 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6630.150      [0m
+                                                                                    [3mtrain_geo_loss_step: 6626.495              [0m
+                                                                                    [3mtrain_loss_epoch: 6630.150                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 23 that is less than the current step 69. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 23/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:32 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6630.150      [0m
+                                                                                    [3mtrain_geo_loss_step: 6626.495              [0m
+                                                                                    [3mtrain_loss_epoch: 6630.150                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 23/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:31 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6483.046      [0m
+                                                                                    [3mtrain_geo_loss_step: 6480.058              [0m
+                                                                                    [3mtrain_loss_epoch: 6630.150                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 23/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:31 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6483.046      [0m
+                                                                                    [3mtrain_geo_loss_step: 6480.058              [0m
+                                                                                    [3mtrain_loss_epoch: 6630.150                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 23/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:31 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6483.046      [0m
+                                                                                    [3mtrain_geo_loss_step: 6480.058              [0m
+                                                                                    [3mtrain_loss_epoch: 6630.150                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 23/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:31 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6483.046      [0m
+                                                                                    [3mtrain_geo_loss_step: 6480.058              [0m
+                                                                                    [3mtrain_loss_epoch: 6483.046                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 24/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:31 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6483.046      [0m
+                                                                                    [3mtrain_geo_loss_step: 6480.058              [0m
+                                                                                    [3mtrain_loss_epoch: 6483.046                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 24/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:31 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6483.046      [0m
+                                                                                    [3mtrain_geo_loss_step: 6480.058              [0m
+                                                                                    [3mtrain_loss_epoch: 6483.046                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 24 that is less than the current step 72. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 24/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:31 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6483.046      [0m
+                                                                                    [3mtrain_geo_loss_step: 6480.058              [0m
+                                                                                    [3mtrain_loss_epoch: 6483.046                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 24/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:30 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6483.046      [0m
+                                                                                    [3mtrain_geo_loss_step: 6480.058              [0m
+                                                                                    [3mtrain_loss_epoch: 6483.046                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 24/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:30 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6339.715      [0m
+                                                                                    [3mtrain_geo_loss_step: 6337.390              [0m
+                                                                                    [3mtrain_loss_epoch: 6483.046                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 24/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:30 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6339.715      [0m
+                                                                                    [3mtrain_geo_loss_step: 6337.390              [0m
+                                                                                    [3mtrain_loss_epoch: 6483.046                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 24/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:30 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6339.715      [0m
+                                                                                    [3mtrain_geo_loss_step: 6337.390              [0m
+                                                                                    [3mtrain_loss_epoch: 6483.046                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 24/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:30 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6339.715      [0m
+                                                                                    [3mtrain_geo_loss_step: 6337.390              [0m
+                                                                                    [3mtrain_loss_epoch: 6339.715                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 25/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:30 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6339.715      [0m
+                                                                                    [3mtrain_geo_loss_step: 6337.390              [0m
+                                                                                    [3mtrain_loss_epoch: 6339.715                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 25/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:30 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6339.715      [0m
+                                                                                    [3mtrain_geo_loss_step: 6337.390              [0m
+                                                                                    [3mtrain_loss_epoch: 6339.715                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 25 that is less than the current step 75. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 25/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:30 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6339.715      [0m
+                                                                                    [3mtrain_geo_loss_step: 6337.390              [0m
+                                                                                    [3mtrain_loss_epoch: 6339.715                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 25/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:36 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6201.192      [0m
+                                                                                    [3mtrain_geo_loss_step: 6199.170              [0m
+                                                                                    [3mtrain_loss_epoch: 6339.715                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 25/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:36 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6201.192      [0m
+                                                                                    [3mtrain_geo_loss_step: 6199.170              [0m
+                                                                                    [3mtrain_loss_epoch: 6339.715                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 25/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:36 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6201.192      [0m
+                                                                                    [3mtrain_geo_loss_step: 6199.170              [0m
+                                                                                    [3mtrain_loss_epoch: 6339.715                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 25/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:36 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6201.192      [0m
+                                                                                    [3mtrain_geo_loss_step: 6199.170              [0m
+                                                                                    [3mtrain_loss_epoch: 6201.192                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 26/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:36 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6201.192      [0m
+                                                                                    [3mtrain_geo_loss_step: 6199.170              [0m
+                                                                                    [3mtrain_loss_epoch: 6201.192                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 26/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:36 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6201.192      [0m
+                                                                                    [3mtrain_geo_loss_step: 6199.170              [0m
+                                                                                    [3mtrain_loss_epoch: 6201.192                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 26 that is less than the current step 78. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 26/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:36 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6201.192      [0m
+                                                                                    [3mtrain_geo_loss_step: 6199.170              [0m
+                                                                                    [3mtrain_loss_epoch: 6201.192                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 26/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6068.696      [0m
+                                                                                    [3mtrain_geo_loss_step: 6066.407              [0m
+                                                                                    [3mtrain_loss_epoch: 6201.192                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 26/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6068.696      [0m
+                                                                                    [3mtrain_geo_loss_step: 6066.407              [0m
+                                                                                    [3mtrain_loss_epoch: 6201.192                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 26/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6068.696      [0m
+                                                                                    [3mtrain_geo_loss_step: 6066.407              [0m
+                                                                                    [3mtrain_loss_epoch: 6201.192                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 26/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6068.696      [0m
+                                                                                    [3mtrain_geo_loss_step: 6066.407              [0m
+                                                                                    [3mtrain_loss_epoch: 6201.192                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 26/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6068.696      [0m
+                                                                                    [3mtrain_geo_loss_step: 6066.407              [0m
+                                                                                    [3mtrain_loss_epoch: 6068.696                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 27/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6068.696      [0m
+                                                                                    [3mtrain_geo_loss_step: 6066.407              [0m
+                                                                                    [3mtrain_loss_epoch: 6068.696                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 27/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6068.696      [0m
+                                                                                    [3mtrain_geo_loss_step: 6066.407              [0m
+                                                                                    [3mtrain_loss_epoch: 6068.696                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 27 that is less than the current step 81. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 27/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 6068.696      [0m
+                                                                                    [3mtrain_geo_loss_step: 6066.407              [0m
+                                                                                    [3mtrain_loss_epoch: 6068.696                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 27/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:34 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5941.105      [0m
+                                                                                    [3mtrain_geo_loss_step: 5938.048              [0m
+                                                                                    [3mtrain_loss_epoch: 6068.696                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 27/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:34 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5941.105      [0m
+                                                                                    [3mtrain_geo_loss_step: 5938.048              [0m
+                                                                                    [3mtrain_loss_epoch: 6068.696                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 27/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:34 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5941.105      [0m
+                                                                                    [3mtrain_geo_loss_step: 5938.048              [0m
+                                                                                    [3mtrain_loss_epoch: 6068.696                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 27/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:34 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5941.105      [0m
+                                                                                    [3mtrain_geo_loss_step: 5938.048              [0m
+                                                                                    [3mtrain_loss_epoch: 6068.696                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 27/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:34 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5941.105      [0m
+                                                                                    [3mtrain_geo_loss_step: 5938.048              [0m
+                                                                                    [3mtrain_loss_epoch: 5941.105                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 28/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:34 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5941.105      [0m
+                                                                                    [3mtrain_geo_loss_step: 5938.048              [0m
+                                                                                    [3mtrain_loss_epoch: 5941.105                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 28/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:34 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5941.105      [0m
+                                                                                    [3mtrain_geo_loss_step: 5938.048              [0m
+                                                                                    [3mtrain_loss_epoch: 5941.105                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 28 that is less than the current step 84. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 28/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:34 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5941.105      [0m
+                                                                                    [3mtrain_geo_loss_step: 5938.048              [0m
+                                                                                    [3mtrain_loss_epoch: 5941.105                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 28/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:36 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5819.135      [0m
+                                                                                    [3mtrain_geo_loss_step: 5815.090              [0m
+                                                                                    [3mtrain_loss_epoch: 5941.105                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 28/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:36 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5819.135      [0m
+                                                                                    [3mtrain_geo_loss_step: 5815.090              [0m
+                                                                                    [3mtrain_loss_epoch: 5941.105                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 28/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:36 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5819.135      [0m
+                                                                                    [3mtrain_geo_loss_step: 5815.090              [0m
+                                                                                    [3mtrain_loss_epoch: 5941.105                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 28/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:36 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5819.135      [0m
+                                                                                    [3mtrain_geo_loss_step: 5815.090              [0m
+                                                                                    [3mtrain_loss_epoch: 5819.135                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 29/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:36 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5819.135      [0m
+                                                                                    [3mtrain_geo_loss_step: 5815.090              [0m
+                                                                                    [3mtrain_loss_epoch: 5819.135                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 29/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:36 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5819.135      [0m
+                                                                                    [3mtrain_geo_loss_step: 5815.090              [0m
+                                                                                    [3mtrain_loss_epoch: 5819.135                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 29 that is less than the current step 87. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 29/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:36 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5819.135      [0m
+                                                                                    [3mtrain_geo_loss_step: 5815.090              [0m
+                                                                                    [3mtrain_loss_epoch: 5819.135                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 29/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5700.578      [0m
+                                                                                    [3mtrain_geo_loss_step: 5695.680              [0m
+                                                                                    [3mtrain_loss_epoch: 5819.135                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 29/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5700.578      [0m
+                                                                                    [3mtrain_geo_loss_step: 5695.680              [0m
+                                                                                    [3mtrain_loss_epoch: 5819.135                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 29/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5700.578      [0m
+                                                                                    [3mtrain_geo_loss_step: 5695.680              [0m
+                                                                                    [3mtrain_loss_epoch: 5819.135                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 29/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5700.578      [0m
+                                                                                    [3mtrain_geo_loss_step: 5695.680              [0m
+                                                                                    [3mtrain_loss_epoch: 5819.135                 [0m
+                                                                                    [3mtrain_geo_loss_epoch: 5815.090             [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 29/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5700.578      [0m
+                                                                                    [3mtrain_geo_loss_step: 5695.680              [0m
+                                                                                    [3mtrain_loss_epoch: 5819.135                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 29/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5700.578      [0m
+                                                                                    [3mtrain_geo_loss_step: 5695.680              [0m
+                                                                                    [3mtrain_loss_epoch: 5700.578                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 30/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5700.578      [0m
+                                                                                    [3mtrain_geo_loss_step: 5695.680              [0m
+                                                                                    [3mtrain_loss_epoch: 5700.578                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 30/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5700.578      [0m
+                                                                                    [3mtrain_geo_loss_step: 5695.680              [0m
+                                                                                    [3mtrain_loss_epoch: 5700.578                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 30 that is less than the current step 91. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 30/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5700.578      [0m
+                                                                                    [3mtrain_geo_loss_step: 5695.680              [0m
+                                                                                    [3mtrain_loss_epoch: 5700.578                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 30/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:32 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5584.276      [0m
+                                                                                    [3mtrain_geo_loss_step: 5578.818              [0m
+                                                                                    [3mtrain_loss_epoch: 5700.578                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 30/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:32 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5584.276      [0m
+                                                                                    [3mtrain_geo_loss_step: 5578.818              [0m
+                                                                                    [3mtrain_loss_epoch: 5700.578                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 30/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:32 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5584.276      [0m
+                                                                                    [3mtrain_geo_loss_step: 5578.818              [0m
+                                                                                    [3mtrain_loss_epoch: 5700.578                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 30/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:32 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5584.276      [0m
+                                                                                    [3mtrain_geo_loss_step: 5578.818              [0m
+                                                                                    [3mtrain_loss_epoch: 5700.578                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 30/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:32 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5584.276      [0m
+                                                                                    [3mtrain_geo_loss_step: 5578.818              [0m
+                                                                                    [3mtrain_loss_epoch: 5584.276                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 31/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:32 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5584.276      [0m
+                                                                                    [3mtrain_geo_loss_step: 5578.818              [0m
+                                                                                    [3mtrain_loss_epoch: 5584.276                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 31/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:32 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5584.276      [0m
+                                                                                    [3mtrain_geo_loss_step: 5578.818              [0m
+                                                                                    [3mtrain_loss_epoch: 5584.276                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 31 that is less than the current step 94. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 31/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:32 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5584.276      [0m
+                                                                                    [3mtrain_geo_loss_step: 5578.818              [0m
+                                                                                    [3mtrain_loss_epoch: 5584.276                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 31/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5471.194      [0m
+                                                                                    [3mtrain_geo_loss_step: 5465.578              [0m
+                                                                                    [3mtrain_loss_epoch: 5584.276                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 31/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5471.194      [0m
+                                                                                    [3mtrain_geo_loss_step: 5465.578              [0m
+                                                                                    [3mtrain_loss_epoch: 5584.276                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 31/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5471.194      [0m
+                                                                                    [3mtrain_geo_loss_step: 5465.578              [0m
+                                                                                    [3mtrain_loss_epoch: 5584.276                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 31/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5471.194      [0m
+                                                                                    [3mtrain_geo_loss_step: 5465.578              [0m
+                                                                                    [3mtrain_loss_epoch: 5584.276                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 31/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5471.194      [0m
+                                                                                    [3mtrain_geo_loss_step: 5465.578              [0m
+                                                                                    [3mtrain_loss_epoch: 5471.194                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 32/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5471.194      [0m
+                                                                                    [3mtrain_geo_loss_step: 5465.578              [0m
+                                                                                    [3mtrain_loss_epoch: 5471.194                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 32/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5471.194      [0m
+                                                                                    [3mtrain_geo_loss_step: 5465.578              [0m
+                                                                                    [3mtrain_loss_epoch: 5471.194                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 32 that is less than the current step 97. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 32/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5471.194      [0m
+                                                                                    [3mtrain_geo_loss_step: 5465.578              [0m
+                                                                                    [3mtrain_loss_epoch: 5471.194                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 32/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:31 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5359.434      [0m
+                                                                                    [3mtrain_geo_loss_step: 5354.004              [0m
+                                                                                    [3mtrain_loss_epoch: 5471.194                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 32/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:31 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5359.434      [0m
+                                                                                    [3mtrain_geo_loss_step: 5354.004              [0m
+                                                                                    [3mtrain_loss_epoch: 5471.194                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 32/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:31 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5359.434      [0m
+                                                                                    [3mtrain_geo_loss_step: 5354.004              [0m
+                                                                                    [3mtrain_loss_epoch: 5471.194                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 32/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:31 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5359.434      [0m
+                                                                                    [3mtrain_geo_loss_step: 5354.004              [0m
+                                                                                    [3mtrain_loss_epoch: 5471.194                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 32/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:31 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5359.434      [0m
+                                                                                    [3mtrain_geo_loss_step: 5354.004              [0m
+                                                                                    [3mtrain_loss_epoch: 5359.434                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 33/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:31 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5359.434      [0m
+                                                                                    [3mtrain_geo_loss_step: 5354.004              [0m
+                                                                                    [3mtrain_loss_epoch: 5359.434                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 33/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:31 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5359.434      [0m
+                                                                                    [3mtrain_geo_loss_step: 5354.004              [0m
+                                                                                    [3mtrain_loss_epoch: 5359.434                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 33 that is less than the current step 100. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 33/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:31 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5359.434      [0m
+                                                                                    [3mtrain_geo_loss_step: 5354.004              [0m
+                                                                                    [3mtrain_loss_epoch: 5359.434                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 33/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:32 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5249.821      [0m
+                                                                                    [3mtrain_geo_loss_step: 5244.842              [0m
+                                                                                    [3mtrain_loss_epoch: 5359.434                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 33/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:32 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5249.821      [0m
+                                                                                    [3mtrain_geo_loss_step: 5244.842              [0m
+                                                                                    [3mtrain_loss_epoch: 5359.434                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 33/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:32 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5249.821      [0m
+                                                                                    [3mtrain_geo_loss_step: 5244.842              [0m
+                                                                                    [3mtrain_loss_epoch: 5359.434                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 33/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:32 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5249.821      [0m
+                                                                                    [3mtrain_geo_loss_step: 5244.842              [0m
+                                                                                    [3mtrain_loss_epoch: 5359.434                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 33/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:32 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5249.821      [0m
+                                                                                    [3mtrain_geo_loss_step: 5244.842              [0m
+                                                                                    [3mtrain_loss_epoch: 5249.821                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 34/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:32 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5249.821      [0m
+                                                                                    [3mtrain_geo_loss_step: 5244.842              [0m
+                                                                                    [3mtrain_loss_epoch: 5249.821                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 34/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:32 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5249.821      [0m
+                                                                                    [3mtrain_geo_loss_step: 5244.842              [0m
+                                                                                    [3mtrain_loss_epoch: 5249.821                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 34 that is less than the current step 103. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 34/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:32 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5249.821      [0m
+                                                                                    [3mtrain_geo_loss_step: 5244.842              [0m
+                                                                                    [3mtrain_loss_epoch: 5249.821                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 34/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:34 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5249.821      [0m
+                                                                                    [3mtrain_geo_loss_step: 5244.842              [0m
+                                                                                    [3mtrain_loss_epoch: 5249.821                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 34/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:34 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5140.859      [0m
+                                                                                    [3mtrain_geo_loss_step: 5136.508              [0m
+                                                                                    [3mtrain_loss_epoch: 5249.821                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 34/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:34 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5140.859      [0m
+                                                                                    [3mtrain_geo_loss_step: 5136.508              [0m
+                                                                                    [3mtrain_loss_epoch: 5249.821                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 34/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:34 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5140.859      [0m
+                                                                                    [3mtrain_geo_loss_step: 5136.508              [0m
+                                                                                    [3mtrain_loss_epoch: 5249.821                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 34/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:34 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5140.859      [0m
+                                                                                    [3mtrain_geo_loss_step: 5136.508              [0m
+                                                                                    [3mtrain_loss_epoch: 5140.859                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 35/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:34 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5140.859      [0m
+                                                                                    [3mtrain_geo_loss_step: 5136.508              [0m
+                                                                                    [3mtrain_loss_epoch: 5140.859                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 35/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:34 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5140.859      [0m
+                                                                                    [3mtrain_geo_loss_step: 5136.508              [0m
+                                                                                    [3mtrain_loss_epoch: 5140.859                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 35 that is less than the current step 106. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 35/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:34 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5140.859      [0m
+                                                                                    [3mtrain_geo_loss_step: 5136.508              [0m
+                                                                                    [3mtrain_loss_epoch: 5140.859                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 35/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5033.886      [0m
+                                                                                    [3mtrain_geo_loss_step: 5030.233              [0m
+                                                                                    [3mtrain_loss_epoch: 5140.859                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 35/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5033.886      [0m
+                                                                                    [3mtrain_geo_loss_step: 5030.233              [0m
+                                                                                    [3mtrain_loss_epoch: 5140.859                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 35/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5033.886      [0m
+                                                                                    [3mtrain_geo_loss_step: 5030.233              [0m
+                                                                                    [3mtrain_loss_epoch: 5140.859                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 35/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5033.886      [0m
+                                                                                    [3mtrain_geo_loss_step: 5030.233              [0m
+                                                                                    [3mtrain_loss_epoch: 5033.886                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 36/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5033.886      [0m
+                                                                                    [3mtrain_geo_loss_step: 5030.233              [0m
+                                                                                    [3mtrain_loss_epoch: 5033.886                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 36/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5033.886      [0m
+                                                                                    [3mtrain_geo_loss_step: 5030.233              [0m
+                                                                                    [3mtrain_loss_epoch: 5033.886                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 36 that is less than the current step 109. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 36/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:33 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 5033.886      [0m
+                                                                                    [3mtrain_geo_loss_step: 5030.233              [0m
+                                                                                    [3mtrain_loss_epoch: 5033.886                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 36/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4927.915      [0m
+                                                                                    [3mtrain_geo_loss_step: 4924.911              [0m
+                                                                                    [3mtrain_loss_epoch: 5033.886                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 36/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4927.915      [0m
+                                                                                    [3mtrain_geo_loss_step: 4924.911              [0m
+                                                                                    [3mtrain_loss_epoch: 5033.886                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 36/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4927.915      [0m
+                                                                                    [3mtrain_geo_loss_step: 4924.911              [0m
+                                                                                    [3mtrain_loss_epoch: 5033.886                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 36/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4927.915      [0m
+                                                                                    [3mtrain_geo_loss_step: 4924.911              [0m
+                                                                                    [3mtrain_loss_epoch: 5033.886                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 36/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4927.915      [0m
+                                                                                    [3mtrain_geo_loss_step: 4924.911              [0m
+                                                                                    [3mtrain_loss_epoch: 4927.915                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 37/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4927.915      [0m
+                                                                                    [3mtrain_geo_loss_step: 4924.911              [0m
+                                                                                    [3mtrain_loss_epoch: 4927.915                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 37/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4927.915      [0m
+                                                                                    [3mtrain_geo_loss_step: 4924.911              [0m
+                                                                                    [3mtrain_loss_epoch: 4927.915                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 37 that is less than the current step 112. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 37/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4927.915      [0m
+                                                                                    [3mtrain_geo_loss_step: 4924.911              [0m
+                                                                                    [3mtrain_loss_epoch: 4927.915                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 37/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4823.067      [0m
+                                                                                    [3mtrain_geo_loss_step: 4820.576              [0m
+                                                                                    [3mtrain_loss_epoch: 4927.915                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 37/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4823.067      [0m
+                                                                                    [3mtrain_geo_loss_step: 4820.576              [0m
+                                                                                    [3mtrain_loss_epoch: 4927.915                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 37/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4823.067      [0m
+                                                                                    [3mtrain_geo_loss_step: 4820.576              [0m
+                                                                                    [3mtrain_loss_epoch: 4927.915                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 37/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4823.067      [0m
+                                                                                    [3mtrain_geo_loss_step: 4820.576              [0m
+                                                                                    [3mtrain_loss_epoch: 4927.915                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 37/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4823.067      [0m
+                                                                                    [3mtrain_geo_loss_step: 4820.576              [0m
+                                                                                    [3mtrain_loss_epoch: 4823.067                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 38/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4823.067      [0m
+                                                                                    [3mtrain_geo_loss_step: 4820.576              [0m
+                                                                                    [3mtrain_loss_epoch: 4823.067                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 38/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4823.067      [0m
+                                                                                    [3mtrain_geo_loss_step: 4820.576              [0m
+                                                                                    [3mtrain_loss_epoch: 4823.067                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 38 that is less than the current step 115. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 38/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4823.067      [0m
+                                                                                    [3mtrain_geo_loss_step: 4820.576              [0m
+                                                                                    [3mtrain_loss_epoch: 4823.067                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 38/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4719.278      [0m
+                                                                                    [3mtrain_geo_loss_step: 4717.100              [0m
+                                                                                    [3mtrain_loss_epoch: 4823.067                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 38/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4719.278      [0m
+                                                                                    [3mtrain_geo_loss_step: 4717.100              [0m
+                                                                                    [3mtrain_loss_epoch: 4823.067                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 38/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4719.278      [0m
+                                                                                    [3mtrain_geo_loss_step: 4717.100              [0m
+                                                                                    [3mtrain_loss_epoch: 4823.067                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 38/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4719.278      [0m
+                                                                                    [3mtrain_geo_loss_step: 4717.100              [0m
+                                                                                    [3mtrain_loss_epoch: 4823.067                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 38/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4719.278      [0m
+                                                                                    [3mtrain_geo_loss_step: 4717.100              [0m
+                                                                                    [3mtrain_loss_epoch: 4719.278                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 39/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4719.278      [0m
+                                                                                    [3mtrain_geo_loss_step: 4717.100              [0m
+                                                                                    [3mtrain_loss_epoch: 4719.278                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 39/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4719.278      [0m
+                                                                                    [3mtrain_geo_loss_step: 4717.100              [0m
+                                                                                    [3mtrain_loss_epoch: 4719.278                 [0m
+[2K[1A[2K[1A[2K[1A[2Kwandb: WARNING Tried to log to step 39 that is less than the current step 118. Steps must be monotonically increasing, so this
+data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 39/39 [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 0/1 [2m0:00:29 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4719.278      [0m
+                                                                                    [3mtrain_geo_loss_step: 4717.100              [0m
+                                                                                    [3mtrain_loss_epoch: 4719.278                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 39/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:30 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4616.778      [0m
+                                                                                    [3mtrain_geo_loss_step: 4614.685              [0m
+                                                                                    [3mtrain_loss_epoch: 4719.278                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 39/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:30 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4616.778      [0m
+                                                                                    [3mtrain_geo_loss_step: 4614.685              [0m
+                                                                                    [3mtrain_loss_epoch: 4719.278                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 39/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:30 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4616.778      [0m
+                                                                                    [3mtrain_geo_loss_step: 4614.685              [0m
+                                                                                    [3mtrain_loss_epoch: 4719.278                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 39/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:30 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4616.778      [0m
+                                                                                    [3mtrain_geo_loss_step: 4614.685              [0m
+                                                                                    [3mtrain_loss_epoch: 4719.278                 [0m
+                                                                                    [3mtrain_geo_loss_epoch: 4717.100             [0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2KEpoch 39/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:30 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4616.778      [0m
+                                                                                    [3mtrain_geo_loss_step: 4614.685              [0m
+                                                                                    [3mtrain_loss_epoch: 4719.278                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 39/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:30 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4616.778      [0m
+                                                                                    [3mtrain_geo_loss_step: 4614.685              [0m
+                                                                                    [3mtrain_loss_epoch: 4616.778                 [0m
+[2K[1A[2K[1A[2K[1A[2KEpoch 39/39 [38;2;98;6;224m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1/1 [2m0:00:30 • 0:00:00[0m [2;4m0.00it/s[0m [3mv_num: sbex train_loss_step: 4616.778      [0m
+`Trainer.fit` stopped: `max_epochs=40` reached.
+                                                                                    [3mtrain_geo_loss_step: 4614.685              [0m
+                                                                                    [3mtrain_loss_epoch: 4616.778                 [0m
+                                                                                    [3mtrain_geo_loss_epoch: 4614.685             [0m
+[?25hOverfit successful (val_geo_loss 4512 < 10000.0)
+Best checkpoint saved to /Users/simar/Documents/UCR Research/MastersThesis/checkpoints/overfit_best_overfit-quick-v2.ckpt

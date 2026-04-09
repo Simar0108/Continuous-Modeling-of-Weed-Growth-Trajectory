@@ -1,0 +1,3 @@
+[submodule "MFWD"]
+	path = MFWD
+	url = https://github.com/grimmlab/MFWD
