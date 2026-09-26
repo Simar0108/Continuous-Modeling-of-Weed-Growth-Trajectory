@@ -9,9 +9,9 @@ out of the 3-seed mean).
 - `.git` had objects/refs dirs but no `HEAD` or `config` (not a repo).
 - `git init -b main` in `/rhome/ssing226/MastersThesis`.
 - `.gitignore` excludes wandb, checkpoints, parquet, slurm logs.
-- Remote: not recovered from disk (`gh` missing; no URL in leftover
-  `.git`). Named repo: Continuous-Modeling-of-Weed…. Add `origin` when
-  the URL is known.
+- Remote: `origin` =
+  `https://github.com/Simar0108/Continuous-Modeling-of-Weed-Growth-Trajectory.git`
+  (not pushed). First commit `87a8ee3`.
 
 ## Clean ODE seeds (2A)
 
@@ -22,11 +22,23 @@ no track embed, curriculum 0.3@[100,250], 400 epochs). Writes
 
 | Seed | Job | Notes |
 |---|---|---|
-| 0 | pending | |
-| 1 | pending | |
-| 2 | pending | |
+| 0 | 29114600 | full horizon |
+| 1 | 29114601 | full horizon |
+| 2 | 29114602 | full horizon |
 
-Do not overwrite `checkpoints/h1_final_best/`.
+Lock SHA256 still
+`2498d033ea02e2df1e312a58179226b649a9d3d5c7143b2d040fc9341ef86222`.
+
+## Extrapolation jobs (D-012)
+
+| Job | Name |
+|---|---|
+| 29114603–605 | ODE prefix 60% seeds 0–2 |
+| 29114606–608 | LSTM extrap s0–2 |
+| 29114609–611 | GRU extrap s0–2 |
+| 29114612–614 | Transformer extrap s0–2 |
+
+Drop-protocol eval waits on 29114600–602.
 
 ## Later (after seeds)
 

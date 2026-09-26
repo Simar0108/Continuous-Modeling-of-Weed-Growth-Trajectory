@@ -70,7 +70,8 @@ set.
 three clean baseline seeds. Seed-matched ODE variance is required before
 any H1 generalization sentence.
 
-**Outcomes.** Pending `h1_seed{0,1,2}` jobs.
+**Outcomes.** Jobs submitted: `h1_seed0=29114600`, `h1_seed1=29114601`,
+`h1_seed2=29114602`. Lock checksum unchanged.
 
 ---
 
@@ -96,4 +97,5 @@ val-monitor) timeline (`--train-time-frac 0.6`) and scores the last 40%
 of val/test. Twelve jobs: ODE × 3 seeds + LSTM/GRU/Transformer × 3.
 Wilcoxon on per-track tail size MSE. This is not the lock table.
 
-**Outcomes.** Pending jobs.
+**Outcomes.** Jobs submitted: ODE 29114603–605; LSTM 29114606–608;
+GRU 29114609–611; Transformer 29114612–614.
