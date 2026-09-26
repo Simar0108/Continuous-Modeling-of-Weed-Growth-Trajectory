@@ -1,0 +1,27 @@
+{
+  "n_tracks": 100,
+  "rgr_verdict_sigma_w": {
+    "increasing": 1,
+    "constant": 78,
+    "decreasing": 21,
+    "unknown": 0
+  },
+  "rgr_verdict_sigma_h": {
+    "increasing": 1,
+    "constant": 70,
+    "decreasing": 29,
+    "unknown": 0
+  },
+  "majority_rgr_sigma_w": "constant",
+  "t_peak_sigma_w_min_h": 248.0,
+  "t_peak_sigma_w_max_h": 1844.8305555555555,
+  "t_peak_sigma_w_spread_h": 1596.8305555555555,
+  "t_peak_spread_gt_200h": true,
+  "richards_n_ok_sigma_w": 100,
+  "richards_r_mean": 0.005301016783911697,
+  "richards_K_mean": 623.9119048101996,
+  "richards_nu_mean": 2.2933969094726496,
+  "richards_t_inf_mean_h": 1079.5847626426792,
+  "richards_mse_mean": 141.11315366761485,
+  "richards_mse_median": 104.7151039163355
+}

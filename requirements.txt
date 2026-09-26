@@ -1,0 +1,27 @@
+# ── PyTorch (CUDA 12.4) ────────────────────────────────────────────────────────
+# Install with the CUDA-specific index URL (do NOT plain pip install torch):
+#   pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+torch>=2.3.0
+torchvision>=0.18.0
+torchaudio>=2.3.0
+
+# ── Neural ODE solver ──────────────────────────────────────────────────────────
+torchdiffeq>=0.2.3
+
+# ── Training framework ─────────────────────────────────────────────────────────
+lightning>=2.2.0
+
+# ── Experiment tracking ────────────────────────────────────────────────────────
+wandb>=0.17.0
+
+# ── Data / numerics ────────────────────────────────────────────────────────────
+numpy>=1.26.0,<2.0          # <2.0 for torchdiffeq/lightning compat
+pandas>=2.2.0
+pyarrow>=15.0.0             # parquet read/write backend for pandas
+scipy>=1.13.0
+
+# ── Plotting (savefig only — no plt.show()) ────────────────────────────────────
+matplotlib>=3.9.0
+
+# ── Utilities ──────────────────────────────────────────────────────────────────
+tqdm>=4.66.0
