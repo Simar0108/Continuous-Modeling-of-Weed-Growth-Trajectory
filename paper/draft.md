@@ -65,7 +65,11 @@ via `dopri5`. Neither family fills missing camera frames.
 - **Drop protocol.** Eval-only. Randomly drop 20/40/60% of frames after
   the first observation (three drop seeds), keep $\ge K$ frames, encode
   the first $K$ retained frames, score size MSE on dropped future
-  frames. Future ground truth is never placed in the query.
+  frames. Future ground truth is never placed in the query. The ODE
+  integrates on the remaining observed times. LSTM/GRU see only the
+  kept frames as $[\sigma_w,\sigma_h,Z,\Delta t_{\mathrm{norm}}]$;
+  the Transformer also gets $t_{\mathrm{norm}}$. No family imputes
+  dropped camera frames onto a regular grid.
 - **Extrapolation.** Retrain on the first 60% of each train/val
   timeline; score size MSE on the last 40% of val/test.
 
@@ -77,10 +81,16 @@ This fit sees the whole track (in-sample curve fit, not a forecast).
 
 ### Evaluation
 
-`eval/evaluateh1.py`. Metric: full-horizon per-track mean squared error on
-$(\sigma_w,\sigma_h)$. Wilcoxon signed-rank, alternative “less” (ODE better),
-$n=15$ val and $n=15$ test, paired by `track_id`. Effect sizes: mean paired
-difference, rank-biserial $r=1-2W/(n(n+1))$, paired Cohen’s $d$.
+`eval/evaluateh1.py`. Headline metric: full-horizon per-track mean squared
+error on $(\sigma_w,\sigma_h)$, reported as mean **and** median (errors are
+heavy-tailed; e.g. track 6883). Val/test are **short-track transfer**
+(test tracks have 53–65 frames). A matched-rollout sensitivity also
+scores the ODE on frames after index $K-1$ only. Wilcoxon signed-rank,
+alternative “less” (ODE better), $n=15$ val and $n=15$ test, paired by
+`track_id`, using the 3-seed-mean ODE per track. Effect sizes: mean
+paired difference, rank-biserial $r=1-2W/(n(n+1))$, paired Cohen’s $d$.
+The leaked `h1_final_best` row is shown only as a contamination
+reference and is excluded from the 3-seed mean.
 
 ## Experiments
 

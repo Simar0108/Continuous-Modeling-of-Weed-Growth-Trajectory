@@ -56,7 +56,9 @@ def _t_vec(batch: dict) -> torch.Tensor:
     return t_abs[0] if t_abs.dim() > 1 else t_abs
 
 
-def _per_track_size_mse_ode(module, dataset, device: torch.device) -> list[dict]:
+def _per_track_size_mse_ode(
+    module, dataset, device: torch.device, *, post_context: bool = False, k: int = 3,
+) -> list[dict]:
     module.eval()
     rows = []
     with torch.no_grad():
@@ -78,6 +80,8 @@ def _per_track_size_mse_ode(module, dataset, device: torch.device) -> list[dict]
             else:
                 pred_b = pred
             err = (pred_b[:, 2:4] - states[:, 2:4]).pow(2)
+            if post_context and states.shape[0] > k:
+                err = err[k:]
             mse = float(err.mean().item())
             rows.append({"track_id": tid, "n_frames": int(states.shape[0]), "size_mse": mse})
     return rows
@@ -139,10 +143,12 @@ def _per_track_nls(parquet: Path, transformer, track_ids: list[int]) -> list[dic
 
 def _summarize(rows: list[dict]) -> dict:
     xs = np.array([r["size_mse"] for r in rows], dtype=float)
+    xs = xs[np.isfinite(xs)]
     return {
         "n": int(xs.size),
         "mean": float(np.mean(xs)) if xs.size else float("nan"),
         "std": float(np.std(xs, ddof=1)) if xs.size > 1 else 0.0,
+        "median": float(np.median(xs)) if xs.size else float("nan"),
         "max": float(np.max(xs)) if xs.size else float("nan"),
     }
 
@@ -311,6 +317,31 @@ def _plot_curves(
     plt.close(fig)
 
 
+def _average_tracks(row_lists: list[list[dict]]) -> list[dict]:
+    by_id: dict[int, list[dict]] = {}
+    for rows in row_lists:
+        for r in rows:
+            by_id.setdefault(int(r["track_id"]), []).append(r)
+    out = []
+    for tid, rs in sorted(by_id.items()):
+        out.append({
+            "track_id": tid,
+            "n_frames": int(rs[0]["n_frames"]),
+            "size_mse": float(np.mean([x["size_mse"] for x in rs])),
+        })
+    return out
+
+
+def _write_csv(path: Path, rows: list[dict]) -> None:
+    if not rows:
+        path.write_text("")
+        return
+    with path.open("w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=list(rows[0].keys()), extrasaction="ignore")
+        w.writeheader()
+        w.writerows(rows)
+
+
 def main() -> None:
     p = argparse.ArgumentParser()
     p.add_argument("--device", default="auto")
@@ -324,30 +355,54 @@ def main() -> None:
         parquet, max_tracks=100, species="Maize",
         min_observations=15, val_frac=0.15, test_frac=0.15,
     )
+    overlap = set(train_ids) & set(test_ids)
+    if overlap:
+        raise SystemExit(f"REFUSE: train/test overlap {sorted(overlap)}")
     transformer, train_ds, val_ds, test_ds = build_baseline_datasets(
         parquet, sigma_mode="z_score", max_tracks=100, species="Maize",
         val_frac=0.15, test_frac=0.15,
     )
     splits = {"train": (train_ids, train_ds), "val": (val_ids, val_ds), "test": (test_ids, test_ds)}
+    print(f"[evaluateh1] split train={len(train_ids)} val={len(val_ids)} test={len(test_ids)}")
+    print(f"[evaluateh1] test n_frames={[int(s['states_5d'].shape[0]) for s in test_ds]}")
 
     models: dict[str, dict] = {}
-    ode_lock = _load_ode(H1_CKPT, device)
-    ode_rows = {}
-    for split, (ids, ds) in splits.items():
-        ode_rows[split] = _per_track_size_mse_ode(ode_lock, ds, device)
-        models.setdefault("ode_lock", {})[split] = ode_rows[split]
+    ode_full: dict[str, dict] = {}
+    ode_post: dict[str, dict] = {}
+
+    leaked = _load_ode(H1_CKPT, device)
+    for split, (_ids, ds) in splits.items():
+        ode_full.setdefault("ode_leaked", {})[split] = _per_track_size_mse_ode(leaked, ds, device)
+        ode_post.setdefault("ode_leaked", {})[split] = _per_track_size_mse_ode(
+            leaked, ds, device, post_context=True,
+        )
+        models.setdefault("ode_leaked", {})[split] = ode_full["ode_leaked"][split]
 
     ode_seed_ckpts = _discover_ode_seeds(args.ckpt_dir)
     print(f"[evaluateh1] discovered {len(ode_seed_ckpts)} clean ODE seeds")
+    if len(ode_seed_ckpts) < 3:
+        raise SystemExit(f"REFUSE: need 3 clean ODE seeds, found {len(ode_seed_ckpts)}")
+    first_clean = None
     for key, path in ode_seed_ckpts:
         try:
             ode_mod = _load_ode(path, device)
         except Exception as exc:
             print(f"[evaluateh1] skip {path}: {exc}")
             continue
+        if first_clean is None:
+            first_clean = ode_mod
         for split, (_ids, ds) in splits.items():
-            models.setdefault(key, {})[split] = _per_track_size_mse_ode(ode_mod, ds, device)
-    ode = ode_lock
+            full = _per_track_size_mse_ode(ode_mod, ds, device)
+            post = _per_track_size_mse_ode(ode_mod, ds, device, post_context=True)
+            models.setdefault(key, {})[split] = full
+            ode_full.setdefault(key, {})[split] = full
+            ode_post.setdefault(key, {})[split] = post
+
+    seed_keys = [m for m in models if m.startswith("ode_s")]
+    for split in splits:
+        models.setdefault("ode_clean", {})[split] = _average_tracks(
+            [models[k][split] for k in seed_keys if split in models[k]]
+        )
 
     nls_rows = {}
     for split, (ids, _ds) in splits.items():
@@ -366,84 +421,127 @@ def main() -> None:
             continue
         for split, (_ids, ds) in splits.items():
             models.setdefault(key, {})[split] = _per_track_size_mse_baseline(bl, ds, device)
+    for family in ("lstm", "gru", "transformer"):
+        fam_keys = [m for m in models if m.startswith(f"{family}_s")]
+        if not fam_keys:
+            continue
+        for split in splits:
+            models.setdefault(f"{family}_clean", {})[split] = _average_tracks(
+                [models[k][split] for k in fam_keys if split in models[k]]
+            )
 
-    # Table 1
     table1 = []
     long_rows = []
     for model, by_split in models.items():
+        seed = "clean" if model.endswith("_clean") else (
+            "leaked" if model == "ode_leaked" else (model.split("_s")[-1] if "_s" in model else "nls")
+        )
         for split, rows in by_split.items():
             sm = _summarize(rows)
-            table1.append({"model": model, "split": split, "seed": model.split("_s")[-1] if "_s" in model else "lock", **sm})
+            table1.append({"model": model, "split": split, "seed": seed, **sm})
             for r in rows:
                 long_rows.append({"model": model, "split": split, **r})
+    # Across-seed mean±std of seed-level split means (ode_clean extra row kind)
+    for split in ("val", "test", "train"):
+        seed_stats = [_summarize(models[k][split]) for k in seed_keys if split in models[k]]
+        if not seed_stats:
+            continue
+        means = [s["mean"] for s in seed_stats]
+        medians = [s["median"] for s in seed_stats]
+        table1.append({
+            "model": "ode_clean_seedmean", "split": split, "seed": "0-2",
+            "n": len(means),
+            "mean": float(np.mean(means)),
+            "std": float(np.std(means, ddof=1)) if len(means) > 1 else 0.0,
+            "median": float(np.mean(medians)),
+            "max": float("nan"),
+        })
 
-    t1_path = OUT_DIR / "table1_model_split.csv"
-    with t1_path.open("w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=list(table1[0].keys()))
-        w.writeheader()
-        w.writerows(table1)
-    long_path = OUT_DIR / "per_track_size_mse.csv"
-    long_fields = ["model", "split", "track_id", "n_frames", "size_mse", "nls_ok"]
-    with long_path.open("w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=long_fields, extrasaction="ignore")
-        w.writeheader()
-        w.writerows(long_rows)
+    t1_path = OUT_DIR / "table1_v2.csv"
+    _write_csv(t1_path, table1)
+    _write_csv(OUT_DIR / "table1_model_split.csv", table1)
+    _write_csv(OUT_DIR / "per_track_size_mse.csv", long_rows)
 
-    # Table 2: each ODE seed (and lock) vs each other model on val and test
+    # Table 2 v2: 3-seed-mean-per-track vs each baseline seed + families + NLS
     table2 = []
-    ode_keys = [m for m in models if m.startswith("ode")]
     others = [m for m in models if not m.startswith("ode")]
-    for ode_key in ode_keys:
+    for other in others:
+        for split in ("val", "test"):
+            if "ode_clean" not in models or split not in models["ode_clean"] or split not in models[other]:
+                continue
+            block = _wilcoxon_block(models["ode_clean"][split], models[other][split], split, other)
+            block["ode"] = "ode_clean"
+            table2.append(block)
+    t2_path = OUT_DIR / "table2_v2.csv"
+    _write_csv(t2_path, table2)
+
+    table2_per_seed = []
+    for ode_key in seed_keys + (["ode_leaked"] if "ode_leaked" in models else []):
         for other in others:
             for split in ("val", "test"):
                 if split not in models[ode_key] or split not in models[other]:
                     continue
                 block = _wilcoxon_block(models[ode_key][split], models[other][split], split, other)
                 block["ode"] = ode_key
-                table2.append(block)
-    t2_path = OUT_DIR / "table2_wilcoxon.csv"
-    if table2:
-        with t2_path.open("w", newline="") as f:
-            w = csv.DictWriter(f, fieldnames=list(table2[0].keys()))
-            w.writeheader()
-            w.writerows(table2)
+                table2_per_seed.append(block)
+    _write_csv(OUT_DIR / "table2_per_seed.csv", table2_per_seed)
+    _write_csv(OUT_DIR / "table2_wilcoxon.csv", table2)
 
-    # Headline: 3-seed ODE mean (lock excluded) vs stochastic baselines
-    stochastic = [m for m in others if not m.startswith("nls")]
-    seed_keys = [m for m in ode_keys if m.startswith("ode_s")]
+    # Matched-rollout: full minus post-context (negative => context frames easier)
+    matched = []
+    for key, by_split in ode_full.items():
+        for split, full_rows in by_split.items():
+            post_rows = ode_post[key][split]
+            full_m = {r["track_id"]: r["size_mse"] for r in full_rows}
+            post_m = {r["track_id"]: r["size_mse"] for r in post_rows}
+            deltas = [{"track_id": tid, "size_mse": full_m[tid] - post_m[tid]} for tid in full_m if tid in post_m]
+            sm = _summarize(deltas)
+            fsm = _summarize(full_rows)
+            psm = _summarize(post_rows)
+            matched.append({
+                "model": key, "split": split,
+                "full_mean": fsm["mean"], "full_median": fsm["median"],
+                "post_context_mean": psm["mean"], "post_context_median": psm["median"],
+                "delta_full_minus_post_mean": sm["mean"],
+                "delta_full_minus_post_median": sm["median"],
+                "n": sm["n"],
+            })
+    _write_csv(OUT_DIR / "matched_rollout.csv", matched)
+
+    stochastic = [m for m in others if not m.startswith("nls") and not m.endswith("_clean")]
     seed_means = {}
     for split in ("val", "test"):
-        vals = []
-        for key in seed_keys:
-            if split in models[key]:
-                vals.append(_summarize(models[key][split])["mean"])
+        vals = [_summarize(models[k][split])["mean"] for k in seed_keys if split in models[k]]
         seed_means[split] = {
             "n_seeds": len(vals),
             "mean": float(np.mean(vals)) if vals else float("nan"),
             "std": float(np.std(vals, ddof=1)) if len(vals) > 1 else 0.0,
+            "median": float(np.median(vals)) if vals else float("nan"),
         }
+    leaked_means = {
+        split: _summarize(models["ode_leaked"][split])
+        for split in ("val", "test") if "ode_leaked" in models and split in models["ode_leaked"]
+    }
     headline = {
         "beats_every_baseline": True,
         "notes": [],
-        "ode_lock_excluded_from_mean": True,
+        "ode_leaked_excluded_from_mean": True,
         "ode_3seed": seed_means,
+        "ode_leaked": leaked_means,
+        "contamination_val": leaked_means.get("val", {}).get("mean", float("nan")) - seed_means.get("val", {}).get("mean", float("nan")),
+        "contamination_test": leaked_means.get("test", {}).get("mean", float("nan")) - seed_means.get("test", {}).get("mean", float("nan")),
+        "matched_rollout": matched,
     }
-    for ode_key in seed_keys or ["ode_lock"]:
-        for other in stochastic:
-            for split in ("val", "test"):
-                block = next(
-                    (b for b in table2 if b.get("ode") == ode_key and b["vs"] == other and b["split"] == split),
-                    None,
-                )
-                if block is None or not (block.get("p", 1) < 0.05 and block.get("mean_diff_ode_minus_other", 1) < 0):
-                    headline["beats_every_baseline"] = False
-                    headline["notes"].append(f"fail {ode_key} vs {other} {split}")
+    for other in stochastic:
+        for split in ("val", "test"):
+            block = next((b for b in table2 if b.get("ode") == "ode_clean" and b["vs"] == other and b["split"] == split), None)
+            if block is None or not (block.get("p", 1) < 0.05 and block.get("mean_diff_ode_minus_other", 1) < 0):
+                headline["beats_every_baseline"] = False
+                headline["notes"].append(f"fail ode_clean vs {other} {split}")
     (OUT_DIR / "headline.json").write_text(json.dumps({"h1_sha256": H1_SHA256, **headline, "table2": table2}, indent=2, default=str))
 
-    # Figures
     _plot_sampling(parquet, test_ids[:3], OUT_DIR / "irregular_sampling.png")
-    # pick 4 test tracks by ODE mse quartiles
-    tes = sorted(ode_rows["test"], key=lambda r: r["size_mse"])
+    tes = sorted(models["ode_clean"]["test"], key=lambda r: r["size_mse"])
     pick = [tes[0]["track_id"], tes[len(tes) // 3]["track_id"], tes[2 * len(tes) // 3]["track_id"], tes[-1]["track_id"]]
     best_bl_name, best_bl = None, None
     best_mean = float("inf")
@@ -460,11 +558,12 @@ def main() -> None:
                 except Exception:
                     best_bl = None
     _plot_curves(
-        parquet, transformer, ode, best_bl, best_bl_name or "baseline",
+        parquet, transformer, first_clean or leaked, best_bl, best_bl_name or "baseline",
         test_ds, pick, device, OUT_DIR / "growth_curves.png",
     )
-    print(f"[evaluateh1] table1 → {t1_path}")
-    print(f"[evaluateh1] table2 → {t2_path}")
+    print(f"[evaluateh1] table1_v2 → {t1_path}")
+    print(f"[evaluateh1] table2_v2 → {t2_path}")
+    print(f"[evaluateh1] matched_rollout → {OUT_DIR / 'matched_rollout.csv'}")
     print(f"[evaluateh1] headline beats_every_baseline={headline['beats_every_baseline']}")
     print(json.dumps(table1, indent=2))
 

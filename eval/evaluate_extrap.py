@@ -23,6 +23,10 @@ from ode._pyc_bootstrap import bootstrap
 
 bootstrap()
 
+import matplotlib
+
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
 import numpy as np
 import torch
 from scipy.stats import wilcoxon
@@ -119,10 +123,15 @@ def _wilcoxon(a_rows, b_rows):
     xa = np.array([a[i] for i in ids])
     xb = np.array([b[i] for i in ids])
     stat, p = wilcoxon(xa, xb, alternative="less")
+    denom = len(ids) * (len(ids) + 1)
+    r_rb = float(1.0 - 2.0 * stat / denom) if denom else float("nan")
+    sd = float(np.std(xa - xb, ddof=1))
+    d = float(np.mean(xa - xb) / sd) if sd > 1e-12 else 0.0
     return {
         "n": len(ids), "p": float(p), "stat": float(stat),
         "ode_mean": float(xa.mean()), "other_mean": float(xb.mean()),
         "mean_diff": float((xa - xb).mean()),
+        "rank_biserial": r_rb, "paired_cohens_d": d,
     }
 
 
@@ -190,10 +199,11 @@ def main() -> None:
             "model": model, "split": split, "n": int(arr.size),
             "mean": float(arr.mean()),
             "std": float(arr.std(ddof=1)) if arr.size > 1 else 0.0,
+            "median": float(np.median(arr)),
         })
     sum_path = OUT_DIR / "extrap_summary.csv"
     with sum_path.open("w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=["model", "split", "n", "mean", "std"])
+        w = csv.DictWriter(f, fieldnames=["model", "split", "n", "mean", "std", "median"])
         w.writeheader()
         w.writerows(summary)
 
@@ -203,6 +213,18 @@ def main() -> None:
         by_model.setdefault(r["model"], {}).setdefault(r["split"], []).append(r)
     ode_keys = [m for m in by_model if m.startswith("ode_s")]
     others = [m for m in by_model if not m.startswith("ode")]
+    # 3-seed mean per track as the model of record
+    if ode_keys:
+        for split in ("val", "test"):
+            by_tid: dict[int, list[float]] = {}
+            for ok in ode_keys:
+                for r in by_model.get(ok, {}).get(split, []):
+                    if np.isfinite(r["size_mse"]):
+                        by_tid.setdefault(int(r["track_id"]), []).append(r["size_mse"])
+            by_model.setdefault("ode_clean", {})[split] = [
+                {"track_id": t, "size_mse": float(np.mean(v))} for t, v in by_tid.items()
+            ]
+        ode_keys = ["ode_clean"] + ode_keys
     for ok in ode_keys:
         for other in others:
             for split in ("val", "test"):
@@ -221,6 +243,30 @@ def main() -> None:
     (OUT_DIR / "extrap_headline.json").write_text(json.dumps({
         "train_time_frac": TRAIN_FRAC, "summary": summary, "wilcoxon": wilcox,
     }, indent=2, default=str))
+
+    fig, ax = plt.subplots(figsize=(7, 3.6))
+    families = {}
+    for row in summary:
+        fam = row["model"].split("_s")[0] if "_s" in row["model"] else row["model"]
+        if fam == "ode_clean":
+            continue
+        families.setdefault((fam, row["split"]), []).append(row["mean"])
+    cats = ["val", "test"]
+    names = sorted({f for f, _s in families})
+    x = np.arange(len(names))
+    width = 0.35
+    for i, split in enumerate(cats):
+        vals = [float(np.mean(families.get((n, split), [np.nan]))) for n in names]
+        ax.bar(x + (i - 0.5) * width, vals, width, label=f"{split} tail 40%")
+    ax.set_xticks(x)
+    ax.set_xticklabels(names)
+    ax.set_ylabel("size MSE")
+    ax.set_title("Extrapolation: train first 60% of timeline")
+    ax.legend()
+    fig.tight_layout()
+    fig.savefig(OUT_DIR / "extrap_curves.png", dpi=160)
+    plt.close(fig)
+
     print(f"[extrap] wrote {sum_path} {w_path}")
     print(json.dumps(summary, indent=2))
 

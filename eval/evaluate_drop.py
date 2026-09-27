@@ -112,9 +112,9 @@ def _score_track(predict_fn, states, t_abs, keep, device):
 
 def _discover_ode_seeds(ckpt_dir: Path) -> list[tuple[str, Path]]:
     found = []
-    lock = ckpt_dir / "h1_final_best" / "best.ckpt"
-    if lock.is_file():
-        found.append(("ode_lock", lock))
+    leaked = ckpt_dir / "h1_final_best" / "best.ckpt"
+    if leaked.is_file():
+        found.append(("ode_leaked", leaked))
     for seed in (0, 1, 2):
         d = ckpt_dir / f"h1_seed{seed}"
         cands = sorted(d.glob("best*.ckpt")) if d.is_dir() else []
@@ -249,11 +249,12 @@ def main() -> None:
             "model": model, "split": split, "drop_frac": frac,
             "mean": float(np.mean(vals)),
             "std": float(np.std(vals, ddof=1)) if len(vals) > 1 else 0.0,
+            "median": float(np.median(vals)),
             "n_drop_seeds": len(vals),
         })
     sum_path = OUT_DIR / "drop_summary.csv"
     with sum_path.open("w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=["model", "split", "drop_frac", "mean", "std", "n_drop_seeds"])
+        w = csv.DictWriter(f, fieldnames=["model", "split", "drop_frac", "mean", "std", "median", "n_drop_seeds"])
         w.writeheader()
         w.writerows(summary)
 
@@ -271,7 +272,8 @@ def main() -> None:
 
             ode_keys = [m for m, _ in models if m.startswith("ode_s")]
             if not ode_keys:
-                ode_keys = [m for m, _ in models if m == "ode_lock"]
+                print("[drop] no clean ODE seeds; skipping Wilcoxon")
+                continue
             others = [m for m, _ in models if not m.startswith("ode")]
             for ok in ode_keys:
                 for other in others:
