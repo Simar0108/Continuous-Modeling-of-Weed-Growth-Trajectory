@@ -1,0 +1,38 @@
+---
+description: Load-bearing invariants for the latent Neural ODE thesis code
+alwaysApply: true
+---
+
+# Research ODE invariants
+
+- NEVER modify `hybrid_loss()` masking or `color_mask` handling
+  (`ode/training_loop.py`, the physiology block that gates Z). Masked Z
+  frames are already excluded from `phys_loss`; `val_mse_Z` is computed
+  only on valid frames.
+- NEVER reintroduce xy centroid loss. `xy_loss_weight` stays `0.0`.
+- NEVER change affine decoder init, freeze schedule, or scale math.
+  `output_scale` / `output_bias` start frozen.
+- Default trainer dynamics are `StableSigmoidalODEFunc`
+  (`dz/dt = rate · σ(sat − z)`). `--ode-type sigmoidal` is the legacy
+  Verhulst form `r · z · (1 − z/K)` with positive SiLU/softplus heads.
+  Step 8 Zwietering–Richards (`--rhs zwietering`) is an explicit request.
+  Do not swap the default without an explicit request.
+- After ANY training change, report: `train_dz_dt_size_std`,
+  `z_traj/acceleration_ratio`, `val_track_mse_mean`, per-track r/K
+  (or μ/λ/ν) variance.
+- Keep `ode_nfe` under 60.
+- `normalize_z0` stays ON permanently. Ablation a/a+b collapsed
+  z0 norms to ~0.09; do not pass `--no-normalize-z0`.
+- Track embeddings are an H1 (known-track) symmetry breaker only.
+  They do not solve encoder identifiability (z0 cosine ~0.996) for H2.
+- Reproducibility: every job logs `git_hash` + dirty flag. The trainer
+  refuses to start on a missing repo or dirty tree unless `--allow-dirty`.
+- `checkpoints/h1_final_best/` is read-only. Do not retrain, overwrite,
+  or write any file under that directory. It is a leaked 80/20 historical
+  artifact (D-009). Identity is SHA256
+  `2498d033ea02e2df1e312a58179226b649a9d3d5c7143b2d040fc9341ef86222`.
+  Exclude it from all H1 means going forward.
+- K-in-window is unidentifiable on this data (NLS K ~279 px vs latent
+  bound 2). Size carrying capacity stays out of window (K=10 latent)
+  unless explicitly requested otherwise.
+- Lag is a Zwietering parameter λ, not a multiplicative gate.

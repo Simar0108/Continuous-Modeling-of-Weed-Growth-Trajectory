@@ -80,6 +80,8 @@ Closed. Early-ckpt re-score 0/6 (`logs/step8_diagnostics/early_ckpt_gates.csv`).
 
 Encoder identifiability (z0 cosine still high). Const-Z non-transfer.
 Window is pre-saturation / accelerating phase. No-repo checksum identity.
-NLS is in-sample. ODE is one seed. Drop-protocol appendix
-(`figures/hypothesis_one_summary.csv`: ODE extrap 0.497 vs LSTM 0.546,
-p=0.30) is not this table.
+NLS is in-sample. The lock ODE is one contaminated 80/20 seed; three
+clean 70/15/15 seeds are training under `checkpoints/h1_seed{0,1,2}/`
+(jobs 29114600–602) and are excluded from this table until they finish.
+Drop-protocol appendix (`figures/hypothesis_one_summary.csv`: ODE extrap
+0.497 vs LSTM 0.546, p=0.30) is not this table.
