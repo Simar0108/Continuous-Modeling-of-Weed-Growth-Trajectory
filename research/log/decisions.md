@@ -124,3 +124,24 @@ retune the headline protocol.
 **Outcomes.** Leaked test: full 0.215 vs post 0.226, Δ=−0.011. Seed 0
 test Δ=−0.009. The ~0.01 gap does not explain Step 9’s GRU test
 difference (~0.15). `figures/h1_lock/matched_rollout.csv`.
+
+---
+
+## D-014 — Checkpoint on full-horizon val; epoch<20 is TRAINING FAILURE
+
+**Date.** 2026-09-28.
+
+**Decision.** Jobs 29114600–602 selected `best.ckpt` on ramping
+`val_track_mse_mean` (`_get_horizon_fraction` → slice `[:horizon_T]`).
+No separate full-horizon val was logged. Seed best epochs 19/0/0 are
+short-horizon minima (hfrac=0.30), not optimizer blow-ups. Reconstructing
+the first epoch with `val_horizon_frac=1.0` (epoch 250) gives val MSE
+0.296/0.265/0.263, then worse to 0.393/0.363/0.358 at epoch 399.
+
+Going forward: log `val_full_horizon_mse` every epoch (horizon forced
+to 1.0; training curriculum unchanged), checkpoint on that, evaluate
+EMA weights (decay 0.999). Any run with best-val epoch < 20 is a
+TRAINING FAILURE and is excluded from architecture comparisons.
+
+**Stab jobs** write `checkpoints/h1_stab_seed{0..4}/`. Do not overwrite
+`h1_final_best` or `h1_seed{0,1,2}`.

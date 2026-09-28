@@ -110,16 +110,31 @@ def _score_track(predict_fn, states, t_abs, keep, device):
     return _size_mse_dropped(pred, states[future], dropped)
 
 
-def _discover_ode_seeds(ckpt_dir: Path) -> list[tuple[str, Path]]:
+def _ckpt_epoch(path: Path) -> int:
+    try:
+        ckpt = torch.load(str(path), map_location="cpu", weights_only=False)
+    except TypeError:
+        ckpt = torch.load(str(path), map_location="cpu")
+    return int(ckpt.get("epoch", -1))
+
+
+def _discover_ode_seeds(
+    ckpt_dir: Path, run_tag: str = "h1_seed", n_seeds: int = 3,
+    fail_before_epoch: int = 20, include_leaked: bool = False,
+) -> list[tuple[str, Path, bool, int]]:
     found = []
-    leaked = ckpt_dir / "h1_final_best" / "best.ckpt"
-    if leaked.is_file():
-        found.append(("ode_leaked", leaked))
-    for seed in (0, 1, 2):
-        d = ckpt_dir / f"h1_seed{seed}"
+    if include_leaked:
+        leaked = ckpt_dir / "h1_final_best" / "best.ckpt"
+        if leaked.is_file():
+            epoch = _ckpt_epoch(leaked)
+            found.append(("ode_leaked", leaked, epoch < fail_before_epoch, epoch))
+    for seed in range(int(n_seeds)):
+        d = ckpt_dir / f"{run_tag}{seed}"
         cands = sorted(d.glob("best*.ckpt")) if d.is_dir() else []
         if cands:
-            found.append((f"ode_s{seed}", cands[0]))
+            epoch = _ckpt_epoch(cands[0])
+            failed = epoch < fail_before_epoch
+            found.append((f"ode_s{seed}", cands[0], failed, epoch))
     return found
 
 
@@ -168,6 +183,9 @@ def main() -> None:
     p.add_argument("--device", default="auto")
     p.add_argument("--ckpt-dir", type=Path, default=REPO / "checkpoints")
     p.add_argument("--split", default="both", choices=("val", "test", "both"))
+    p.add_argument("--run-tag", type=str, default="h1_seed")
+    p.add_argument("--n-seeds", type=int, default=3)
+    p.add_argument("--fail-before-epoch", type=int, default=20)
     args = p.parse_args()
     device = torch.device(
         "cuda" if (args.device == "auto" and torch.cuda.is_available()) else
@@ -187,13 +205,18 @@ def main() -> None:
         splits["test"] = test_ds
 
     models = []
-    for key, path in _discover_ode_seeds(args.ckpt_dir):
+    for key, path, failed, epoch in _discover_ode_seeds(
+        args.ckpt_dir, args.run_tag, args.n_seeds, args.fail_before_epoch, include_leaked=True,
+    ):
+        if failed and key != "ode_leaked":
+            print(f"[drop] TRAINING FAILURE skip {key} epoch={epoch} {path}")
+            continue
         try:
             mod = MultiTrackLightning.load_from_checkpoint(str(path), map_location=device, strict=False)
             mod.eval().to(device)
             mod.horizon_start_frac = 1.0
             models.append((key, lambda qs, qt, m=mod: _pred_ode(m, qs, qt)))
-            print(f"[drop] loaded {key} {path}")
+            print(f"[drop] loaded {key} epoch={epoch} {path}")
         except Exception as exc:
             print(f"[drop] skip {path}: {exc}")
     for key, path in _discover_baselines(args.ckpt_dir):

@@ -20,7 +20,7 @@ import lightning as L
 import pandas as pd
 import torch
 from lightning import Trainer
-from lightning.pytorch.callbacks import ModelCheckpoint
+from lightning.pytorch.callbacks import EMAWeightAveraging, ModelCheckpoint
 from lightning.pytorch.loggers import WandbLogger
 from torch.utils.data import DataLoader
 
@@ -33,6 +33,7 @@ from ode.data.dataset import PlantTrackStateDataset
 from ode.overfit_test import WandbArtifactCheckpoint
 from ode.repro import assert_clean_or_allowed
 from ode.train_baselines import clip_tracks_to_time_frac, select_discrete_tracks
+from ode.callbacks_h1 import BestEpochGateCallback, FixedHorizonValCallback
 from ode.train_multi import EpochGatedModelCheckpoint, MultiTrackLightning
 from ode.training_loop import LINEAR_SIZE_WEIGHT, LOG_SIZE_EPS
 
@@ -88,6 +89,12 @@ def main() -> None:
     p.add_argument("--accelerator", default="auto")
     p.add_argument("--train-time-frac", type=float, default=1.0,
                     help="If <1, keep only the first fraction of each TRAIN track timeline.")
+    p.add_argument("--run-tag", type=str, default="h1_seed",
+                    help="Checkpoint directory prefix. Stab jobs use h1_stab_seed.")
+    p.add_argument("--ema-decay", type=float, default=0.0,
+                    help="If >0, evaluate and checkpoint EMA weights (Lightning EMAWeightAveraging).")
+    p.add_argument("--fixed-horizon-val-every", type=int, default=0,
+                    help="If >0, log val_full_horizon_mse every N epochs and select best on it.")
     args = p.parse_args()
 
     git = assert_clean_or_allowed(REPO, args.allow_dirty)
@@ -99,7 +106,7 @@ def main() -> None:
     if not parquet.is_file():
         raise FileNotFoundError(parquet)
 
-    name = args.name or f"h1-seed{args.seed}"
+    name = args.name or f"{args.run_tag}{args.seed}"
     train_ids, val_ids, test_ids = select_discrete_tracks(
         parquet, max_tracks=args.max_tracks, species=args.species,
         min_observations=15, val_frac=args.val_frac, test_frac=args.test_frac,
@@ -143,10 +150,16 @@ def main() -> None:
 
     module = MultiTrackLightning(**H1_HP)
 
-    out_dir = REPO / "checkpoints" / f"h1_seed{args.seed}"
+    if "h1_final_best" in args.run_tag:
+        raise SystemExit("REFUSE: will not write under h1_final_best")
+    out_dir = REPO / "checkpoints" / f"{args.run_tag}{args.seed}"
     if args.train_time_frac < 1.0:
-        out_dir = REPO / "checkpoints" / f"h1_seed{args.seed}_extrap60"
+        out_dir = REPO / "checkpoints" / f"{args.run_tag}{args.seed}_extrap60"
     out_dir.mkdir(parents=True, exist_ok=True)
+
+    monitor = "val_track_mse_mean"
+    if args.fixed_horizon_val_every > 0:
+        monitor = "val_full_horizon_mse"
 
     if args.wandb:
         logger = WandbLogger(project=args.project, name=name)
@@ -155,11 +168,14 @@ def main() -> None:
                 "git_hash": git["git_hash"], "git_dirty": git["git_dirty"],
                 "seed": args.seed, "train_time_frac": args.train_time_frac,
                 "lock_excluded": True,
+                "ema_decay": args.ema_decay,
+                "fixed_horizon_val_every": args.fixed_horizon_val_every,
+                "ckpt_monitor": monitor,
             }, allow_val_change=True)
         except Exception as exc:
             print(f"[h1_seed] wandb config skipped: {exc}")
         art_cb = WandbArtifactCheckpoint(
-            monitor="val_track_mse_mean", mode="min", artifact_name=name,
+            monitor=monitor, mode="min", artifact_name=name,
         )
     else:
         logger = True
@@ -169,22 +185,30 @@ def main() -> None:
         )
     best_cb = EpochGatedModelCheckpoint(
         min_epoch=0, dirpath=str(out_dir), filename="best",
-        monitor="val_track_mse_mean", mode="min", save_top_k=1,
+        monitor=monitor, mode="min", save_top_k=1,
     )
+    callbacks = []
+    if args.fixed_horizon_val_every > 0:
+        # Must run before EMAWeightAveraging.on_validation_epoch_end swaps weights back.
+        callbacks.append(FixedHorizonValCallback(every_n_epochs=args.fixed_horizon_val_every))
+    if args.ema_decay > 0:
+        callbacks.append(EMAWeightAveraging(decay=float(args.ema_decay)))
+    callbacks.extend([art_cb, best_cb, BestEpochGateCallback(best_cb, min_epoch=20)])
 
     trainer = Trainer(
-        max_epochs=args.epochs, logger=logger, callbacks=[art_cb, best_cb],
+        max_epochs=args.epochs, logger=logger, callbacks=callbacks,
         enable_progress_bar=True, accelerator=args.accelerator, devices=1,
         gradient_clip_val=1.0, log_every_n_steps=1,
     )
     trainer.fit(module, datamodule=dm)
-    print(f"[h1_seed] done {name} val={trainer.callback_metrics.get('val_track_mse_mean')}")
-    print(f"[h1_seed] ckpt dir {out_dir}")
+    print(f"[h1_seed] done {name} val={trainer.callback_metrics.get(monitor)}")
+    print(f"[h1_seed] ckpt dir {out_dir} monitor={monitor}")
     if args.wandb:
         try:
             import wandb
             if wandb.run is not None:
                 wandb.summary["git_hash"] = git["git_hash"]
+                wandb.summary["ckpt_monitor"] = monitor
                 wandb.finish()
         except ImportError:
             pass

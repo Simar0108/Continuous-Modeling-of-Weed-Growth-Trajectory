@@ -41,6 +41,7 @@ from tests.diagnose_growth_form import fit_richards, richards_curve
 H1_CKPT = REPO / "checkpoints" / "h1_final_best" / "best.ckpt"
 H1_SHA256 = "2498d033ea02e2df1e312a58179226b649a9d3d5c7143b2d040fc9341ef86222"
 OUT_DIR = REPO / "figures" / "h1_lock"
+FAIL_BEFORE_EPOCH = 20
 
 
 def _parquet() -> Path:
@@ -224,11 +225,25 @@ def _discover_baselines(ckpt_dir: Path) -> list[tuple[str, int, Path]]:
     return found
 
 
-def _discover_ode_seeds(ckpt_dir: Path) -> list[tuple[str, Path]]:
+def _ckpt_epoch(path: Path) -> int:
+    try:
+        ckpt = torch.load(str(path), map_location="cpu", weights_only=False)
+    except TypeError:
+        ckpt = torch.load(str(path), map_location="cpu")
+    return int(ckpt.get("epoch", -1))
+
+
+def _is_training_failure(epoch: int, fail_before: int = FAIL_BEFORE_EPOCH) -> bool:
+    return int(epoch) < int(fail_before)
+
+
+def _discover_ode_seeds(
+    ckpt_dir: Path, run_tag: str = "h1_seed", n_seeds: int = 3,
+) -> list[tuple[str, Path]]:
     """Clean 70/15/15 ODE seeds. Does not include h1_final_best."""
     found: list[tuple[str, Path]] = []
-    for seed in (0, 1, 2):
-        d = ckpt_dir / f"h1_seed{seed}"
+    for seed in range(int(n_seeds)):
+        d = ckpt_dir / f"{run_tag}{seed}"
         if not d.is_dir():
             continue
         cands = sorted(d.glob("best*.ckpt"))
@@ -346,6 +361,9 @@ def main() -> None:
     p = argparse.ArgumentParser()
     p.add_argument("--device", default="auto")
     p.add_argument("--ckpt-dir", type=Path, default=REPO / "checkpoints")
+    p.add_argument("--run-tag", type=str, default="h1_seed")
+    p.add_argument("--n-seeds", type=int, default=3)
+    p.add_argument("--fail-before-epoch", type=int, default=FAIL_BEFORE_EPOCH)
     args = p.parse_args()
     device = torch.device("cuda" if (args.device == "auto" and torch.cuda.is_available()) else (args.device if args.device != "auto" else "cpu"))
     parquet = _parquet()
@@ -378,18 +396,30 @@ def main() -> None:
         )
         models.setdefault("ode_leaked", {})[split] = ode_full["ode_leaked"][split]
 
-    ode_seed_ckpts = _discover_ode_seeds(args.ckpt_dir)
-    print(f"[evaluateh1] discovered {len(ode_seed_ckpts)} clean ODE seeds")
-    if len(ode_seed_ckpts) < 3:
-        raise SystemExit(f"REFUSE: need 3 clean ODE seeds, found {len(ode_seed_ckpts)}")
+    ode_seed_ckpts = _discover_ode_seeds(args.ckpt_dir, args.run_tag, args.n_seeds)
+    print(f"[evaluateh1] discovered {len(ode_seed_ckpts)} ODE seeds tag={args.run_tag}")
+    if not ode_seed_ckpts:
+        raise SystemExit(f"REFUSE: no ODE seeds under {args.ckpt_dir}/{args.run_tag}*")
+    validity: list[dict] = []
     first_clean = None
     for key, path in ode_seed_ckpts:
+        epoch = _ckpt_epoch(path)
+        failed = _is_training_failure(epoch, args.fail_before_epoch)
+        validity.append({
+            "model": key, "path": str(path), "best_epoch": epoch,
+            "training_failure": bool(failed),
+            "class": "TRAINING FAILURE" if failed else "converged",
+        })
+        print(
+            f"[evaluateh1] {key} epoch={epoch} "
+            f"{'TRAINING FAILURE' if failed else 'converged'} {path}"
+        )
         try:
             ode_mod = _load_ode(path, device)
         except Exception as exc:
             print(f"[evaluateh1] skip {path}: {exc}")
             continue
-        if first_clean is None:
+        if first_clean is None and not failed:
             first_clean = ode_mod
         for split, (_ids, ds) in splits.items():
             full = _per_track_size_mse_ode(ode_mod, ds, device)
@@ -399,10 +429,17 @@ def main() -> None:
             ode_post.setdefault(key, {})[split] = post
 
     seed_keys = [m for m in models if m.startswith("ode_s")]
+    failed_keys = {row["model"] for row in validity if row["training_failure"]}
+    converged_keys = [k for k in seed_keys if k not in failed_keys]
+    print(
+        f"[evaluateh1] convergence {len(converged_keys)}/{len(seed_keys)} "
+        f"(fail if best epoch < {args.fail_before_epoch})"
+    )
     for split in splits:
-        models.setdefault("ode_clean", {})[split] = _average_tracks(
-            [models[k][split] for k in seed_keys if split in models[k]]
-        )
+        if converged_keys:
+            models.setdefault("ode_clean", {})[split] = _average_tracks(
+                [models[k][split] for k in converged_keys if split in models[k]]
+            )
 
     nls_rows = {}
     for split, (ids, _ds) in splits.items():
@@ -441,21 +478,24 @@ def main() -> None:
             table1.append({"model": model, "split": split, "seed": seed, **sm})
             for r in rows:
                 long_rows.append({"model": model, "split": split, **r})
-    # Across-seed mean±std of seed-level split means (ode_clean extra row kind)
+    # Across-seed mean±std of CONVERGED seed-level split means only
     for split in ("val", "test", "train"):
-        seed_stats = [_summarize(models[k][split]) for k in seed_keys if split in models[k]]
+        src = converged_keys if converged_keys else []
+        seed_stats = [_summarize(models[k][split]) for k in src if split in models[k]]
         if not seed_stats:
             continue
         means = [s["mean"] for s in seed_stats]
         medians = [s["median"] for s in seed_stats]
         table1.append({
-            "model": "ode_clean_seedmean", "split": split, "seed": "0-2",
+            "model": "ode_converged_seedmean", "split": split,
+            "seed": ",".join(k.replace("ode_s", "") for k in src),
             "n": len(means),
             "mean": float(np.mean(means)),
             "std": float(np.std(means, ddof=1)) if len(means) > 1 else 0.0,
             "median": float(np.mean(medians)),
             "max": float("nan"),
         })
+    _write_csv(OUT_DIR / "run_validity.csv", validity)
 
     t1_path = OUT_DIR / "table1_v2.csv"
     _write_csv(t1_path, table1)
@@ -476,7 +516,7 @@ def main() -> None:
     _write_csv(t2_path, table2)
 
     table2_per_seed = []
-    for ode_key in seed_keys + (["ode_leaked"] if "ode_leaked" in models else []):
+    for ode_key in converged_keys + (["ode_leaked"] if "ode_leaked" in models else []):
         for other in others:
             for split in ("val", "test"):
                 if split not in models[ode_key] or split not in models[other]:
@@ -484,8 +524,16 @@ def main() -> None:
                 block = _wilcoxon_block(models[ode_key][split], models[other][split], split, other)
                 block["ode"] = ode_key
                 table2_per_seed.append(block)
+    failed_seed_table = []
+    for ode_key in [k for k in seed_keys if k in failed_keys]:
+        for split in ("val", "test"):
+            if split not in models.get(ode_key, {}):
+                continue
+            sm = _summarize(models[ode_key][split])
+            failed_seed_table.append({"model": ode_key, "split": split, "class": "TRAINING FAILURE", **sm})
     _write_csv(OUT_DIR / "table2_per_seed.csv", table2_per_seed)
     _write_csv(OUT_DIR / "table2_wilcoxon.csv", table2)
+    _write_csv(OUT_DIR / "training_failures.csv", failed_seed_table)
 
     # Matched-rollout: full minus post-context (negative => context frames easier)
     matched = []
@@ -511,7 +559,8 @@ def main() -> None:
     stochastic = [m for m in others if not m.startswith("nls") and not m.endswith("_clean")]
     seed_means = {}
     for split in ("val", "test"):
-        vals = [_summarize(models[k][split])["mean"] for k in seed_keys if split in models[k]]
+        src = converged_keys
+        vals = [_summarize(models[k][split])["mean"] for k in src if split in models[k]]
         seed_means[split] = {
             "n_seeds": len(vals),
             "mean": float(np.mean(vals)) if vals else float("nan"),
@@ -526,12 +575,21 @@ def main() -> None:
         "beats_every_baseline": True,
         "notes": [],
         "ode_leaked_excluded_from_mean": True,
-        "ode_3seed": seed_means,
+        "run_tag": args.run_tag,
+        "convergence_rate": f"{len(converged_keys)}/{len(seed_keys)}",
+        "n_converged": len(converged_keys),
+        "n_failed": len(failed_keys),
+        "failed_seeds": sorted(failed_keys),
+        "converged_seeds": converged_keys,
+        "fail_before_epoch": args.fail_before_epoch,
+        "ode_converged": seed_means,
         "ode_leaked": leaked_means,
-        "contamination_val": leaked_means.get("val", {}).get("mean", float("nan")) - seed_means.get("val", {}).get("mean", float("nan")),
-        "contamination_test": leaked_means.get("test", {}).get("mean", float("nan")) - seed_means.get("test", {}).get("mean", float("nan")),
         "matched_rollout": matched,
+        "run_validity": validity,
     }
+    if not converged_keys:
+        headline["beats_every_baseline"] = False
+        headline["notes"].append("no converged seeds (TRAINING FAILURE gate)")
     for other in stochastic:
         for split in ("val", "test"):
             block = next((b for b in table2 if b.get("ode") == "ode_clean" and b["vs"] == other and b["split"] == split), None)
@@ -541,8 +599,12 @@ def main() -> None:
     (OUT_DIR / "headline.json").write_text(json.dumps({"h1_sha256": H1_SHA256, **headline, "table2": table2}, indent=2, default=str))
 
     _plot_sampling(parquet, test_ids[:3], OUT_DIR / "irregular_sampling.png")
-    tes = sorted(models["ode_clean"]["test"], key=lambda r: r["size_mse"])
-    pick = [tes[0]["track_id"], tes[len(tes) // 3]["track_id"], tes[2 * len(tes) // 3]["track_id"], tes[-1]["track_id"]]
+    tes_src = models.get("ode_clean", {}).get("test")
+    if tes_src:
+        tes = sorted(tes_src, key=lambda r: r["size_mse"])
+        pick = [tes[0]["track_id"], tes[len(tes) // 3]["track_id"], tes[2 * len(tes) // 3]["track_id"], tes[-1]["track_id"]]
+    else:
+        pick = test_ids[:4]
     best_bl_name, best_bl = None, None
     best_mean = float("inf")
     for model, seed, path in baselines:

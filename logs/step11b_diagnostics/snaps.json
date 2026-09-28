@@ -1,0 +1,20 @@
+{
+  "seed0": {
+    "id": "td89ush5",
+    "name": "h1-seed0",
+    "n_val": 400,
+    "horizon_nunique": 151
+  },
+  "seed1": {
+    "id": "tr12kmij",
+    "name": "h1-seed1",
+    "n_val": 400,
+    "horizon_nunique": 151
+  },
+  "seed2": {
+    "id": "y2ehuo61",
+    "name": "h1-seed2",
+    "n_val": 400,
+    "horizon_nunique": 151
+  }
+}

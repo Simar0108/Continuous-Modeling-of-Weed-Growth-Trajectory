@@ -90,12 +90,24 @@ def _score_track(predict_fn, states, t_abs, device):
     return _tail_mse(pred, states[future])
 
 
-def _discover(ckpt_dir: Path) -> list[tuple[str, str, Path]]:
+def _ckpt_epoch(path: Path) -> int:
+    try:
+        ckpt = torch.load(str(path), map_location="cpu", weights_only=False)
+    except TypeError:
+        ckpt = torch.load(str(path), map_location="cpu")
+    return int(ckpt.get("epoch", -1))
+
+
+def _discover(ckpt_dir: Path, run_tag: str = "h1_seed", n_seeds: int = 3, fail_before_epoch: int = 20) -> list[tuple[str, str, Path]]:
     found = []
-    for seed in (0, 1, 2):
-        d = ckpt_dir / f"h1_seed{seed}_extrap60"
+    for seed in range(int(n_seeds)):
+        d = ckpt_dir / f"{run_tag}{seed}_extrap60"
         cands = sorted(d.glob("best*.ckpt")) if d.is_dir() else []
         if cands:
+            epoch = _ckpt_epoch(cands[0])
+            if epoch < fail_before_epoch:
+                print(f"[extrap] TRAINING FAILURE skip ode_s{seed} epoch={epoch} {cands[0]}")
+                continue
             found.append(("ode", f"ode_s{seed}", cands[0]))
     for p in sorted(ckpt_dir.glob("*_valmse_baseline-*-extrap60.ckpt")):
         name = p.stem
@@ -139,6 +151,9 @@ def main() -> None:
     p = argparse.ArgumentParser()
     p.add_argument("--device", default="auto")
     p.add_argument("--ckpt-dir", type=Path, default=REPO / "checkpoints")
+    p.add_argument("--run-tag", type=str, default="h1_seed")
+    p.add_argument("--n-seeds", type=int, default=3)
+    p.add_argument("--fail-before-epoch", type=int, default=20)
     args = p.parse_args()
     device = torch.device(
         "cuda" if (args.device == "auto" and torch.cuda.is_available()) else
@@ -153,7 +168,9 @@ def main() -> None:
     splits = {"val": val_ds, "test": test_ds}
 
     models = []
-    for family, key, path in _discover(args.ckpt_dir):
+    for family, key, path in _discover(
+        args.ckpt_dir, args.run_tag, args.n_seeds, args.fail_before_epoch,
+    ):
         try:
             if family == "ode":
                 mod = MultiTrackLightning.load_from_checkpoint(str(path), map_location=device, strict=False)
