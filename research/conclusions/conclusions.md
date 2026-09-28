@@ -138,22 +138,21 @@ interpretability arm. That thread is closed in
 
 ---
 
-## H1 lock (2026-09-26)
+## H1 lock (2026-09-26, Step 10 rewrite)
 
-Full write-up: `research/conclusions/h1_lock.md`. Decision D-008 / D-009
-in `research/log/decisions.md`.
+Full write-up: `research/conclusions/h1_lock.md`. D-008–D-013 in
+`research/log/decisions.md`. **Step 9 pairwise claims are superseded.**
 
-**Locked weights.** `checkpoints/h1_final_best/best.ckpt`, SHA256
-`2498d033ea02e2df1e312a58179226b649a9d3d5c7143b2d040fc9341ef86222`.
-`git_hash=NO_REPO`. Maize 100-track 70/15/15. Full-horizon size MSE.
+**Model of record.** Clean 3-seed mean on Maize 70/15/15
+(`checkpoints/h1_seed{0,1,2}/best.ckpt`). `h1_final_best` is a leaked
+80/20 reference only (SHA256
+`2498d033ea02e2df1e312a58179226b649a9d3d5c7143b2d040fc9341ef86222`).
 
-**Headline.** Neural ODE does **not** beat every baseline with
-statistics. vs LSTM: comparable (no p<0.05). vs GRU: better on test
-(p≈0.004, three seeds). vs Transformer: not significant; Transformer
-often lower on val. Richards NLS (in-sample) is much better (val 0.012)
-and is not a forecast.
+**Headline.** The clean 3-seed ODE does **not** match LSTM or beat GRU
+on short-track transfer (test mean 0.582 vs LSTM 0.218 vs GRU 0.370;
+Wilcoxon p>0.96). Two of three `best.ckpt` files are epoch 0.
+Extrapolation (train 60% / eval last 40%): ODE loses (test tail 2.27 vs
+LSTM ~1.0). Drop protocol: no 3-seed advantage.
 
-Tables: `figures/h1_lock/table1_model_split.csv`,
-`figures/h1_lock/table2_wilcoxon.csv`.
-Figures: `figures/h1_lock/growth_curves.png`,
-`figures/h1_lock/irregular_sampling.png`.
+Tables: `figures/h1_lock/table1_v2.csv`, `table2_v2.csv`.
+Receipt: `logs/step10_receipt.md`.

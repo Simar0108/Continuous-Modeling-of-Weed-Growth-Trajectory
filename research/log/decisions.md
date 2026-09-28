@@ -70,8 +70,13 @@ set.
 three clean baseline seeds. Seed-matched ODE variance is required before
 any H1 generalization sentence.
 
-**Outcomes.** Jobs submitted: `h1_seed0=29114600`, `h1_seed1=29114601`,
-`h1_seed2=29114602`. Lock checksum unchanged.
+**Outcomes.** Jobs 29114600–602 completed. `best.ckpt` epochs: seed0=19,
+seed1=0, seed2=0 (all before horizon ramp at epoch 100). Eval job
+29115924. Clean 3-seed mean (model of record): val 0.398±0.176, test
+0.582±0.335. Leaked reference: val 0.222, test 0.215. Contamination
+(leaked − clean): val −0.177, test −0.366. Wilcoxon: ode_clean is
+**worse** than LSTM/GRU/Transformer on val and test (all p>0.96).
+Tables: `figures/h1_lock/table1_v2.csv`, `table2_v2.csv`.
 
 ---
 
@@ -82,9 +87,13 @@ any H1 generalization sentence.
 **Decision.** The 20/40/60% × 3 drop-seed size-MSE suite is evaluation
 only (`eval/evaluate_drop.py`). It reuses the context-only query from
 `ode/compare_models.py` so dropped-frame ground truth never enters the
-encoder. It is not the lock table.
+encoder. It is not the lock table. If the ODE shows no advantage, report
+that; do not retune.
 
-**Outcomes.** Pending clean ODE seeds.
+**Outcomes.** 3-seed ODE has no drop-protocol advantage (test means
+~0.60–0.63 vs LSTM ~0.22–0.25). ode_s0 alone is comparable to LSTM
+(~0.18–0.20 across 20/40/60%). Protocol not retuned.
+`figures/h1_lock/drop_summary.csv`, `drop_curves.png`.
 
 ---
 
@@ -95,7 +104,23 @@ encoder. It is not the lock table.
 **Decision.** Extrapolation trains on the first 60% of each train (and
 val-monitor) timeline (`--train-time-frac 0.6`) and scores the last 40%
 of val/test. Twelve jobs: ODE × 3 seeds + LSTM/GRU/Transformer × 3.
-Wilcoxon on per-track tail size MSE. This is not the lock table.
+Wilcoxon on per-track tail size MSE. This is not the lock table. If the
+ODE loses, that goes in the paper.
 
-**Outcomes.** Jobs submitted: ODE 29114603–605; LSTM 29114606–608;
-GRU 29114609–611; Transformer 29114612–614.
+**Outcomes.** Jobs 29114603–614 completed. ode_clean test tail mean 2.27
+vs LSTM 0.97–1.13 (p=0.99997, d≈+2.0). **ODE loses.** Paper sentence
+required. `figures/h1_lock/extrap_summary.csv`, `extrap_curves.png`.
+
+---
+
+## D-013 — Matched-rollout scoring asymmetry is small
+
+**Date.** 2026-09-26.
+
+**Decision.** Re-score ODE seeds post-context only (frames after index
+2) to match baseline AR scoring. Report full − post-context. Do not
+retune the headline protocol.
+
+**Outcomes.** Leaked test: full 0.215 vs post 0.226, Δ=−0.011. Seed 0
+test Δ=−0.009. The ~0.01 gap does not explain Step 9’s GRU test
+difference (~0.15). `figures/h1_lock/matched_rollout.csv`.

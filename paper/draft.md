@@ -131,6 +131,10 @@ The observation window covers the accelerating / pre-saturation phase
 only. Encoder identifiability is unsolved; track embeddings are an H1
 known-track device. H2 is out of scope for this lock.
 
-The locked ODE is a single training seed. Baselines have three seeds.
-Richards NLS is in-sample. The May drop-protocol comparison (ODE extrap
-0.497 vs LSTM 0.546, $p=0.30$) is not the headline table.
+The locked ODE file is a leaked 80/20 seed (epoch 20). The H1 model of
+record is the clean 3-seed mean (`table1_v2.csv`): test 0.582 vs LSTM
+0.218, GRU 0.370, Transformer 0.306. Wilcoxon does not favor the ODE.
+Prefix-60%/tail-40% extrapolation: ODE test tail 2.27 vs LSTM ~1.0
+(**ODE loses**). Richards NLS is in-sample. Best checkpoints for seeds
+1–2 are epoch 0 (curriculum). Step 9 pairwise claims are superseded
+(`research/conclusions/h1_lock.md`).
