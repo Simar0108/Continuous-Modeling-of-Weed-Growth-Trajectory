@@ -1,47 +1,50 @@
-# H1 lock — rewritten 2026-09-26 (Step 10)
+# H1 lock — rewritten 2026-09-29 (Step 11c)
 
-**All Step 9 pairwise claims are superseded.** Step 9 compared a leaked
-80/20 ODE checkpoint to three clean baseline seeds. The H1 model of
-record is now the **clean 3-seed mean** on Maize 70/15/15
-(`checkpoints/h1_seed{0,1,2}/best.ckpt`). `h1_final_best` is a leaked
-reference only (D-009, D-010). Val/test are **short-track transfer**
-(test tracks 53–65 frames).
+**All Step 9 and Step 10 pairwise claims are superseded.** Step 10’s
+3-seed mean (test 0.582) mixed two epoch-0 `best.ckpt` files into the
+architecture comparison (D-014). Those numbers are quarantined in
+`figures/h1_lock/step10_quarantined/`. The H1 model of record is now
+the **clean 5-seed mean** on Maize 70/15/15
+(`checkpoints/h1_stab_seed{0..4}/`, EMA `state_dict`, selected on
+`val_full_horizon_mse`). `h1_final_best` is a leaked 80/20 reference
+only (D-009, D-010). Val/test are **short-track transfer** (test tracks
+53–65 frames).
 
 Interpretability is closed (D-008).
 
 ## Banner
 
-The revised H1 sentence (parity with LSTM; significantly better test
+The original H1 sentence (parity with LSTM; significantly better test
 generalization than GRU; stable val→test where Transformer degrades)
-is **not supported** by the clean 3-seed mean.
+is **not supported as written**.
 
 | Clause | Status | Statistic |
 |---|---|---|
-| LSTM parity on short-track transfer | **unsupported** | ode_clean test mean 0.582 vs lstm_clean 0.218; Wilcoxon p=0.9997, d=+1.46 (ODE worse) |
-| GRU test win | **unsupported** | ode_clean test 0.582 vs gru_clean 0.370; p=0.99997, d=+2.14 (ODE worse) |
-| Stable transfer vs Transformer | **unsupported** for the 3-seed mean | ode_clean val 0.398 → test 0.582; transformer_clean val 0.159 → test 0.306. ODE gap is larger. |
-| Drop-protocol advantage | **unsupported** | 3-seed ODE test drop-20/40/60 means 0.60 / 0.60 / 0.63 vs LSTM ~0.22 / 0.22 / 0.25 |
-| Prefix-60% / tail-40% advantage | **unsupported** | ode_clean test tail 2.27 vs LSTM 0.97–1.13; p=0.99997, d≈+2.0 |
+| Convergence (≥4/5, best epoch ≥20) | **pass** | 5/5, all epoch 399 (`run_validity.csv`) |
+| LSTM parity on short-track transfer | **unsupported** | ode_clean test 0.245 vs lstm_clean 0.218. One-sided p_less=0.979 (cannot claim ODE smaller). **Two-sided p=0.048**, d=+0.30 (ODE worse, n=15). |
+| GRU test win | **supported** | ode_clean test 0.245 vs gru_clean 0.370; p_less=3.05e-5, p_two=6.1e-5, r=1.0, d=−1.39 |
+| Stable transfer vs Transformer | **partial** | ODE val 0.156 → test 0.245 (Δ+0.090); Transformer 0.159 → 0.306 (Δ+0.147); LSTM 0.204 → 0.218 (Δ+0.014). Better than Transformer, worse than LSTM. Test vs Transformer p_two=0.68 (ns). |
+| Drop-protocol advantage | **unsupported** | 5-seed ODE test drop-20/40/60 means 0.277 / 0.278 / 0.291 vs LSTM 0.217 / 0.222 / 0.249 |
+| Prefix-60% / tail-40% advantage | **not yet scored on these seeds** | Stab prefix-60 trains were blocked by a dirty tree (job 29203633). Step 10 ODE tails (~2.27) stay quarantined. A new sequential train+eval is the remaining cell. |
 
-Caveat that does **not** rescue the headline: two of three `best.ckpt`
-files are **epoch 0** (curriculum selected the first val step). Seed 0
-is epoch 19 (same selection rule as the leaked lock, which is epoch 20).
-Last-epoch weights are not on disk.
+`beats_every_baseline` in `headline.json` is **false**.
 
 ## Model of record vs leaked reference
 
 | Artifact | Role | Val mean (median) | Test mean (median) |
 |---|---|---|---|
-| ode_clean (3-seed mean-per-track) | **H1 model of record** | 0.398 (0.337) | 0.582 (0.439) |
-| ode_clean_seedmean (mean of 3 seed means) | variance of the method | 0.398±0.176 | 0.582±0.335 |
-| ode_s0 (epoch 19) | one clean seed | 0.197 (0.162) | 0.197 (0.141) |
-| ode_s1 (epoch 0) | one clean seed | 0.520 (0.439) | 0.808 (0.644) |
-| ode_s2 (epoch 0) | one clean seed | 0.478 (0.454) | 0.740 (0.550) |
+| ode_clean (5-seed mean-per-track) | **H1 model of record** | 0.156 (0.115) | 0.245 (0.226) |
+| ode_converged_seedmean | variance of the method | 0.156±0.022 | 0.245±0.061 |
+| ode_s0 (epoch 399) | one clean seed | 0.147 (0.104) | 0.240 (0.216) |
+| ode_s1 (epoch 399) | one clean seed | 0.141 (0.101) | **0.182 (0.123)** |
+| ode_s2 (epoch 399) | one clean seed | 0.168 (0.115) | 0.286 (0.167) |
+| ode_s3 (epoch 399, restage) | one clean seed | **0.135 (0.112)** | 0.194 (0.146) |
+| ode_s4 (epoch 399, restage) | one clean seed | 0.189 (0.142) | 0.325 (0.184) |
 | ode_leaked (`h1_final_best`, epoch 20, 80/20) | contamination reference | 0.222 (0.172) | 0.215 (0.149) |
 
-Contamination effect (leaked − clean seed-mean): val **−0.177**, test
-**−0.366**. The leaked file looks better because it saw test IDs and
-because seeds 1–2 are untrained `best.ckpt`s.
+LSTM test seed range 0.194–0.246. ODE seeds 2 and 4 (0.286, 0.325) sit
+outside that band. Seed 1 is the only ODE seed clearly inside it on
+both mean and median.
 
 Lock SHA256 still
 `2498d033ea02e2df1e312a58179226b649a9d3d5c7143b2d040fc9341ef86222`.
@@ -50,26 +53,36 @@ Do not overwrite.
 ## Table 1 v2 — size MSE, means and medians
 
 Source: `figures/h1_lock/table1_v2.csv`. Full-horizon $(\sigma_w,\sigma_h)$
-MSE. n=15 val, n=15 test unless noted.
+MSE. n=15 val, n=15 test unless noted. Eval job 29203599.
 
 | Model | Val mean / median | Test mean / median |
 |---|---|---|
-| ode_clean | 0.398 / 0.337 | 0.582 / 0.439 |
+| ode_clean | 0.156 / 0.115 | 0.245 / 0.226 |
 | lstm_clean | 0.204 / 0.121 | 0.218 / 0.126 |
 | gru_clean | 0.242 / 0.203 | 0.370 / 0.278 |
 | transformer_clean | 0.159 / 0.104 | 0.306 / 0.199 |
 | ode_leaked | 0.222 / 0.172 | 0.215 / 0.149 |
 | NLS in-sample | 0.012 / 0.010 | 0.017 / 0.015 |
 
-LSTM s0/s1/s2 test means 0.194 / 0.215 / 0.246 (medians 0.086 / 0.117 /
-0.174). Track 6883 remains a heavy tail (leaked ODE test 0.668).
+Train size MSE: ODE 0.528 vs LSTM 0.412 (ODE is not the better
+interpolator). Track 6883 remains a heavy tail (leaked ODE test 0.668).
 
-## Table 2 v2 — Wilcoxon, ode_clean vs other (alternative=less)
+## Table 2 v2 — Wilcoxon, ode_clean vs other
 
-Source: `figures/h1_lock/table2_v2.csv`. Per-track average of 3 ODE
-seeds, then signed-rank vs each baseline. **Zero comparisons have
-p<0.05 in the ODE’s favor.** Every discrete baseline on val and test
-has p≥0.96 (ODE worse). NLS p=1.0.
+Source: `figures/h1_lock/table2_v2.csv`. Per-track average of 5
+converged ODE seeds, then signed-rank vs each baseline. Column `p` /
+`p_less` = alternative “less” (ODE smaller). Column `p_two_sided` is
+the two-sided test. LSTM parity uses two-sided.
+
+| vs | Split | Δ (ODE−other) | p_less | p_two_sided | d |
+|---|---|---|---|---|---|
+| lstm_clean | val | −0.048 | 0.076 | 0.151 | −0.43 |
+| lstm_clean | test | **+0.027** | 0.979 | **0.048** | **+0.30** |
+| gru_clean | val | −0.086 | 0.0042 | 0.0084 | −0.79 |
+| gru_clean | test | −0.125 | 3.1e-5 | 6.1e-5 | −1.39 |
+| transformer_clean | val | −0.003 | 0.42 | 0.85 | −0.03 |
+| transformer_clean | test | −0.061 | 0.34 | 0.68 | −0.22 |
+| NLS in-sample | test | +0.228 | 1.0 | 6.1e-5 | +1.18 |
 
 Per-seed pairs: `figures/h1_lock/table2_per_seed.csv`.
 
@@ -79,9 +92,8 @@ Source: `figures/h1_lock/matched_rollout.csv`. Full-horizon minus
 post-context (frames after index 2). Negative means context frames are
 easier.
 
-Leaked test: full 0.215 vs post 0.226, Δ=−0.011. Seed 0 test Δ=−0.009.
-The scoring asymmetry is ~0.01 MSE, not the Step 9 GRU gap (~0.15).
-Do not retune.
+Stab seeds, test Δ ≈ −0.009 to −0.017. Scoring asymmetry is ~0.01 MSE,
+not the GRU gap (~0.12). Do not retune.
 
 ## Drop protocol (D-011)
 
@@ -89,33 +101,49 @@ Source: `figures/h1_lock/drop_summary.csv`, `drop_curves.png`.
 20/40/60% × 3 drop seeds. No imputation; LSTM/GRU get kept frames with
 Δt; Transformer also gets t.
 
-3-seed ODE does **not** win. ode_s0 test stays ~0.18–0.20 across drop
-fractions (comparable to LSTM). ode_s1/s2 stay ~0.77–0.88. Protocol was
-not retuned.
+5-seed ODE test means 0.277 / 0.278 / 0.291 vs LSTM 0.217 / 0.222 /
+0.249. Seed 1 is LSTM-like (~0.20); seeds 2 and 4 are closer to GRU
+(~0.33–0.39). **No drop-protocol advantage.**
 
 ## Extrapolation (D-012)
 
-Source: `figures/h1_lock/extrap_summary.csv`, `extrap_curves.png`.
-Train first 60% of timeline; score last 40%.
+Source for **baselines**: `figures/h1_lock/extrap_summary.csv` (LSTM
+test tails ~0.94–1.13). Source for Step 10 ODE: quarantined
+(`step10_quarantined/extrap_summary.csv`, test tail 2.27).
 
-ode_clean test tail mean 2.27 vs LSTM 0.97–1.13, GRU 0.89–1.24,
-Transformer 1.44–1.65. Wilcoxon vs every LSTM seed: p=0.99997, d≈+2.0.
-**The ODE loses.** That sentence belongs in the paper.
+Stab prefix-60 ODE checkpoints do not exist yet. Job 29203633 refused
+a dirty tree after evaluateh1 wrote these figure files. A new
+sequential train+eval is launched after this rewrite. **Do not put
+Step 10 ODE tails in the paper as the 11c result.**
+
+## EMA vs raw weights
+
+Lightning `EMAWeightAveraging.on_save_checkpoint` writes the averaged
+weights to `state_dict` and the raw (non-EMA) weights to
+`current_model_state`. `evaluateh1` / `evaluate_extrap` call
+`load_from_checkpoint` with no EMA callback, so they load `state_dict`
+= EMA. All five stab files contain both keys (epoch 399). Mean cosine
+EMA vs raw ≈ 0.994–0.996; they are not identical (`logs/ema_state_dict_audit.json`).
+
+W&B `val_full_horizon_mse` (400 rows/seed): the curve minimum is epoch
+399 on every seed, including restaged 3–4 (`duhgh0nj`, `jj50h369`).
+Last = best.
 
 ## Figures
 
 - `figures/h1_lock/growth_curves.png`
 - `figures/h1_lock/irregular_sampling.png`
 - `figures/h1_lock/drop_curves.png`
-- `figures/h1_lock/extrap_curves.png`
+- `figures/h1_lock/extrap_curves.png` (baselines only until prefix-60 ODE finishes)
 
 ## Interpretability
 
-Closed. D-008. 0/6 early-ckpt gates.
+Closed. D-008. 0/6 early-ckpt gates. Latent size dynamics remain
+collapsed on the stab runs (`train_dz_dt_size_std` ~0.001–0.003).
 
-## What Step 9 still is
+## What Step 9 and Step 10 still are
 
-A comparison of **one leaked early-curriculum checkpoint** (epoch 20)
-to three clean baselines. Those numbers (`ode_leaked` test 0.215 vs
-LSTM 0.218 vs GRU 0.370) must be labeled leaked. They are not the
-3-seed H1 result.
+Step 9 compared **one leaked early-curriculum checkpoint** (epoch 20,
+80/20) to three clean baselines. Step 10 compared three clean seeds
+whose `best.ckpt` files were selected on ramping short-horizon val
+(epochs 19/0/0). Neither is the 5-seed H1 result.

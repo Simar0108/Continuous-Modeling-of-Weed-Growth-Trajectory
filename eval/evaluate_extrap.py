@@ -135,13 +135,15 @@ def _wilcoxon(a_rows, b_rows):
         return {"n": len(ids), "p": float("nan")}
     xa = np.array([a[i] for i in ids])
     xb = np.array([b[i] for i in ids])
-    stat, p = wilcoxon(xa, xb, alternative="less")
+    stat, p_less = wilcoxon(xa, xb, alternative="less")
+    _stat_two, p_two = wilcoxon(xa, xb, alternative="two-sided")
     denom = len(ids) * (len(ids) + 1)
     r_rb = float(1.0 - 2.0 * stat / denom) if denom else float("nan")
     sd = float(np.std(xa - xb, ddof=1))
     d = float(np.mean(xa - xb) / sd) if sd > 1e-12 else 0.0
     return {
-        "n": len(ids), "p": float(p), "stat": float(stat),
+        "n": len(ids), "p": float(p_less), "p_less": float(p_less),
+        "p_two_sided": float(p_two), "stat": float(stat),
         "ode_mean": float(xa.mean()), "other_mean": float(xb.mean()),
         "mean_diff": float((xa - xb).mean()),
         "rank_biserial": r_rb, "paired_cohens_d": d,

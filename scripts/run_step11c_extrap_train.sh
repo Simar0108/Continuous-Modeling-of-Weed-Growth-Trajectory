@@ -4,19 +4,22 @@
 #SBATCH --gres=gpu:1
 #SBATCH --mem=32G
 #SBATCH --cpus-per-task=4
-#SBATCH --time=08:00:00
+#SBATCH --time=16:00:00
 #SBATCH --output=logs/step11c_extrap_train_%j.log
 
 # Train five prefix-60% ODE seeds sequentially, then score tails.
+# WANDB_* stay under $REPO/wandb (gitignored). /scratch/ssing226 is not
+# writable on compute nodes (mkdir errno 13); restage jobs already fell
+# back to the repo wandb/ directory.
 conda activate venv
 PYTHON="${CONDA_PREFIX}/bin/python"
 REPO_ROOT="/rhome/ssing226/MastersThesis"
 cd "$REPO_ROOT"
 export PYTHONPATH="${REPO_ROOT}"
 export WANDB_PROJECT="${WANDB_PROJECT:-latent-ode-maize-100}"
-export WANDB_DIR="${WANDB_DIR:-/scratch/ssing226/wandb}"
-export WANDB_CACHE_DIR="${WANDB_CACHE_DIR:-/scratch/ssing226/wandb-cache}"
-export WANDB_ARTIFACT_DIR="${WANDB_ARTIFACT_DIR:-/scratch/ssing226/wandb-artifacts}"
+export WANDB_DIR="${WANDB_DIR:-${REPO_ROOT}/wandb}"
+export WANDB_CACHE_DIR="${WANDB_CACHE_DIR:-${REPO_ROOT}/wandb/cache}"
+export WANDB_ARTIFACT_DIR="${WANDB_ARTIFACT_DIR:-${REPO_ROOT}/wandb/artifacts}"
 mkdir -p "${WANDB_DIR}" "${WANDB_CACHE_DIR}" "${WANDB_ARTIFACT_DIR}" logs checkpoints
 export MPLBACKEND=Agg
 export MPLCONFIGDIR="${REPO_ROOT}/.mplconfig"

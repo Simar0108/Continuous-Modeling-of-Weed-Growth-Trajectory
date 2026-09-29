@@ -1,0 +1,152 @@
+[
+  {
+    "path": "/rhome/ssing226/MastersThesis/checkpoints/h1_stab_seed0/best.ckpt",
+    "epoch": 399,
+    "has_current_model_state": true,
+    "has_averaging_state": true,
+    "n_state": 54,
+    "n_common": 54,
+    "mean_cosine_ema_vs_current": 0.9942782609551041,
+    "min_cosine": 0.9131675958633423,
+    "mean_l2": 0.34143868077350176,
+    "sum_l2": 18.437688761769095,
+    "scale_keys": [
+      "model.output_scale"
+    ],
+    "n_top_keys": 12,
+    "top_keys_sample": [
+      "averaging_state",
+      "callbacks",
+      "current_model_state",
+      "epoch",
+      "global_step",
+      "hparams_name",
+      "hyper_parameters",
+      "loops",
+      "lr_schedulers",
+      "optimizer_states",
+      "pytorch-lightning_version",
+      "state_dict"
+    ]
+  },
+  {
+    "path": "/rhome/ssing226/MastersThesis/checkpoints/h1_stab_seed1/best.ckpt",
+    "epoch": 399,
+    "has_current_model_state": true,
+    "has_averaging_state": true,
+    "n_state": 54,
+    "n_common": 54,
+    "mean_cosine_ema_vs_current": 0.9943054870322898,
+    "min_cosine": 0.9082505106925964,
+    "mean_l2": 0.3561271460515585,
+    "sum_l2": 19.23086588678416,
+    "scale_keys": [
+      "model.output_scale"
+    ],
+    "n_top_keys": 12,
+    "top_keys_sample": [
+      "averaging_state",
+      "callbacks",
+      "current_model_state",
+      "epoch",
+      "global_step",
+      "hparams_name",
+      "hyper_parameters",
+      "loops",
+      "lr_schedulers",
+      "optimizer_states",
+      "pytorch-lightning_version",
+      "state_dict"
+    ]
+  },
+  {
+    "path": "/rhome/ssing226/MastersThesis/checkpoints/h1_stab_seed2/best.ckpt",
+    "epoch": 399,
+    "has_current_model_state": true,
+    "has_averaging_state": true,
+    "n_state": 54,
+    "n_common": 54,
+    "mean_cosine_ema_vs_current": 0.9954528753404264,
+    "min_cosine": 0.9644801616668701,
+    "mean_l2": 0.30696284984932626,
+    "sum_l2": 16.575993891863618,
+    "scale_keys": [
+      "model.output_scale"
+    ],
+    "n_top_keys": 12,
+    "top_keys_sample": [
+      "averaging_state",
+      "callbacks",
+      "current_model_state",
+      "epoch",
+      "global_step",
+      "hparams_name",
+      "hyper_parameters",
+      "loops",
+      "lr_schedulers",
+      "optimizer_states",
+      "pytorch-lightning_version",
+      "state_dict"
+    ]
+  },
+  {
+    "path": "/rhome/ssing226/MastersThesis/checkpoints/h1_stab_seed3/best-v1.ckpt",
+    "epoch": 399,
+    "has_current_model_state": true,
+    "has_averaging_state": true,
+    "n_state": 54,
+    "n_common": 54,
+    "mean_cosine_ema_vs_current": 0.9958548038094132,
+    "min_cosine": 0.9685540795326233,
+    "mean_l2": 0.37805612735596866,
+    "sum_l2": 20.415030877222307,
+    "scale_keys": [
+      "model.output_scale"
+    ],
+    "n_top_keys": 12,
+    "top_keys_sample": [
+      "averaging_state",
+      "callbacks",
+      "current_model_state",
+      "epoch",
+      "global_step",
+      "hparams_name",
+      "hyper_parameters",
+      "loops",
+      "lr_schedulers",
+      "optimizer_states",
+      "pytorch-lightning_version",
+      "state_dict"
+    ]
+  },
+  {
+    "path": "/rhome/ssing226/MastersThesis/checkpoints/h1_stab_seed4/best-v1.ckpt",
+    "epoch": 399,
+    "has_current_model_state": true,
+    "has_averaging_state": true,
+    "n_state": 54,
+    "n_common": 54,
+    "mean_cosine_ema_vs_current": 0.9957414534356859,
+    "min_cosine": 0.9672814607620239,
+    "mean_l2": 0.3283258523496678,
+    "sum_l2": 17.729596026882064,
+    "scale_keys": [
+      "model.output_scale"
+    ],
+    "n_top_keys": 12,
+    "top_keys_sample": [
+      "averaging_state",
+      "callbacks",
+      "current_model_state",
+      "epoch",
+      "global_step",
+      "hparams_name",
+      "hyper_parameters",
+      "loops",
+      "lr_schedulers",
+      "optimizer_states",
+      "pytorch-lightning_version",
+      "state_dict"
+    ]
+  }
+]

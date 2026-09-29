@@ -155,9 +155,9 @@ def _summarize(rows: list[dict]) -> dict:
 
 
 def _rank_biserial(stat: float, n: int) -> float:
-    # Wilcoxon W is the sum of ranks of positive diffs (ours - ref) when
-    # alternative='less' uses the standard scipy convention. Rank-biserial
-    # r = 1 - 2W / (n(n+1)). Negative r means ODE worse if W is large.
+    # Wilcoxon W is the sum of ranks of positive diffs (ours - ref) under
+    # scipy alternative='less'. Rank-biserial r = 1 - 2W / (n(n+1)).
+    # Tables also store p_two_sided; LSTM parity uses that, not p_less.
     denom = n * (n + 1)
     if denom == 0:
         return float("nan")
@@ -188,16 +188,20 @@ def _wilcoxon_block(ode_rows: list[dict], other_rows: list[dict], split: str, ot
         "mean_diff_ode_minus_other": float((a - b).mean()) if n else float("nan"),
     }
     if n >= 6:
-        stat, p = wilcoxon(a, b, alternative="less")
+        stat, p_less = wilcoxon(a, b, alternative="less")
+        _stat_two, p_two = wilcoxon(a, b, alternative="two-sided")
         report.update({
             "wilcoxon_stat": float(stat),
-            "p": float(p),
+            "p": float(p_less),
+            "p_less": float(p_less),
+            "p_two_sided": float(p_two),
             "rank_biserial": _rank_biserial(float(stat), n),
             "paired_cohens_d": _paired_d(a, b),
         })
     else:
         report.update({
             "wilcoxon_stat": float("nan"), "p": float("nan"),
+            "p_less": float("nan"), "p_two_sided": float("nan"),
             "rank_biserial": float("nan"), "paired_cohens_d": float("nan"),
         })
     return report
@@ -508,7 +512,8 @@ def main() -> None:
     _write_csv(OUT_DIR / "table1_model_split.csv", table1)
     _write_csv(OUT_DIR / "per_track_size_mse.csv", long_rows)
 
-    # Table 2 v2: 3-seed-mean-per-track vs each baseline seed + families + NLS
+    # Table 2 v2: 5-seed-mean-per-track vs each baseline seed + families + NLS
+    # p = alternative='less' (ODE smaller); p_two_sided is the two-sided test.
     table2 = []
     others = [m for m in models if not m.startswith("ode")]
     for other in others:

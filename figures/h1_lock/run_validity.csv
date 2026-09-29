@@ -1,0 +1,6 @@
+model,path,best_epoch,training_failure,class
+ode_s0,/rhome/ssing226/MastersThesis/checkpoints/h1_stab_seed0/best.ckpt,399,False,converged
+ode_s1,/rhome/ssing226/MastersThesis/checkpoints/h1_stab_seed1/best.ckpt,399,False,converged
+ode_s2,/rhome/ssing226/MastersThesis/checkpoints/h1_stab_seed2/best.ckpt,399,False,converged
+ode_s3,/rhome/ssing226/MastersThesis/checkpoints/h1_stab_seed3/best-v1.ckpt,399,False,converged
+ode_s4,/rhome/ssing226/MastersThesis/checkpoints/h1_stab_seed4/best-v1.ckpt,399,False,converged

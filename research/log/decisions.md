@@ -145,3 +145,18 @@ TRAINING FAILURE and is excluded from architecture comparisons.
 
 **Stab jobs** write `checkpoints/h1_stab_seed{0..4}/`. Do not overwrite
 `h1_final_best` or `h1_seed{0,1,2}`.
+
+**Outcomes (2026-09-29, Step 11c).** Five seeds converged (best epoch
+399/399/399/399/399). Restage jobs 29203514/515 recovered seeds 3–4
+after a W&B artifact quota kill; eval loaded `best-v1.ckpt` (highest
+epoch). `evaluateh1` job 29203599: ode_clean val 0.156 / test 0.245 vs
+lstm_clean 0.204 / 0.218, gru_clean 0.242 / 0.370. Two-sided Wilcoxon
+vs LSTM test **p=0.048** (ODE worse, d=+0.30); one-sided p_less=0.979
+does not support an ODE win. GRU test win stands (p_less=3.05e-5,
+d=−1.39). Eval loaded EMA `state_dict` (Lightning writes raw weights
+to `current_model_state`). W&B `val_full_horizon_mse` minimum is epoch
+399 on all five runs, including restage. Prefix-60 ODE trains are not
+in this outcome (dirty-tree refuse 29203633). Step 10 tables live in
+`figures/h1_lock/step10_quarantined/`. Gate: do not lock the original
+H1 sentence. Pointer: `research/conclusions/h1_lock.md`,
+`logs/step11c_receipt.md`.

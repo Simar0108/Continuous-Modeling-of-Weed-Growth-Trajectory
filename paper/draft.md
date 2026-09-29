@@ -86,11 +86,13 @@ error on $(\sigma_w,\sigma_h)$, reported as mean **and** median (errors are
 heavy-tailed; e.g. track 6883). Val/test are **short-track transfer**
 (test tracks have 53–65 frames). A matched-rollout sensitivity also
 scores the ODE on frames after index $K-1$ only. Wilcoxon signed-rank,
-alternative “less” (ODE better), $n=15$ val and $n=15$ test, paired by
-`track_id`, using the 3-seed-mean ODE per track. Effect sizes: mean
-paired difference, rank-biserial $r=1-2W/(n(n+1))$, paired Cohen’s $d$.
+alternative “less” (ODE better) for all pairs, plus two-sided Wilcoxon
+vs LSTM for the parity claim, $n=15$ val and $n=15$ test, paired by
+`track_id`, using the converged-seed-mean ODE per track. Effect sizes:
+mean paired difference, rank-biserial $r=1-2W/(n(n+1))$, paired Cohen’s
+$d$.
 The leaked `h1_final_best` row is shown only as a contamination
-reference and is excluded from the 3-seed mean.
+reference and is excluded from the 5-seed mean.
 
 ## Experiments
 
