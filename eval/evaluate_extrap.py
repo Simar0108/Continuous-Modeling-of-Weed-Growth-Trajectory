@@ -102,8 +102,9 @@ def _discover(ckpt_dir: Path, run_tag: str = "h1_seed", n_seeds: int = 3, fail_b
     found = []
     for seed in range(int(n_seeds)):
         d = ckpt_dir / f"{run_tag}{seed}_extrap60"
-        cands = sorted(d.glob("best*.ckpt")) if d.is_dir() else []
+        cands = [p for p in d.glob("best*.ckpt") if p.is_file()] if d.is_dir() else []
         if cands:
+            cands.sort(key=lambda p: (_ckpt_epoch(p), p.stat().st_mtime), reverse=True)
             epoch = _ckpt_epoch(cands[0])
             if epoch < fail_before_epoch:
                 print(f"[extrap] TRAINING FAILURE skip ode_s{seed} epoch={epoch} {cands[0]}")

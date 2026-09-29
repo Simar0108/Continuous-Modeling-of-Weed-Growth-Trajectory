@@ -240,15 +240,21 @@ def _is_training_failure(epoch: int, fail_before: int = FAIL_BEFORE_EPOCH) -> bo
 def _discover_ode_seeds(
     ckpt_dir: Path, run_tag: str = "h1_seed", n_seeds: int = 3,
 ) -> list[tuple[str, Path]]:
-    """Clean 70/15/15 ODE seeds. Does not include h1_final_best."""
+    """Clean 70/15/15 ODE seeds. Does not include h1_final_best.
+
+    If Lightning wrote ``best-v1.ckpt`` beside a stale ``best.ckpt``, keep the
+    file with the highest saved epoch.
+    """
     found: list[tuple[str, Path]] = []
     for seed in range(int(n_seeds)):
         d = ckpt_dir / f"{run_tag}{seed}"
         if not d.is_dir():
             continue
-        cands = sorted(d.glob("best*.ckpt"))
-        if cands:
-            found.append((f"ode_s{seed}", cands[0]))
+        cands = [p for p in d.glob("best*.ckpt") if p.is_file()]
+        if not cands:
+            continue
+        cands.sort(key=lambda p: (_ckpt_epoch(p), p.stat().st_mtime), reverse=True)
+        found.append((f"ode_s{seed}", cands[0]))
     return found
 
 
