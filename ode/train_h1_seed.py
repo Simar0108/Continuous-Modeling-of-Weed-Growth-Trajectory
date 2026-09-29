@@ -30,7 +30,6 @@ from ode.data.datamodule import (
     audit_z_coverage,
 )
 from ode.data.dataset import PlantTrackStateDataset
-from ode.overfit_test import WandbArtifactCheckpoint
 from ode.repro import assert_clean_or_allowed
 from ode.train_baselines import clip_tracks_to_time_frac, select_discrete_tracks
 from ode.callbacks_h1 import BestEpochGateCallback, FixedHorizonValCallback
@@ -174,8 +173,12 @@ def main() -> None:
             }, allow_val_change=True)
         except Exception as exc:
             print(f"[h1_seed] wandb config skipped: {exc}")
-        art_cb = WandbArtifactCheckpoint(
-            monitor=monitor, mode="min", artifact_name=name,
+        # Local best.ckpt only. Uploading a W&B artifact every time the
+        # EMA full-horizon score improved filled ~/.cache/wandb and killed
+        # seeds 3–4 (EDQUOT). Metrics still go to WandbLogger.
+        art_cb = ModelCheckpoint(
+            dirpath=str(out_dir), filename="geo",
+            monitor="val_geo_loss", mode="min", save_top_k=1,
         )
     else:
         logger = True

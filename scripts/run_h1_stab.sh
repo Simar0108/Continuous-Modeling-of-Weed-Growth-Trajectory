@@ -35,6 +35,12 @@ fi
 mkdir -p logs checkpoints
 export PYTHONPATH="${REPO_ROOT}"
 export WANDB_PROJECT="${WANDB_PROJECT:-latent-ode-maize-100}"
+# Keep artifact/cache off $HOME — epoch-wise W&B artifacts filled
+# ~/.cache/wandb (~25G) and killed seeds 3–4 with ENOSPC/EDQUOT.
+export WANDB_DIR="${WANDB_DIR:-/scratch/ssing226/wandb}"
+export WANDB_CACHE_DIR="${WANDB_CACHE_DIR:-/scratch/ssing226/wandb-cache}"
+export WANDB_ARTIFACT_DIR="${WANDB_ARTIFACT_DIR:-/scratch/ssing226/wandb-artifacts}"
+mkdir -p "${WANDB_DIR}" "${WANDB_CACHE_DIR}" "${WANDB_ARTIFACT_DIR}"
 export MPLBACKEND=Agg
 export MPLCONFIGDIR="${REPO_ROOT}/.mplconfig"
 
