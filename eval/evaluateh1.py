@@ -35,7 +35,7 @@ from scipy.stats import wilcoxon
 from ode.data.datamodule import _collate_variable_length_tracks
 from ode.data.dataset import PlantTrackStateDataset
 from ode.train_baselines import BaselineLightning, build_baseline_datasets, select_discrete_tracks
-from ode.train_multi import MultiTrackLightning
+from ode.pathreg import load_ode_module
 from tests.diagnose_growth_form import fit_richards, richards_curve
 
 H1_CKPT = REPO / "checkpoints" / "h1_final_best" / "best.ckpt"
@@ -263,14 +263,7 @@ def _discover_ode_seeds(
 
 
 def _load_ode(path: Path, device: torch.device):
-    module = MultiTrackLightning.load_from_checkpoint(
-        str(path), map_location=device, strict=False,
-    )
-    module.eval().to(device)
-    module.horizon_start_frac = 1.0
-    module.horizon_ramp_start = 0
-    module.horizon_ramp_end = 0
-    return module
+    return load_ode_module(path, device, strict=False)
 
 
 def _plot_sampling(parquet: Path, track_ids: list[int], out: Path) -> None:
@@ -374,7 +367,15 @@ def main() -> None:
     p.add_argument("--run-tag", type=str, default="h1_seed")
     p.add_argument("--n-seeds", type=int, default=3)
     p.add_argument("--fail-before-epoch", type=int, default=FAIL_BEFORE_EPOCH)
+    p.add_argument("--out-dir", type=Path, default=None,
+                    help="Figure/table directory. Required when --run-tag is not a lock tag.")
     args = p.parse_args()
+    global OUT_DIR
+    lock_tags = ("h1_seed", "h1_stab_seed")
+    if args.out_dir is not None:
+        OUT_DIR = args.out_dir
+    elif args.run_tag not in lock_tags:
+        raise SystemExit("REFUSE: non-lock run-tag requires --out-dir (will not overwrite figures/h1_lock)")
     device = torch.device("cuda" if (args.device == "auto" and torch.cuda.is_available()) else (args.device if args.device != "auto" else "cpu"))
     parquet = _parquet()
     OUT_DIR.mkdir(parents=True, exist_ok=True)

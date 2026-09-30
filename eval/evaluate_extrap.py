@@ -32,8 +32,8 @@ import torch
 from scipy.stats import wilcoxon
 
 from ode.compare_models import _build_context_only_query
+from ode.pathreg import load_ode_module
 from ode.train_baselines import BaselineLightning, build_baseline_datasets
-from ode.train_multi import MultiTrackLightning
 
 OUT_DIR = REPO / "figures" / "h1_lock"
 TRAIN_FRAC = 0.6
@@ -157,7 +157,13 @@ def main() -> None:
     p.add_argument("--run-tag", type=str, default="h1_seed")
     p.add_argument("--n-seeds", type=int, default=3)
     p.add_argument("--fail-before-epoch", type=int, default=20)
+    p.add_argument("--out-dir", type=Path, default=None)
     args = p.parse_args()
+    global OUT_DIR
+    if args.out_dir is not None:
+        OUT_DIR = args.out_dir
+    elif args.run_tag not in ("h1_seed", "h1_stab_seed"):
+        raise SystemExit("REFUSE: non-lock run-tag requires --out-dir")
     device = torch.device(
         "cuda" if (args.device == "auto" and torch.cuda.is_available()) else
         (args.device if args.device != "auto" else "cpu")
@@ -176,9 +182,7 @@ def main() -> None:
     ):
         try:
             if family == "ode":
-                mod = MultiTrackLightning.load_from_checkpoint(str(path), map_location=device, strict=False)
-                mod.eval().to(device)
-                mod.horizon_start_frac = 1.0
+                mod = load_ode_module(path, device, strict=False)
                 predict = lambda qs, qt, m=mod: _pred_ode(m, qs, qt)
             else:
                 mod = BaselineLightning.load_from_checkpoint(str(path), map_location=device, strict=False)

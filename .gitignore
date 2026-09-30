@@ -17,6 +17,7 @@ tea_debug.log
 Continuous-Modeling-of-Weed-Growth-Trajectory/
 .DS_Store
 figures/archive_*/
+figures/pathreg/
 figures/h1_eval*/
 figures/h1_earlyphase_check/
 figures/step7/
