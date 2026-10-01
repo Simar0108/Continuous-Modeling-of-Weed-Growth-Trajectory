@@ -56,10 +56,16 @@ mkdir -p "${WANDB_DIR}" "${WANDB_CACHE_DIR}" "${WANDB_ARTIFACT_DIR}"
 export MPLBACKEND=Agg
 export MPLCONFIGDIR="${REPO_ROOT}/.mplconfig"
 
-TAG="$("${PYTHON}" -c "from ode.pathreg import lambda_tag; print(lambda_tag(float('${LAM}')))")"
+# Inline .4g tag — do not import ode.pathreg (bootstrap stdout emptied TAG).
+TAG="$("${PYTHON}" -c "lam=float('${LAM}'); print(f'{lam:.4g}'.replace('-','m').replace('.','p'))")"
+if [[ -z "${TAG}" || "${TAG}" == *$'\n'* ]]; then
+  echo "REFUSE: empty/multiline lambda tag for lambda=${LAM} (got ${TAG!r})" >&2
+  exit 1
+fi
 RUN_TAG="h1_pathreg_l${TAG}_seed"
-OUT_DIR="${REPO_ROOT}/figures/pathreg/${RUN_TAG}"
+OUT_DIR="${REPO_ROOT}/figures/pathreg/${RUN_TAG}_extrap60"
 mkdir -p "${OUT_DIR}"
+echo "[pathreg-extrap] lambda=${LAM} tag=${TAG} run_tag=${RUN_TAG} out=${OUT_DIR}"
 
 for s in 0 1 2 3 4; do
   echo "[pathreg-extrap] lambda=${LAM} seed=${s} tag=${RUN_TAG}"

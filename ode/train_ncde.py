@@ -1,4 +1,4 @@
-"""Train the pathreg H1 arm. Does not write h1_final_best or h1_stab."""
+"""Train the Neural CDE H1 arm. Does not write h1_final_best or h1_stab."""
 
 from __future__ import annotations
 
@@ -16,7 +16,6 @@ bootstrap()
 
 import lightning as L
 import pandas as pd
-import torch
 from lightning import Trainer
 from lightning.pytorch.callbacks import EMAWeightAveraging, ModelCheckpoint
 from lightning.pytorch.loggers import CSVLogger, WandbLogger
@@ -29,19 +28,16 @@ from ode.data.datamodule import (
     audit_z_coverage,
 )
 from ode.data.dataset import PlantTrackStateDataset
-from ode.pathreg import (
-    PathRegDiagnosticsCallback,
-    PathRegLightning,
-    lambda_tag,
-    write_provenance,
-)
+from ode.ncde import NCDELightning
+from ode.pathreg import PathRegDiagnosticsCallback
 from ode.repro import assert_clean_or_allowed
 from ode.train_baselines import clip_tracks_to_time_frac, select_discrete_tracks
 from ode.train_h1_seed import H1_HP
 from ode.train_multi import EpochGatedModelCheckpoint
 
 REPO = Path(__file__).resolve().parent.parent
-LOCKED_TAGS = ("h1_final_best", "h1_stab", "h1_seed")
+LOCKED_TAGS = ("h1_final_best", "h1_stab", "h1_seed", "h1_pathreg")
+KILL_DATE = "2026-10-25"
 
 
 def _refuse_lock_paths(run_tag: str, out_dir: Path) -> None:
@@ -50,9 +46,33 @@ def _refuse_lock_paths(run_tag: str, out_dir: Path) -> None:
         raise SystemExit("REFUSE: will not write under h1_final_best")
     if "h1_stab_seed" in text:
         raise SystemExit("REFUSE: will not write under h1_stab checkpoints")
+    if "h1_pathreg" in text:
+        raise SystemExit("REFUSE: will not write under pathreg checkpoints")
     for tag in LOCKED_TAGS:
-        if run_tag == tag or run_tag.startswith(f"{tag}_s"):
-            raise SystemExit(f"REFUSE: run-tag {run_tag!r} collides with the locked arm")
+        if run_tag == tag or run_tag.startswith(f"{tag}_"):
+            if tag == "h1_pathreg":
+                continue
+            raise SystemExit(f"REFUSE: run-tag {run_tag!r} collides with a locked arm")
+
+
+def _write_provenance(out_dir: Path, payload: dict) -> None:
+    out_dir.mkdir(parents=True, exist_ok=True)
+    lines = [
+        "# NCDE arm provenance",
+        "",
+        "This directory is **not** the locked H1 reference. Do not write here",
+        "from `h1_stab`, `h1_final_best`, or pathreg jobs.",
+        "",
+        f"- **kill_date**: `{KILL_DATE}`",
+        "- **primary_endpoint**: prefix-60 tail test MSE beats LSTM (~1.014)",
+        "- **secondary_endpoint**: in-window test within LSTM seed band [0.194, 0.246]",
+        "",
+    ]
+    for key, value in payload.items():
+        lines.append(f"- **{key}**: `{value}`")
+    lines.append("")
+    (out_dir / "PROVENANCE.md").write_text("\n".join(lines))
+    (out_dir / "provenance.json").write_text(json.dumps(payload, indent=2, default=str))
 
 
 def main() -> None:
@@ -71,14 +91,10 @@ def main() -> None:
     p.add_argument("--batch-size", type=int, default=32)
     p.add_argument("--accelerator", default="auto")
     p.add_argument("--train-time-frac", type=float, default=1.0)
-    p.add_argument("--pathreg-lambda", type=float, required=True)
-    p.add_argument("--run-tag", type=str, default=None)
+    p.add_argument("--run-tag", type=str, default="h1_ncde_seed")
     p.add_argument("--ema-decay", type=float, default=0.999)
     p.add_argument("--fixed-horizon-val-every", type=int, default=1)
     args = p.parse_args()
-
-    if float(args.pathreg_lambda) <= 0:
-        raise SystemExit("REFUSE: pathreg lambda must be > 0; lambda=0 is the locked arm")
 
     git = assert_clean_or_allowed(REPO, args.allow_dirty)
     L.seed_everything(args.seed, workers=True)
@@ -89,13 +105,7 @@ def main() -> None:
     if not parquet.is_file():
         raise FileNotFoundError(parquet)
 
-    expected = f"l{lambda_tag(args.pathreg_lambda)}"
-    tag = args.run_tag or f"h1_pathreg_{expected}_seed"
-    if expected not in tag:
-        raise SystemExit(
-            f"REFUSE: run-tag {tag!r} does not contain {expected!r} "
-            f"(empty lambda_tag collision)"
-        )
+    tag = args.run_tag
     name = args.name or f"{tag}{args.seed}"
     out_dir = REPO / "checkpoints" / f"{tag}{args.seed}"
     if args.train_time_frac < 1.0:
@@ -108,9 +118,10 @@ def main() -> None:
         min_observations=15, val_frac=args.val_frac, test_frac=args.test_frac,
     )
     print(
-        f"[pathreg] seed={args.seed} name={name} lambda={args.pathreg_lambda} "
+        f"[ncde] seed={args.seed} name={name} "
         f"train={len(train_ids)} val={len(val_ids)} test={len(test_ids)} "
-        f"time_frac={args.train_time_frac} git={git['git_hash'][:12]}"
+        f"time_frac={args.train_time_frac} git={git['git_hash'][:12]} "
+        f"kill_date={KILL_DATE}"
     )
 
     df = pd.read_parquet(parquet)
@@ -138,23 +149,25 @@ def main() -> None:
         dataframe=val_df, valid_track_only=True, min_observations=8,
     )
     dm.lock_setup()
-    audit_z_coverage(dm, label=f"pathreg {name}", n_tracks=len(train_ids))
+    audit_z_coverage(dm, label=f"ncde {name}", n_tracks=len(train_ids))
     dm.val_dataloader = lambda: DataLoader(
         dm._val_ds, batch_size=len(val_ids), shuffle=False, num_workers=0,
         collate_fn=_collate_variable_length_tracks,
     )
 
     hp = dict(H1_HP)
-    hp["pathreg_lambda"] = float(args.pathreg_lambda)
+    hp["ncde"] = True
     cfg_hash = hashlib.sha256(
-        json.dumps({"H1_HP": H1_HP, "pathreg_lambda": args.pathreg_lambda,
-                    "solver": "dopri5", "rtol": 1e-6, "atol": 1e-6,
-                    "ema": args.ema_decay, "monitor": "val_full_horizon_mse"},
-                   sort_keys=True, default=str).encode()
+        json.dumps({
+            "H1_HP": H1_HP, "arm": "ncde",
+            "solver": "dopri5", "rtol": 1e-6, "atol": 1e-6,
+            "ema": args.ema_decay, "monitor": "val_full_horizon_mse",
+            "control": "cubic_hermite_sigma_w_sigma_h_t",
+            "kill_date": KILL_DATE,
+        }, sort_keys=True, default=str).encode()
     ).hexdigest()
-    write_provenance(out_dir, {
-        "arm": "pathreg",
-        "pathreg_lambda": float(args.pathreg_lambda),
+    _write_provenance(out_dir, {
+        "arm": "ncde",
         "seed": int(args.seed),
         "run_tag": tag,
         "config_hash": cfg_hash,
@@ -168,10 +181,12 @@ def main() -> None:
         "epochs": int(args.epochs),
         "train_time_frac": float(args.train_time_frac),
         "normalize_z0": True,
+        "control": "cubic Hermite over [sigma_w, sigma_h, t_norm], context knots only",
         "locked_reference": "h1_stab_seed{0..4} / h1_final_best not written",
+        "kill_date": KILL_DATE,
     })
 
-    module = PathRegLightning(**hp)
+    module = NCDELightning(**hp)
     monitor = "val_full_horizon_mse" if args.fixed_horizon_val_every > 0 else "val_track_mse_mean"
 
     loggers: list = [CSVLogger(save_dir=str(out_dir), name="csv")]
@@ -181,14 +196,12 @@ def main() -> None:
             wb.experiment.config.update({
                 "git_hash": git["git_hash"], "git_dirty": git["git_dirty"],
                 "seed": args.seed, "train_time_frac": args.train_time_frac,
-                "pathreg_lambda": args.pathreg_lambda,
-                "config_hash": cfg_hash,
-                "lock_excluded": True,
-                "ema_decay": args.ema_decay,
-                "ckpt_monitor": monitor,
+                "arm": "ncde", "config_hash": cfg_hash,
+                "lock_excluded": True, "ema_decay": args.ema_decay,
+                "ckpt_monitor": monitor, "kill_date": KILL_DATE,
             }, allow_val_change=True)
         except Exception as exc:
-            print(f"[pathreg] wandb config skipped: {exc}")
+            print(f"[ncde] wandb config skipped: {exc}")
         loggers.append(wb)
 
     art_cb = ModelCheckpoint(
@@ -211,14 +224,14 @@ def main() -> None:
         gradient_clip_val=1.0, log_every_n_steps=1,
     )
     trainer.fit(module, datamodule=dm)
-    print(f"[pathreg] done {name} val={trainer.callback_metrics.get(monitor)}")
-    print(f"[pathreg] ckpt dir {out_dir} monitor={monitor}")
+    print(f"[ncde] done {name} val={trainer.callback_metrics.get(monitor)}")
+    print(f"[ncde] ckpt dir {out_dir} monitor={monitor}")
     if args.wandb:
         try:
             import wandb
             if wandb.run is not None:
                 wandb.summary["git_hash"] = git["git_hash"]
-                wandb.summary["pathreg_lambda"] = float(args.pathreg_lambda)
+                wandb.summary["arm"] = "ncde"
                 wandb.summary["config_hash"] = cfg_hash
                 wandb.finish()
         except ImportError:

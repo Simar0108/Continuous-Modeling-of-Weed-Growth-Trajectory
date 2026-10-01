@@ -243,16 +243,23 @@ def _is_training_failure(epoch: int, fail_before: int = FAIL_BEFORE_EPOCH) -> bo
 
 def _discover_ode_seeds(
     ckpt_dir: Path, run_tag: str = "h1_seed", n_seeds: int = 3,
+    ckpt_name: str | None = None,
 ) -> list[tuple[str, Path]]:
     """Clean 70/15/15 ODE seeds. Does not include h1_final_best.
 
     If Lightning wrote ``best-v1.ckpt`` beside a stale ``best.ckpt``, keep the
-    file with the highest saved epoch.
+    file with the highest saved epoch. ``ckpt_name`` pins an exact filename
+    (pathreg repair: ``best-v2.ckpt``) and skips max-epoch discovery.
     """
     found: list[tuple[str, Path]] = []
     for seed in range(int(n_seeds)):
         d = ckpt_dir / f"{run_tag}{seed}"
         if not d.is_dir():
+            continue
+        if ckpt_name:
+            pinned = d / ckpt_name
+            if pinned.is_file():
+                found.append((f"ode_s{seed}", pinned))
             continue
         cands = [p for p in d.glob("best*.ckpt") if p.is_file()]
         if not cands:
@@ -369,6 +376,8 @@ def main() -> None:
     p.add_argument("--fail-before-epoch", type=int, default=FAIL_BEFORE_EPOCH)
     p.add_argument("--out-dir", type=Path, default=None,
                     help="Figure/table directory. Required when --run-tag is not a lock tag.")
+    p.add_argument("--ckpt-name", type=str, default=None,
+                    help="Exact best*.ckpt filename. Skips max-epoch discovery.")
     args = p.parse_args()
     global OUT_DIR
     lock_tags = ("h1_seed", "h1_stab_seed")
@@ -407,7 +416,9 @@ def main() -> None:
         )
         models.setdefault("ode_leaked", {})[split] = ode_full["ode_leaked"][split]
 
-    ode_seed_ckpts = _discover_ode_seeds(args.ckpt_dir, args.run_tag, args.n_seeds)
+    ode_seed_ckpts = _discover_ode_seeds(
+        args.ckpt_dir, args.run_tag, args.n_seeds, ckpt_name=args.ckpt_name,
+    )
     print(f"[evaluateh1] discovered {len(ode_seed_ckpts)} ODE seeds tag={args.run_tag}")
     if not ode_seed_ckpts:
         raise SystemExit(f"REFUSE: no ODE seeds under {args.ckpt_dir}/{args.run_tag}*")

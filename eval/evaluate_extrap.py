@@ -98,13 +98,21 @@ def _ckpt_epoch(path: Path) -> int:
     return int(ckpt.get("epoch", -1))
 
 
-def _discover(ckpt_dir: Path, run_tag: str = "h1_seed", n_seeds: int = 3, fail_before_epoch: int = 20) -> list[tuple[str, str, Path]]:
+def _discover(
+    ckpt_dir: Path, run_tag: str = "h1_seed", n_seeds: int = 3,
+    fail_before_epoch: int = 20, ckpt_name: str | None = None,
+) -> list[tuple[str, str, Path]]:
     found = []
     for seed in range(int(n_seeds)):
         d = ckpt_dir / f"{run_tag}{seed}_extrap60"
-        cands = [p for p in d.glob("best*.ckpt") if p.is_file()] if d.is_dir() else []
+        if ckpt_name:
+            pinned = d / ckpt_name
+            cands = [pinned] if pinned.is_file() else []
+        else:
+            cands = [p for p in d.glob("best*.ckpt") if p.is_file()] if d.is_dir() else []
         if cands:
-            cands.sort(key=lambda p: (_ckpt_epoch(p), p.stat().st_mtime), reverse=True)
+            if not ckpt_name:
+                cands.sort(key=lambda p: (_ckpt_epoch(p), p.stat().st_mtime), reverse=True)
             epoch = _ckpt_epoch(cands[0])
             if epoch < fail_before_epoch:
                 print(f"[extrap] TRAINING FAILURE skip ode_s{seed} epoch={epoch} {cands[0]}")
@@ -158,6 +166,8 @@ def main() -> None:
     p.add_argument("--n-seeds", type=int, default=3)
     p.add_argument("--fail-before-epoch", type=int, default=20)
     p.add_argument("--out-dir", type=Path, default=None)
+    p.add_argument("--ckpt-name", type=str, default=None,
+                    help="Exact best*.ckpt filename. Skips max-epoch discovery.")
     args = p.parse_args()
     global OUT_DIR
     if args.out_dir is not None:
@@ -179,6 +189,7 @@ def main() -> None:
     models = []
     for family, key, path in _discover(
         args.ckpt_dir, args.run_tag, args.n_seeds, args.fail_before_epoch,
+        ckpt_name=args.ckpt_name,
     ):
         try:
             if family == "ode":

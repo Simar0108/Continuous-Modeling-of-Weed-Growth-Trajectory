@@ -1,0 +1,35 @@
+{
+  "note": "Log-recovered pathreg columns from jobs 29301136–41. Used only when unique-dir CSVs are absent. λ=1.0 in-window and λ=0.1 prefix-60 are filled by the Step 12 repair eval.",
+  "rows": [
+    {
+      "lambda": "0.01",
+      "z0_cosine_mean": 0.9697512,
+      "inwindow_test_mse": 0.29163220822811126,
+      "inwindow_val_mse": 0.17253455224136513,
+      "tail_test_mse": 1.872958833090961,
+      "source": "logs/pathreg_29301136.log evaluateh1 best.ckpt; logs/pathreg_extrap_29301137.log best.ckpt",
+      "job_inwindow": 29301136,
+      "job_extrap": 29301137
+    },
+    {
+      "lambda": "0.1",
+      "z0_cosine_mean": 0.9770486,
+      "inwindow_test_mse": 0.20132249822219214,
+      "inwindow_val_mse": 0.17410403673847513,
+      "tail_test_mse": null,
+      "source": "logs/pathreg_29301138.log evaluateh1 best-v1.ckpt; prefix-60 pending repair best-v1",
+      "job_inwindow": 29301138,
+      "job_extrap": 29301139
+    },
+    {
+      "lambda": "1.0",
+      "z0_cosine_mean": 0.941285,
+      "inwindow_test_mse": null,
+      "inwindow_val_mse": null,
+      "tail_test_mse": 1.5877805552879968,
+      "source": "fit-end z0 from logs/pathreg_29301140.log; tail from 29301141 best-v2; in-window pending repair best-v2",
+      "job_inwindow": 29301140,
+      "job_extrap": 29301141
+    }
+  ]
+}

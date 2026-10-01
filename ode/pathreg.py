@@ -115,7 +115,13 @@ def load_ode_module(path: Path, device: torch.device, strict: bool = False):
     except TypeError:
         blob = torch.load(str(path), map_location="cpu")
     hp = blob.get("hyper_parameters") or {}
-    cls = PathRegLightning if "pathreg_lambda" in hp else MultiTrackLightning
+    if "pathreg_lambda" in hp:
+        cls = PathRegLightning
+    elif hp.get("ncde"):
+        from ode.ncde import NCDELightning
+        cls = NCDELightning
+    else:
+        cls = MultiTrackLightning
     try:
         module = cls.load_from_checkpoint(str(path), map_location=device, strict=strict)
     except TypeError:

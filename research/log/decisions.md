@@ -160,3 +160,61 @@ in this outcome (dirty-tree refuse 29203633). Step 10 tables live in
 `figures/h1_lock/step10_quarantined/`. Gate: do not lock the original
 H1 sentence. Pointer: `research/conclusions/h1_lock.md`,
 `logs/step11c_receipt.md`.
+
+---
+
+## D-016 — Lock remains model of record; pathreg λ=0.1 is an ablation
+
+**Date.** 2026-10-01.
+
+**Decision.** `h1_stab_seed{0..4}` (EMA, full-horizon selection, 5/5
+epoch 399) remains the H1 model of record. In-window: ode_clean val
+0.156 / test 0.245 vs lstm_clean 0.204 / 0.218, two-sided Wilcoxon vs
+LSTM test p=0.048 (ODE worse, d=+0.30). Prefix-60 tail: ODE 1.869 vs
+LSTM ~1.014. Do not replace the lock with a pathreg checkpoint.
+
+Pathreg λ=0.1 in-window test 0.201 is **test-selected post hoc** after
+seeing the three-λ stopping table. It is reported as an ablation only
+and is **not eligible as the headline ODE**. Identity collapse is not
+broken (z0 cosine 0.970 / 0.977 / 0.941 vs lock ~0.996). Do not tune λ.
+
+Jobs 29301136–41 collided on empty `lambda_tag` (`h1_pathreg_l_seed`).
+Versioned files on disk: `best.ckpt`=λ=0.01, `best-v1`=λ=0.1,
+`best-v2`=λ=1.0. Step 12 re-scores λ=1.0 in-window (`best-v2`) and
+λ=0.1 prefix-60 (`best-v1`) into unique `--out-dir`s. Wrapper tags are
+inline `.4g` (no `ode.pathreg` import). Launch graph is in-window then
+`afterok` extrap per λ.
+
+**Invariants unchanged.** `h1_final_best` read-only. `figures/h1_lock`
+not written by pathreg repair.
+
+---
+
+## D-017 — NCDE pre-registration (written before training)
+
+**Date.** 2026-10-01. **Kill date.** 2026-10-25.
+
+**Arm.** Neural CDE: `dz/dt = f_θ(z, X(t)) X'(t)` with cubic Hermite
+X over `[σ_w, σ_h, t_norm]`. Knots are the **context frames only**
+(no future size labels). Encoder, affine decoder, `hybrid_loss`
+color_mask, `xy_loss_weight=0`, `normalize_z0` ON, dopri5 1e-6 reused.
+Writes `checkpoints/h1_ncde_seed{0..4}/` and `*_extrap60`. Does not
+write `h1_final_best` or `h1_stab`.
+
+**Protocol.** Maize 70/15/15, 5 seeds, EMA 0.999, checkpoint on
+`val_full_horizon_mse`, fail if best epoch < 20. Same H1_HP as stab
+except the RHS.
+
+**Primary endpoint (pre-registered).** Prefix-60 tail test MSE beats
+LSTM (~1.014): 5-seed ODE/NCDE mean < LSTM clean tail mean, reported
+with two-sided Wilcoxon. This is the only success criterion for
+replacing the lock on extrapolation.
+
+**Secondary endpoint (pre-registered).** In-window test mean inside
+the LSTM seed band [0.194, 0.246] (lstm_s0/s1/s2 test means).
+
+**Report regardless of outcome.** If not converged by 2026-10-25
+(best-val epoch < 20 on any seed, or jobs still running), stop and
+document. Do not retune the CDE after seeing the endpoints.
+
+**Pointer.** `ode/ncde.py`, `ode/train_ncde.py`, `scripts/run_ncde.sh`.

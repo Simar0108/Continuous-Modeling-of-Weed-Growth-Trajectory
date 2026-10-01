@@ -10,3 +10,5 @@ only. Does not write `h1_final_best` or `h1_stab`.
 Stopping table: z0 cosine vs ~0.996, in-window test MSE vs 0.245,
 prefix-60/tail-40 vs 1.869. Do not tune λ further until that table is
 reviewed. `eval/summarize_pathreg.py`.
+
+**Outcome (jobs 29301136–41).** Empty `lambda_tag` from `python -c "from ode.pathreg import lambda_tag"` collided all three λ into `h1_pathreg_l_seed{0..4}/`. Lightning versioned files (`best.ckpt`=0.01, `best-v1`=0.1, `best-v2`=1.0). Max-epoch eval mixed tables. Step 12 repairs tags, unique `--out-dir`, and re-scores `best-v2` in-window / `best-v1` prefix-60. Do not tune λ. Pointer: D-016.
