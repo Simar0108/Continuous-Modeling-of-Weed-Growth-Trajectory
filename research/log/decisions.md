@@ -196,7 +196,10 @@ not written by pathreg repair.
 
 **Arm.** Neural CDE: `dz/dt = f_θ(z, X(t)) X'(t)` with cubic Hermite
 X over `[σ_w, σ_h, t_norm]`. Knots are the **context frames only**
-(no future size labels). Encoder, affine decoder, `hybrid_loss`
+plus a **hold knot at t_norm=1**. Size is held after the last
+observation; the time channel is the identity `X_t=t`, `X'_t=1` on
+the full odeint span so the tail cannot freeze (`dz/dt = f·0`).
+Encoder, affine decoder, `hybrid_loss`
 color_mask, `xy_loss_weight=0`, `normalize_z0` ON, dopri5 1e-6 reused.
 Writes `checkpoints/h1_ncde_seed{0..4}/` and `*_extrap60`. Does not
 write `h1_final_best` or `h1_stab`.

@@ -32,6 +32,31 @@ def backward_diffs(knots: torch.Tensor, values: torch.Tensor) -> torch.Tensor:
     return derivs
 
 
+def control_derivs(knots: torch.Tensor, values: torch.Tensor) -> torch.Tensor:
+    """Backward differences, with size held (zero deriv) on the last interval."""
+    derivs = backward_diffs(knots, values)
+    if knots.shape[0] >= 2 and values.shape[-1] >= 2:
+        derivs = derivs.clone()
+        derivs[:, -2:, :2] = 0.0
+    return derivs
+
+
+def apply_identity_time_channel(
+    x: torch.Tensor, dx: torch.Tensor, t: torch.Tensor,
+) -> tuple[torch.Tensor, torch.Tensor]:
+    """Keep the last control channel equal to query time with derivative 1.
+
+    After the last observation the size spline is held, so X' would be 0
+    without a ticking time channel and the CDE would freeze (dz/dt = f·0).
+    """
+    t_s = t.reshape(()).to(dtype=x.dtype, device=x.device)
+    x = x.clone()
+    dx = dx.clone()
+    x[:, -1] = t_s
+    dx[:, -1] = x.new_ones(())
+    return x, dx
+
+
 def hermite_eval(
     knots: torch.Tensor,
     values: torch.Tensor,
@@ -40,7 +65,8 @@ def hermite_eval(
 ) -> tuple[torch.Tensor, torch.Tensor]:
     """Cubic Hermite value and dt-derivative at scalar t.
 
-    Returns x (B, C) and dx/dt (B, C).
+    Returns x (B, C) and dx/dt (B, C). The time channel is then replaced
+    by the identity map t ↦ (t, 1) so the tail cannot freeze.
     """
     k = int(knots.shape[0])
     t = t.reshape(())
@@ -65,7 +91,7 @@ def hermite_eval(
     dh01 = (-6.0 * s2 + 6.0 * s) / dt
     dh11 = 3.0 * s2 - 2.0 * s
     dx = dh00 * y0 + dh10 * m0 + dh01 * y1 + dh11 * m1
-    return x, dx
+    return apply_identity_time_channel(x, dx, t)
 
 
 def context_control(
@@ -89,7 +115,12 @@ def context_control(
     bump = torch.arange(n_ctx, device=knots.device, dtype=knots.dtype) * 1e-5
     knots = knots + bump
     sigma = states[:, :n_ctx, 2:4]
-    t_ch = knots.reshape(1, n_ctx, 1).expand(batch, n_ctx, 1)
+    # Hold-size knot at t_norm=1 so the interpolant covers the full odeint
+    # span. Size stays at the last context value; time continues to 1.
+    if float(knots[-1].detach()) < 1.0 - 1e-6:
+        knots = torch.cat([knots, knots.new_tensor([1.0])])
+        sigma = torch.cat([sigma, sigma[:, -1:, :]], dim=1)
+    t_ch = knots.reshape(1, -1, 1).expand(batch, int(knots.shape[0]), 1)
     values = torch.cat([sigma, t_ch], dim=-1)
     return knots, values
 
@@ -131,7 +162,7 @@ class NeuralCDEFunc(StiffODEMixin, nn.Module):
     def set_control(self, knots: torch.Tensor, values: torch.Tensor) -> None:
         self._knots = knots
         self._values = values
-        self._derivs = backward_diffs(knots, values)
+        self._derivs = control_derivs(knots, values)
 
     def forward(self, t: torch.Tensor, h: torch.Tensor) -> torch.Tensor:
         self.nfe += 1

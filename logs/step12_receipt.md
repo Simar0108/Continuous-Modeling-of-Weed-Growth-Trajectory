@@ -43,9 +43,12 @@ Pre-registered in D-017 **before** `sbatch`:
 - Secondary: in-window test inside LSTM seed band [0.194, 0.246]
 - Report regardless of outcome
 
-Protocol matches stab: 70/15/15, 5 seeds, EMA 0.999, dopri5 1e-6,
-`val_full_horizon_mse`, fail if best epoch < 20. Control path is cubic
-Hermite on context knots `[σ_w, σ_h, t_norm]` only.
+Control path is cubic Hermite on context knots `[σ_w, σ_h, t_norm]`
+plus a hold knot at `t_norm=1`. Size is held after the last observation;
+the time channel is identity (`X_t=t`, `X'_t=1`) so the prefix-60 tail
+cannot freeze. CPU test `test_time_channel_prevents_frozen_tail` covers
+this. Jobs 29331496/7 were cancelled ~1 min in and resubmitted after
+this fix.
 
 ## What was not verified
 
