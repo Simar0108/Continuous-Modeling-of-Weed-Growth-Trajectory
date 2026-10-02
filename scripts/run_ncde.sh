@@ -9,8 +9,8 @@
 #SBATCH --mail-type=ALL
 #SBATCH --output=logs/ncde_%j.log
 
-# Neural CDE in-window arm. Kill date 2026-10-25. Does not write h1_final_best.
-# Usage: sbatch scripts/run_ncde.sh Thesis/metrics_with_features.parquet
+# One in-window NCDE seed. Kill date 2026-10-25. Does not write h1_final_best.
+# Usage: sbatch scripts/run_ncde.sh Thesis/metrics_with_features.parquet --seed N
 
 conda activate venv
 PYTHON="${CONDA_PREFIX}/bin/python"
@@ -19,12 +19,32 @@ cd "$REPO_ROOT"
 
 PARQUET="${1:-}"
 if [[ -z "${PARQUET}" ]]; then
-  echo "Usage: $0 /path/to/metrics.parquet [--seed N] ..." >&2
+  echo "Usage: $0 /path/to/metrics.parquet --seed N" >&2
   exit 1
 fi
 shift
 if [[ ! -f "${PARQUET}" ]]; then
   echo "File not found: ${PARQUET}" >&2
+  exit 1
+fi
+
+SEED=""
+EXTRA=()
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --seed)
+      SEED="$2"
+      EXTRA+=("$1" "$2")
+      shift 2
+      ;;
+    *)
+      EXTRA+=("$1")
+      shift
+      ;;
+  esac
+done
+if [[ -z "${SEED}" ]]; then
+  echo "REFUSE: --seed is required (one GPU per seed)." >&2
   exit 1
 fi
 
@@ -39,25 +59,18 @@ export MPLBACKEND=Agg
 export MPLCONFIGDIR="${REPO_ROOT}/.mplconfig"
 
 RUN_TAG="h1_ncde_seed"
-OUT_DIR="${REPO_ROOT}/figures/ncde/${RUN_TAG}"
-mkdir -p "${OUT_DIR}"
-
-for s in 0 1 2 3 4; do
-  echo "[ncde] in-window seed=${s} tag=${RUN_TAG}"
-  "${PYTHON}" -m ode.train_ncde \
-    --parquet "${PARQUET}" \
-    --wandb \
-    --project "${WANDB_PROJECT}" \
-    --species Maize \
-    --max-tracks 100 \
-    --epochs 400 \
-    --ema-decay 0.999 \
-    --fixed-horizon-val-every 1 \
-    --run-tag "${RUN_TAG}" \
-    --seed "${s}" \
-    "$@"
-done
-
-"${PYTHON}" eval/evaluateh1.py --device auto --run-tag "${RUN_TAG}" --n-seeds 5 --out-dir "${OUT_DIR}"
-"${PYTHON}" eval/evaluate_drop.py --device auto --run-tag "${RUN_TAG}" --n-seeds 5 --out-dir "${OUT_DIR}"
-echo "[ncde] in-window done ${RUN_TAG}"
+echo "[ncde] in-window seed=${SEED} tag=${RUN_TAG}"
+"${PYTHON}" -m ode.train_ncde \
+  --parquet "${PARQUET}" \
+  --wandb \
+  --project "${WANDB_PROJECT}" \
+  --species Maize \
+  --max-tracks 100 \
+  --epochs 400 \
+  --ema-decay 0.999 \
+  --fixed-horizon-val-every 1 \
+  --nfe-limit 150 \
+  --nfe-sustain 3 \
+  --run-tag "${RUN_TAG}" \
+  "${EXTRA[@]}"
+echo "[ncde] seed ${SEED} done"

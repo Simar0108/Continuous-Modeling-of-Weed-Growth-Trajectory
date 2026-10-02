@@ -8,6 +8,7 @@ import torch
 
 from ode.ncde import (
     NeuralCDEFunc,
+    attach_ncde_control,
     backward_diffs,
     context_control,
     control_derivs,
@@ -83,3 +84,53 @@ def test_time_channel_prevents_frozen_tail():
     # Without a time channel, ||X'|| would be ~0 and the CDE would freeze.
     sigma_only = float(dx[0, :2].norm())
     assert float(dx[0].norm()) > sigma_only + 0.5
+
+
+def test_nfe_resets_per_forward():
+    class _M:
+        def __init__(self):
+            self.ode_func = NeuralCDEFunc(latent_dim=4, hidden_dim=8, n_layers=2)
+            self.context_encoder = type("E", (), {"n_context_frames": 3})()
+
+        def forward(self, states, t, return_aux=False, track_ids=None):
+            t0 = t[0] if t.dim() else t
+            return self.ode_func(t0, torch.zeros(states.shape[0], 4))
+
+    model = _M()
+    attach_ncde_control(model, n_context=3)
+    t = torch.linspace(0, 1, 5)
+    states = torch.randn(1, 5, 5)
+    model.forward(states, t)
+    first = int(model.ode_func.nfe)
+    model.forward(states, t)
+    second = int(model.ode_func.nfe)
+    assert first >= 1
+    assert second == first
+
+
+def test_nfe_budget_pauses_after_sustain():
+    from ode.callbacks_h1 import NFEBudgetCallback
+
+    class _Mod:
+        def __init__(self):
+            self.model = type("M", (), {"ode_func": type("O", (), {"nfe": 200})()})()
+            self.device = torch.device("cpu")
+
+        def log(self, *args, **kwargs):
+            return None
+
+    class _Tr:
+        current_epoch = 0
+        sanity_checking = False
+        should_stop = False
+
+    callback = NFEBudgetCallback(limit=150, sustain_epochs=3)
+    module = _Mod()
+    trainer = _Tr()
+    for epoch in range(3):
+        trainer.current_epoch = epoch
+        callback.on_train_batch_end(trainer, module, None, None, 0)
+        callback.on_validation_epoch_end(trainer, module)
+        callback.on_train_epoch_end(trainer, module)
+    assert callback.paused
+    assert trainer.should_stop

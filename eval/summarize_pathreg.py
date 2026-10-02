@@ -77,7 +77,7 @@ def main() -> None:
     p.add_argument("--out-root", type=Path, default=REPO / "figures" / "pathreg")
     p.add_argument("--ckpt-dir", type=Path, default=REPO / "checkpoints")
     p.add_argument("--recovered", type=Path, default=REPO / "logs" / "pathreg_recovered.json")
-    p.add_argument("--table-out", type=Path, default=REPO / "logs" / "step12_pathreg_stopping.json")
+    p.add_argument("--table-out", type=Path, default=REPO / "figures" / "pathreg" / "stopping_table.json")
     args = p.parse_args()
     recovered = _load_recovered(args.recovered)
     rows = []

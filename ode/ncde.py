@@ -194,6 +194,7 @@ def attach_ncde_control(model: nn.Module, n_context: int = N_CONTEXT) -> None:
     def wrapped(states, t, return_aux=False, track_ids=None):
         ode = model.ode_func
         if isinstance(ode, NeuralCDEFunc):
+            ode.nfe = 0
             knots, values = context_control(states, t, n_context=k)
             ode.set_control(knots, values)
         return orig(states, t, return_aux=return_aux, track_ids=track_ids)

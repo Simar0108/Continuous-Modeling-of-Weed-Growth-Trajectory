@@ -53,5 +53,5 @@ fi
 
 "${PYTHON}" eval/summarize_pathreg.py \
   --out-root "${REPO_ROOT}/figures/pathreg" \
-  --table-out "${REPO_ROOT}/logs/step12_pathreg_stopping.json"
+  --table-out "${REPO_ROOT}/figures/pathreg/stopping_table.json"
 echo "[repair] done"

@@ -33,6 +33,7 @@ def main() -> None:
     p.add_argument("--ckpt-name", type=str, required=True)
     p.add_argument("--n-seeds", type=int, default=5)
     p.add_argument("--out", type=Path, required=True)
+    p.add_argument("--extrap", action="store_true")
     p.add_argument("--device", default="auto")
     args = p.parse_args()
     device = torch.device(
@@ -56,7 +57,8 @@ def main() -> None:
     )
     per_seed = []
     for seed in range(args.n_seeds):
-        path = args.ckpt_dir / f"{args.run_tag}{seed}" / args.ckpt_name
+        stem = f"{args.run_tag}{seed}_extrap60" if args.extrap else f"{args.run_tag}{seed}"
+        path = args.ckpt_dir / stem / args.ckpt_name
         if not path.is_file():
             print(f"[z0] missing {path}")
             continue

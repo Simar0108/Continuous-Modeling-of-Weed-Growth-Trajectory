@@ -6,6 +6,11 @@ __pycache__/
 checkpoints/
 *.parquet
 logs/*.log
+# Job-written tables. An in-flight summarize must not dirty a
+# git-clean training launch (Step 12 NCDE refuse, D-017).
+logs/*_stopping.json
+logs/*_nfe.json
+logs/*_nfe.jsonl
 .cursor/
 agent-transcripts/
 .mplconfig

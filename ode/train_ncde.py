@@ -21,7 +21,7 @@ from lightning.pytorch.callbacks import EMAWeightAveraging, ModelCheckpoint
 from lightning.pytorch.loggers import CSVLogger, WandbLogger
 from torch.utils.data import DataLoader
 
-from ode.callbacks_h1 import BestEpochGateCallback, FixedHorizonValCallback
+from ode.callbacks_h1 import BestEpochGateCallback, FixedHorizonValCallback, NFEBudgetCallback
 from ode.data.datamodule import (
     PlantTrackDataModule,
     _collate_variable_length_tracks,
@@ -94,6 +94,9 @@ def main() -> None:
     p.add_argument("--run-tag", type=str, default="h1_ncde_seed")
     p.add_argument("--ema-decay", type=float, default=0.999)
     p.add_argument("--fixed-horizon-val-every", type=int, default=1)
+    p.add_argument("--nfe-limit", type=int, default=150,
+                    help="Pause if ode_nfe peak stays above this for --nfe-sustain epochs.")
+    p.add_argument("--nfe-sustain", type=int, default=3)
     args = p.parse_args()
 
     git = assert_clean_or_allowed(REPO, args.allow_dirty)
@@ -184,6 +187,8 @@ def main() -> None:
         "control": "cubic Hermite over [sigma_w, sigma_h, t_norm], context knots only",
         "locked_reference": "h1_stab_seed{0..4} / h1_final_best not written",
         "kill_date": KILL_DATE,
+        "nfe_limit": int(args.nfe_limit),
+        "nfe_sustain": int(args.nfe_sustain),
     })
 
     module = NCDELightning(**hp)
@@ -199,6 +204,7 @@ def main() -> None:
                 "arm": "ncde", "config_hash": cfg_hash,
                 "lock_excluded": True, "ema_decay": args.ema_decay,
                 "ckpt_monitor": monitor, "kill_date": KILL_DATE,
+                "nfe_limit": args.nfe_limit, "nfe_sustain": args.nfe_sustain,
             }, allow_val_change=True)
         except Exception as exc:
             print(f"[ncde] wandb config skipped: {exc}")
@@ -212,8 +218,14 @@ def main() -> None:
         min_epoch=0, dirpath=str(out_dir), filename="best",
         monitor=monitor, mode="min", save_top_k=1,
     )
+    nfe_cb = NFEBudgetCallback(
+        limit=int(args.nfe_limit),
+        sustain_epochs=int(args.nfe_sustain),
+        out_dir=out_dir,
+    )
     callbacks = [
         FixedHorizonValCallback(every_n_epochs=max(int(args.fixed_horizon_val_every), 1)),
+        nfe_cb,
         EMAWeightAveraging(decay=float(args.ema_decay)),
         art_cb, best_cb, BestEpochGateCallback(best_cb, min_epoch=20),
         PathRegDiagnosticsCallback(out_dir),
@@ -233,9 +245,15 @@ def main() -> None:
                 wandb.summary["git_hash"] = git["git_hash"]
                 wandb.summary["arm"] = "ncde"
                 wandb.summary["config_hash"] = cfg_hash
+                wandb.summary["nfe_paused"] = bool(nfe_cb.paused)
                 wandb.finish()
         except ImportError:
             pass
+    if nfe_cb.paused or (out_dir / "NFE_PAUSE").is_file():
+        raise SystemExit(
+            f"PAUSE: ode_nfe sustained > {args.nfe_limit} "
+            f"for {args.nfe_sustain} epochs"
+        )
 
 
 if __name__ == "__main__":

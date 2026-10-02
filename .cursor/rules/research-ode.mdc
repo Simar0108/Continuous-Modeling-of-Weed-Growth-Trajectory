@@ -20,13 +20,20 @@ alwaysApply: true
 - After ANY training change, report: `train_dz_dt_size_std`,
   `z_traj/acceleration_ratio`, `val_track_mse_mean`, per-track r/K
   (or μ/λ/ν) variance.
-- Keep `ode_nfe` under 60.
+- Keep `ode_nfe` under 60 on the locked ODE. NCDE logs `ode_nfe` from
+  epoch 0; if NFE sustains above 150, pause and report. Do not silently
+  retune the CDE or burn the rest of the queue.
 - `normalize_z0` stays ON permanently. Ablation a/a+b collapsed
   z0 norms to ~0.09; do not pass `--no-normalize-z0`.
 - Track embeddings are an H1 (known-track) symmetry breaker only.
   They do not solve encoder identifiability (z0 cosine ~0.996) for H2.
 - Reproducibility: every job logs `git_hash` + dirty flag. The trainer
   refuses to start on a missing repo or dirty tree unless `--allow-dirty`.
+- Serialize launches that can write into the tracked tree. Do not
+  `sbatch` a git-clean training job while another in-flight job may
+  create untracked files under the repo. Run-generated JSON tables
+  (`logs/*_stopping.json` and similar) are gitignored; write them
+  under gitignored `figures/` or `checkpoints/` instead.
 - `checkpoints/h1_final_best/` is read-only. Do not retrain, overwrite,
   or write any file under that directory. It is a leaked 80/20 historical
   artifact (D-009). Identity is SHA256
