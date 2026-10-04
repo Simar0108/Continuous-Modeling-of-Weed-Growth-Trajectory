@@ -34,6 +34,8 @@ def main() -> None:
     p.add_argument("--n-seeds", type=int, default=5)
     p.add_argument("--out", type=Path, required=True)
     p.add_argument("--extrap", action="store_true")
+    p.add_argument("--require-complete", action="store_true",
+                    help="Skip seed dirs without a COMPLETE sentinel.")
     p.add_argument("--device", default="auto")
     args = p.parse_args()
     device = torch.device(
@@ -58,7 +60,11 @@ def main() -> None:
     per_seed = []
     for seed in range(args.n_seeds):
         stem = f"{args.run_tag}{seed}_extrap60" if args.extrap else f"{args.run_tag}{seed}"
-        path = args.ckpt_dir / stem / args.ckpt_name
+        stem_dir = args.ckpt_dir / stem
+        path = stem_dir / args.ckpt_name
+        if args.require_complete and not (stem_dir / "COMPLETE").is_file():
+            print(f"[z0] skip seed={seed}: missing COMPLETE {stem_dir}")
+            continue
         if not path.is_file():
             print(f"[z0] missing {path}")
             continue

@@ -278,14 +278,119 @@ now refuses. Stale 3.9 copies of the four restored modules deleted.
 `assert_clean_or_allowed`. `_pyc_bootstrap` imports `.py` only.
 
 **Sentinel.** Train writes `COMPLETE` only after `best.ckpt` exists and
-NFE did not pause. Eval wrappers `set -euo pipefail` and refuse unless
-every seed has `COMPLETE` + `best.ckpt`. Mid-run kill leaves no
-`COMPLETE`; eval refuses.
+NFE did not pause. Eval wrappers `set -euo pipefail`. Per-seed
+`COMPLETE` + `best.ckpt` is the gate: incomplete seeds are skipped.
+Zero survivors refuse. Five survivors write `figures/ncde/` (protocol).
+Fewer than five write `figures/ncdediagnostic/` and are labeled
+PARTIAL. Sweep submits eval with `afterany`, not `afterok`. Mid-run
+kill leaves no `COMPLETE`; that seed is skipped.
 
 **Optimizer (D-017a).** `NCDELightning.configure_optimizers`: group 1 =
 encoder/decoder/affine (+ non-net CDE params) at `lr`; group 2 =
 `NeuralCDEFunc.net` at `lr`. No `late_head` group. Do not alias `net`
 as `late_head`.
 
-**Not a CDE retune.** Kill date still 2026-10-25. D-017 endpoints still
-unscored until this relaunch finishes.
+**Not a CDE retune.** Kill date closed by D-017-close (2026-10-04).
+D-017 never produced a 5-seed COMPLETE set. Do not relaunch.
+
+### D-017 outcome — 2026-10-04 launch (jobs 29396492–29396503)
+
+**Verdict. Endpoints not scored.** Clean tree `git_hash=05e01d3`,
+`dirty=False`. D-017a optimizer worked (no `late_head`). Five of ten
+trainers wrote `COMPLETE` (in-window 0–2, prefix-60 0–1). Five hit
+`NFE_PAUSE` (`peak>150` for 3 consecutive epochs) and exited 1.
+Eval jobs 29396502 / 29396503 were `afterok` and stayed
+`DependencyNeverSatisfied`; cancelled 2026-10-04. Surviving seeds were
+scored as a PARTIAL diagnostic under `figures/ncdediagnostic/` (n=3
+in-window / n=2 prefix-60). That diagnostic is **not** D-017: no
+5-seed mean, no Wilcoxon, no `beats_every_baseline`.
+
+**NFE.** Completing seeds also had isolated peaks of 220–250; they
+never held `peak>150` for 3 epochs. Last-epoch means on COMPLETE
+seeds were 92–126.
+
+**Not written.** `h1_final_best` and `h1_stab` untouched.
+
+---
+
+## D-018 — SUPERSEDED — smoothed-control NCDE (not launched)
+
+**Status. SUPERSEDED by D-017-close on 2026-10-04.** Drafted the same
+day as a conditional 5+5 under a GP / kernel-smoothed control. Never
+pre-registered. Never submitted.
+
+**Rationale for not launching.** The PARTIAL diagnostic prefix-60 test
+tails (1.873 / 1.868) already miss LSTM ~1.014 and sit on the locked
+ODE tail (1.869). In the extrapolation tail the CDE control degenerates
+to the identity time channel, so tail dynamics are a latent ODE
+(D-017-close). Smoothing the in-window interpolant cannot create a
+tail advantage the lock does not already have. Raising the NFE limit
+to finish seeds 2–4 is the D-017 kill condition.
+
+**Not written.** No D-018 jobs, checkpoints, or figures.
+
+---
+
+## D-017-close — NCDE arm closed
+
+**Date.** 2026-10-04. **Status. Final.**
+
+**Decision.** Close the Neural CDE arm. Do not launch D-018. Do not
+raise the NFE limit. Do not retune the CDE. Keep the lock
+(`h1_stab_seed{0..4}` model of record; `h1_final_best` SHA256
+`2498d033ea02e2df1e312a58179226b649a9d3d5c7143b2d040fc9341ef86222`).
+D-017 kill date is closed.
+
+**How it missed.** Two parts, both measured.
+
+1. **Endpoint miss on surviving seeds.** Prefix-60 COMPLETE seeds 0–1
+   have test **tails** 1.873 and 1.868
+   (`figures/ncdediagnostic/extrap_tail_per_seed.csv`). The
+   pre-registered primary was a 5-seed mean below LSTM ~1.014
+   (0.969 / 1.133 / 0.940). The n=2 diagnostic already sits ~0.85
+   above that bar. In-window COMPLETE test 0.198 / 0.269 / 0.240 vs
+   LSTM band [0.194, 0.246] is mixed and is not a 5-seed secondary.
+   These numbers are PARTIAL (n=3 / n=2). They are not a D-017
+   Wilcoxon and are not a headline.
+
+2. **NFE-budget incompatibility on the rest.** Five of ten trainers
+   wrote `NFE_PAUSE` (`peak>150` for 3 consecutive epochs) and have no
+   `COMPLETE`. Isolated peaks on COMPLETE seeds still reached 220–250.
+   The budget did what D-017 asked; the cubic-Hermite control on noisy
+   size is too expensive under dopri5 `1e-6`.
+
+The pre-registered 5-seed protocol never completed. This is a closed
+negative result, not a failed 5-seed Wilcoxon.
+
+**Mechanistic note (tail degeneration).** After the last context
+frame the size channels are held (`X'_w = X'_h = 0`) and the time
+channel is the identity (`X_t = t`, `X'_t = 1`; `ode/ncde.py`
+`apply_identity_time_channel`). Then
+`dz/dt = f_θ(z, X(t)) X'(t)` has a nonzero product only on the time
+column, which is a latent ODE in `z`. Prefix-60 tail MSE parity with
+the lock is therefore structural: NCDE 1.868 / 1.873 vs lock ODE
+**1.869** (`figures/h1_lock/extrap_summary.csv` ode_s0–s4 test mean).
+It is not seed noise and it is not an NCDE win.
+
+**Fit-end evidence (COMPLETE + paused).**
+
+| Arm | Seed | Sentinel | Epochs | `val_full` | z0 cosine | `train_dz_dt_size_std` | last NFE mean/peak | max consec peak>150 |
+|---|---|---|---|---|---|---|---|---|
+| in | 0 | COMPLETE | 400 | 0.155 | 0.981 | 0.053 | 108 / 136 | 2 |
+| in | 1 | COMPLETE | 400 | 0.187 | 0.980 | 0.033 | 98 / 118 | 1 |
+| in | 2 | COMPLETE | 400 | 0.167 | 0.979 | 0.029 | 126 / 148 | 2 |
+| in | 3 | NFE_PAUSE | 240 | 0.350 | 0.979 | 0.014 | 126 / 166 | 3 |
+| in | 4 | NFE_PAUSE | 150 | 0.443 (best ep 0) | 0.978 | 0.004 | 110 / 154 | 3 |
+| ex | 0 | COMPLETE | 400 | 0.0305 (prefix val) | 0.958 | 0.035 | 92 / 118 | 2 |
+| ex | 1 | COMPLETE | 400 | 0.0307 (prefix val) | 0.959 | 0.022 | 98 / 142 | 2 |
+| ex | 2 | NFE_PAUSE | 233 | 0.043 | 0.969 | 0.009 | 134 / 160 | 3 |
+| ex | 3 | NFE_PAUSE | 351 | 0.036 | 0.965 | 0.033 | 136 / 160 | 3 |
+| ex | 4 | NFE_PAUSE | 262 | 0.038 | 0.966 | 0.016 | 138 / 160 | 3 |
+
+Prefix `val_full` is in-window on the 60% prefix, not the tail.
+`head/r` / `head/K` are NaN (CDE `net`). z0 cosine stays collapsed
+(~0.98 in-window, ~0.96 prefix).
+
+**Pointer.** `research/conclusions/ncdearm.md`.
+`figures/ncdediagnostic/` stays labeled PARTIAL. Do not promote it
+into `figures/h1_lock/` or the paper Results.

@@ -243,18 +243,22 @@ def _is_training_failure(epoch: int, fail_before: int = FAIL_BEFORE_EPOCH) -> bo
 
 def _discover_ode_seeds(
     ckpt_dir: Path, run_tag: str = "h1_seed", n_seeds: int = 3,
-    ckpt_name: str | None = None,
+    ckpt_name: str | None = None, require_complete: bool = False,
 ) -> list[tuple[str, Path]]:
     """Clean 70/15/15 ODE seeds. Does not include h1_final_best.
 
     If Lightning wrote ``best-v1.ckpt`` beside a stale ``best.ckpt``, keep the
     file with the highest saved epoch. ``ckpt_name`` pins an exact filename
     (pathreg repair: ``best-v2.ckpt``) and skips max-epoch discovery.
+    ``require_complete`` skips dirs without a COMPLETE sentinel (NCDE afterany).
     """
     found: list[tuple[str, Path]] = []
     for seed in range(int(n_seeds)):
         d = ckpt_dir / f"{run_tag}{seed}"
         if not d.is_dir():
+            continue
+        if require_complete and not (d / "COMPLETE").is_file():
+            print(f"[evaluateh1] skip ode_s{seed}: missing COMPLETE {d}")
             continue
         if ckpt_name:
             pinned = d / ckpt_name
@@ -378,6 +382,8 @@ def main() -> None:
                     help="Figure/table directory. Required when --run-tag is not a lock tag.")
     p.add_argument("--ckpt-name", type=str, default=None,
                     help="Exact best*.ckpt filename. Skips max-epoch discovery.")
+    p.add_argument("--require-complete", action="store_true",
+                    help="Skip seed dirs without a COMPLETE sentinel.")
     args = p.parse_args()
     global OUT_DIR
     lock_tags = ("h1_seed", "h1_stab_seed")
@@ -418,6 +424,7 @@ def main() -> None:
 
     ode_seed_ckpts = _discover_ode_seeds(
         args.ckpt_dir, args.run_tag, args.n_seeds, ckpt_name=args.ckpt_name,
+        require_complete=args.require_complete,
     )
     print(f"[evaluateh1] discovered {len(ode_seed_ckpts)} ODE seeds tag={args.run_tag}")
     if not ode_seed_ckpts:

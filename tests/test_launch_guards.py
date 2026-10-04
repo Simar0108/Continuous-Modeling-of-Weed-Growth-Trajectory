@@ -7,7 +7,13 @@ import sys
 import time
 from pathlib import Path
 
-from ode.repro import assert_no_sourceless_bytecode, require_complete_ckpts, write_complete
+from ode.repro import (
+    assert_no_sourceless_bytecode,
+    is_complete_ckpt,
+    list_complete_ckpts,
+    require_complete_ckpts,
+    write_complete,
+)
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -40,12 +46,32 @@ def test_eval_refuses_without_ckpt(tmp_path: Path):
         raise AssertionError("expected REFUSE")
 
 
+def test_list_complete_skips_incomplete(tmp_path: Path):
+    ok = tmp_path / "h1_ncde_seed0"
+    ok.mkdir()
+    write_complete(ok)
+    (ok / "best.ckpt").write_text("stub")
+    bad = tmp_path / "h1_ncde_seed3"
+    bad.mkdir()
+    (bad / "best.ckpt").write_text("paused")
+    found = list_complete_ckpts([ok, bad])
+    assert found == [ok]
+    assert is_complete_ckpt(ok)
+    assert not is_complete_ckpt(bad)
+
+
 def test_eval_accepts_complete_and_ckpt(tmp_path: Path):
     d = tmp_path / "h1_ncde_seed0"
     d.mkdir(parents=True)
     write_complete(d)
     (d / "best.ckpt").write_text("stub")
     require_complete_ckpts([d])
+
+
+def test_sweep_uses_afterany_not_afterok():
+    text = (REPO / "scripts" / "run_ncde_sweep.sh").read_text()
+    assert "afterany:" in text
+    assert "afterok:" not in text
 
 
 def test_killed_job_never_writes_complete(tmp_path: Path):

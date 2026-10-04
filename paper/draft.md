@@ -1,8 +1,10 @@
 # Continuous-time Neural ODE for irregular plant growth trajectories
 
-Draft Methods and Experiments for Hypothesis 1. Results numbers live in
-`figures/h1_lock/` and `research/conclusions/h1_lock.md`. Do not write a
-Results narrative that overclaims Wilcoxon vs LSTM.
+Draft Methods, Experiments, Results, and a short Discussion. Results
+numbers are taken only from `figures/h1_lock/` and
+`research/conclusions/h1_lock.md`. Do not write a Results sentence that
+claims Wilcoxon vs LSTM as an ODE win. Neural CDE numbers live in
+`research/conclusions/ncdearm.md` and stay out of Results.
 
 ## Methods
 
@@ -133,10 +135,112 @@ The observation window covers the accelerating / pre-saturation phase
 only. Encoder identifiability is unsolved; track embeddings are an H1
 known-track device. H2 is out of scope for this lock.
 
-The locked ODE file is a leaked 80/20 seed (epoch 20). The H1 model of
-record is the clean 3-seed mean (`table1_v2.csv`): test 0.582 vs LSTM
-0.218, GRU 0.370, Transformer 0.306. Wilcoxon does not favor the ODE.
-Prefix-60%/tail-40% extrapolation: ODE test tail 2.27 vs LSTM ~1.0
-(**ODE loses**). Richards NLS is in-sample. Best checkpoints for seeds
-1–2 are epoch 0 (curriculum). Step 9 pairwise claims are superseded
+The locked file `h1_final_best` is a leaked 80/20 seed (epoch 20,
+D-009). The H1 model of record is the clean 5-seed EMA mean
+(`table1_v2.csv`): test 0.245 vs LSTM 0.218, GRU 0.370, Transformer
+0.306. Two-sided Wilcoxon vs LSTM test does not favor the ODE
+(p=0.048, d=+0.30). Prefix-60 / tail-40: lock ODE test tail 1.869 vs
+LSTM 1.014 (**ODE loses**). Richards NLS is in-sample. Step 9 and
+Step 10 pairwise claims are superseded
 (`research/conclusions/h1_lock.md`).
+
+## Results
+
+Numbers in this section are the lock tables. Every cell is final
+(`research/conclusions/h1_lock.md`). `beats_every_baseline` is false.
+
+### In-window size MSE (Table 1 v2)
+
+Full-horizon $(\sigma_w,\sigma_h)$ MSE on Maize 70/15/15. Val and test
+are short-track transfer (test tracks 53–65 frames). Source:
+`figures/h1_lock/table1_v2.csv`. Eval job 29203599.
+
+| Model | Val mean / median | Test mean / median |
+|---|---|---|
+| ode_clean (5-seed) | 0.156 / 0.115 | 0.245 / 0.226 |
+| lstm_clean | 0.204 / 0.121 | 0.218 / 0.126 |
+| gru_clean | 0.242 / 0.203 | 0.370 / 0.278 |
+| transformer_clean | 0.159 / 0.104 | 0.306 / 0.199 |
+| ode_leaked (reference only) | 0.222 / 0.172 | 0.215 / 0.149 |
+| NLS in-sample | 0.012 / 0.010 | 0.017 / 0.015 |
+
+The 5-seed method variance is val 0.156±0.022, test 0.245±0.061
+(`ode_converged_seedmean`). LSTM test seeds span 0.194–0.246. ODE
+seeds 2 and 4 (0.286, 0.325) sit outside that band. Train size MSE is
+ODE 0.528 vs LSTM 0.412: the ODE is not the better interpolator.
+
+### Wilcoxon (Table 2 v2)
+
+Per-track average of the five converged ODE seeds, then signed-rank
+versus each baseline. Source: `figures/h1_lock/table2_v2.csv`. Column
+`p_less` is alternative “ODE smaller.” LSTM parity uses two-sided.
+
+| vs | Split | Δ (ODE−other) | p_less | p_two_sided | d |
+|---|---|---|---|---|---|
+| lstm_clean | val | −0.048 | 0.076 | 0.151 | −0.43 |
+| lstm_clean | test | **+0.027** | 0.979 | **0.048** | **+0.30** |
+| gru_clean | val | −0.086 | 0.0042 | 0.0084 | −0.79 |
+| gru_clean | test | −0.125 | 3.1e-5 | 6.1e-5 | −1.39 |
+| transformer_clean | val | −0.003 | 0.42 | 0.85 | −0.03 |
+| transformer_clean | test | −0.061 | 0.34 | 0.68 | −0.22 |
+
+The original H1 sentence (parity with LSTM; significantly better test
+generalization than GRU; stable val→test where Transformer degrades)
+is not supported as written. GRU test is the one pairwise win. LSTM
+test two-sided p=0.048 is an ODE loss, not a tie. Transfer vs
+Transformer is in the same direction (ODE Δ+0.090, Transformer
+Δ+0.147, LSTM Δ+0.014) but the test comparison is not significant
+(p_two=0.68).
+
+### Drop protocol
+
+20/40/60% frame drop × 3 drop seeds. Size MSE on dropped observations
+only. Source: `figures/h1_lock/drop_summary.csv`.
+
+5-seed ODE test means 0.277 / 0.278 / 0.291 vs LSTM 0.217 / 0.222 /
+0.249. **No drop-protocol advantage.** Seed 1 is LSTM-like (~0.20);
+seeds 2 and 4 sit nearer GRU (~0.33–0.39).
+
+### Prefix-60 / tail-40
+
+Train on the first 60% of each timeline; score the last 40% of
+val/test. Source: `figures/h1_lock/extrap_summary.csv`.
+
+Lock ODE test tails 1.867 / 1.850 / 1.917 / 1.850 / 1.861 (mean
+**1.869**). LSTM 0.969 / 1.133 / 0.940 (mean **1.014**). **ODE
+loses.** Step 10’s 3-seed tail (~2.27) is quarantined and is not this
+result.
+
+### What the lock is not
+
+`h1_final_best` is excluded from every mean (D-009). Interpretability
+is closed (D-008). Neural CDE is closed (D-017-close) and is not in
+this table.
+
+## Discussion and future work
+
+The lock ODE is a continuous-time interpolator that transfers to
+short tracks better than GRU and worse than LSTM, and it does not
+extrapolate the frozen tail. Matched-rollout asymmetry is ~0.01 MSE
+and does not explain the GRU gap. Encoder identifiability (z0 cosine
+~0.98–0.996) is unsolved; track embeddings stay H1-only.
+
+### Neural CDE (not a Results claim)
+
+A Neural CDE with cubic Hermite control on `[σ_w, σ_h, t]` was
+pre-registered (D-017) to beat the LSTM tail. The 5-seed protocol
+did not finish: five of ten trainers hit the NFE budget (peak >150
+for 3 epochs). The COMPLETE survivors (in-window n=3, prefix-60 n=2)
+were scored only as a PARTIAL diagnostic
+(`figures/ncdediagnostic/`). Prefix-60 test tails 1.873 / 1.868 sit
+on the lock ODE tail 1.869, not on LSTM 1.014. That parity is
+structural: after the last observation the size path is held and the
+control reduces to the identity time channel, so the tail is a
+latent ODE (`research/conclusions/ncdearm.md`). The arm is closed
+(D-017-close). A smoothed-control relaunch (D-018) was not run.
+
+The documented scalability fix, if this RHS is revisited after the
+thesis, is a **Linear Neural CDE** (Kidger–Morrill line / Log-ODE
+reduction): the vector field is linear in $z$, so the integral is a
+linear functional of the control and NFE does not track interpolant
+roughness. That is future work. It is not a claim of this lock.

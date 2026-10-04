@@ -101,10 +101,14 @@ def _ckpt_epoch(path: Path) -> int:
 def _discover(
     ckpt_dir: Path, run_tag: str = "h1_seed", n_seeds: int = 3,
     fail_before_epoch: int = 20, ckpt_name: str | None = None,
+    require_complete: bool = False,
 ) -> list[tuple[str, str, Path]]:
     found = []
     for seed in range(int(n_seeds)):
         d = ckpt_dir / f"{run_tag}{seed}_extrap60"
+        if require_complete and not (d / "COMPLETE").is_file():
+            print(f"[extrap] skip ode_s{seed}: missing COMPLETE {d}")
+            continue
         if ckpt_name:
             pinned = d / ckpt_name
             cands = [pinned] if pinned.is_file() else []
@@ -168,6 +172,8 @@ def main() -> None:
     p.add_argument("--out-dir", type=Path, default=None)
     p.add_argument("--ckpt-name", type=str, default=None,
                     help="Exact best*.ckpt filename. Skips max-epoch discovery.")
+    p.add_argument("--require-complete", action="store_true",
+                    help="Skip seed dirs without a COMPLETE sentinel.")
     args = p.parse_args()
     global OUT_DIR
     if args.out_dir is not None:
@@ -189,7 +195,7 @@ def main() -> None:
     models = []
     for family, key, path in _discover(
         args.ckpt_dir, args.run_tag, args.n_seeds, args.fail_before_epoch,
-        ckpt_name=args.ckpt_name,
+        ckpt_name=args.ckpt_name, require_complete=args.require_complete,
     ):
         try:
             if family == "ode":

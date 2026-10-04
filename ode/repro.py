@@ -39,8 +39,18 @@ def write_complete(out_dir: Path, extra: str = "") -> None:
     (out_dir / "COMPLETE").write_text(payload)
 
 
+def is_complete_ckpt(ckpt_dir: Path, ckpt_name: str = "best.ckpt") -> bool:
+    """True iff this seed dir has COMPLETE and the expected checkpoint."""
+    return (ckpt_dir / "COMPLETE").is_file() and (ckpt_dir / ckpt_name).is_file()
+
+
+def list_complete_ckpts(ckpt_dirs: list[Path], ckpt_name: str = "best.ckpt") -> list[Path]:
+    """Return dirs that have COMPLETE + ckpt. Incomplete dirs are skipped."""
+    return [d for d in ckpt_dirs if is_complete_ckpt(d, ckpt_name)]
+
+
 def require_complete_ckpts(ckpt_dirs: list[Path], ckpt_name: str = "best.ckpt") -> None:
-    """Eval refuse unless every seed dir has COMPLETE and the expected ckpt."""
+    """All-or-nothing refuse. Prefer list_complete_ckpts for afterany eval."""
     if not ckpt_dirs:
         raise SystemExit("REFUSE: no checkpoint directories to check")
     missing: list[str] = []

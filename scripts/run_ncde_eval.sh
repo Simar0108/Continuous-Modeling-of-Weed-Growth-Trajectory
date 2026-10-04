@@ -9,7 +9,8 @@
 #SBATCH --mail-type=ALL
 #SBATCH --output=logs/ncde_eval_%j.log
 
-# In-window NCDE eval. Writes figures/ncde/ (gitignored). Not figures/h1_lock.
+# In-window NCDE eval. COMPLETE+best.ckpt is the per-seed gate (afterany).
+# Full 5/5 writes figures/ncde/. Partial survivors write figures/ncdediagnostic/.
 conda activate venv
 set -euo pipefail
 PYTHON="${CONDA_PREFIX}/bin/python"
@@ -23,17 +24,34 @@ RUN_TAG="h1_ncde_seed"
 OUT_DIR="${REPO_ROOT}/figures/ncde/${RUN_TAG}"
 mkdir -p "${OUT_DIR}" logs
 
+complete=()
 for s in 0 1 2 3 4; do
   d="${REPO_ROOT}/checkpoints/${RUN_TAG}${s}"
-  if [[ ! -f "${d}/COMPLETE" || ! -f "${d}/best.ckpt" ]]; then
-    echo "REFUSE: incomplete ${d} (need COMPLETE and best.ckpt)" >&2
-    exit 1
+  if [[ -f "${d}/COMPLETE" && -f "${d}/best.ckpt" ]]; then
+    complete+=("${s}")
+  else
+    echo "skip seed ${s}: no COMPLETE+best.ckpt (${d})"
   fi
 done
+if [[ ${#complete[@]} -eq 0 ]]; then
+  echo "REFUSE: no COMPLETE in-window NCDE seeds" >&2
+  exit 1
+fi
+echo "[ncde-eval] COMPLETE seeds: ${complete[*]} (${#complete[@]}/5)"
 
-"${PYTHON}" eval/evaluateh1.py --device auto --run-tag "${RUN_TAG}" --n-seeds 5 --out-dir "${OUT_DIR}"
-"${PYTHON}" eval/evaluate_drop.py --device auto --run-tag "${RUN_TAG}" --n-seeds 5 --out-dir "${OUT_DIR}"
+if [[ ${#complete[@]} -lt 5 ]]; then
+  echo "PARTIAL n=${#complete[@]}/5 diagnostic, not pre-registered protocol"
+  "${PYTHON}" eval/evaluate_ncde_diagnostic.py --device auto \
+    --out-dir "${REPO_ROOT}/figures/ncdediagnostic"
+  echo "[ncde-eval] diagnostic done figures/ncdediagnostic"
+  exit 0
+fi
+
+"${PYTHON}" eval/evaluateh1.py --device auto --run-tag "${RUN_TAG}" --n-seeds 5 \
+  --require-complete --out-dir "${OUT_DIR}"
+"${PYTHON}" eval/evaluate_drop.py --device auto --run-tag "${RUN_TAG}" --n-seeds 5 \
+  --out-dir "${OUT_DIR}"
 "${PYTHON}" eval/collect_pathreg_z0.py \
-  --run-tag "${RUN_TAG}" --ckpt-name best.ckpt --n-seeds 5 \
+  --run-tag "${RUN_TAG}" --ckpt-name best.ckpt --n-seeds 5 --require-complete \
   --out "${OUT_DIR}/z0.json"
 echo "[ncde-eval] done ${OUT_DIR}"

@@ -20,14 +20,18 @@ is **not supported as written**.
 
 | Clause | Status | Statistic |
 |---|---|---|
-| Convergence (≥4/5, best epoch ≥20) | **pass** | 5/5, all epoch 399 (`run_validity.csv`) |
-| LSTM parity on short-track transfer | **unsupported** | ode_clean test 0.245 vs lstm_clean 0.218. One-sided p_less=0.979 (cannot claim ODE smaller). **Two-sided p=0.048**, d=+0.30 (ODE worse, n=15). |
-| GRU test win | **supported** | ode_clean test 0.245 vs gru_clean 0.370; p_less=3.05e-5, p_two=6.1e-5, r=1.0, d=−1.39 |
-| Stable transfer vs Transformer | **partial** | ODE val 0.156 → test 0.245 (Δ+0.090); Transformer 0.159 → 0.306 (Δ+0.147); LSTM 0.204 → 0.218 (Δ+0.014). Better than Transformer, worse than LSTM. Test vs Transformer p_two=0.68 (ns). |
-| Drop-protocol advantage | **unsupported** | 5-seed ODE test drop-20/40/60 means 0.277 / 0.278 / 0.291 vs LSTM 0.217 / 0.222 / 0.249 |
-| Prefix-60% / tail-40% advantage | **not yet scored on these seeds** | Stab prefix-60 trains were blocked by a dirty tree (job 29203633). Step 10 ODE tails (~2.27) stay quarantined. A new sequential train+eval is the remaining cell. |
+| Convergence (≥4/5, best epoch ≥20) | **pass (final)** | 5/5, all epoch 399 (`run_validity.csv`) |
+| LSTM parity on short-track transfer | **unsupported (final)** | ode_clean test 0.245 vs lstm_clean 0.218. One-sided p_less=0.979 (cannot claim ODE smaller). **Two-sided p=0.048**, d=+0.30 (ODE worse, n=15). |
+| GRU test win | **supported (final)** | ode_clean test 0.245 vs gru_clean 0.370; p_less=3.05e-5, p_two=6.1e-5, r=1.0, d=−1.39 |
+| Stable transfer vs Transformer | **partial (final)** | ODE val 0.156 → test 0.245 (Δ+0.090); Transformer 0.159 → 0.306 (Δ+0.147); LSTM 0.204 → 0.218 (Δ+0.014). Better than Transformer, worse than LSTM. Test vs Transformer p_two=0.68 (ns). |
+| Drop-protocol advantage | **unsupported (final)** | 5-seed ODE test drop-20/40/60 means 0.277 / 0.278 / 0.291 vs LSTM 0.217 / 0.222 / 0.249 |
+| Prefix-60% / tail-40% advantage | **unsupported (final)** | Lock ODE test tail **1.869** vs LSTM **1.014** (`extrap_summary.csv` ode_s0–s4 / lstm_s0–s2). ODE loses. Step 10 3-seed tails (~2.27) stay quarantined. |
 
 `beats_every_baseline` in `headline.json` is **false**.
+
+The evidence matrix is **complete** as of 2026-10-04 (D-017-close).
+Every banner cell is final. `figures/ncdediagnostic/` stays PARTIAL
+and is not a headline source.
 
 ## Model of record vs leaked reference
 
@@ -105,26 +109,36 @@ Source: `figures/h1_lock/drop_summary.csv`, `drop_curves.png`.
 0.249. Seed 1 is LSTM-like (~0.20); seeds 2 and 4 are closer to GRU
 (~0.33–0.39). **No drop-protocol advantage.**
 
-## Extrapolation (D-012)
+## Extrapolation (D-012) — final
 
-Source for **baselines**: `figures/h1_lock/extrap_summary.csv` (LSTM
-test tails ~0.94–1.13). Source for Step 10 ODE: quarantined
-(`step10_quarantined/extrap_summary.csv`, test tail 2.27).
+Source: `figures/h1_lock/extrap_summary.csv` (D-016). Lock ODE
+`h1_stab_seed{0..4}_extrap60` test tails 1.867 / 1.850 / 1.917 /
+1.850 / 1.861, **mean 1.869**. LSTM 0.969 / 1.133 / 0.940, **mean
+1.014**. GRU ~0.89–1.24. Transformer ~1.44–1.65. **ODE loses.** This
+is the headline tail cell.
 
-Stab prefix-60 ODE checkpoints do not exist yet. Job 29203633 refused
-a dirty tree after evaluateh1 wrote these figure files. A new
-sequential train+eval is launched after this rewrite. **Do not put
-Step 10 ODE tails in the paper as the 11c result.**
+Step 10 3-seed ODE tails (~2.27) stay in
+`figures/h1_lock/step10_quarantined/`. Do not put them in the paper.
 
-## Neural CDE (D-017)
+## Neural CDE (D-017) — closed
 
-Jobs 29349037–29349047 (5 in-window + 5 prefix-60, commit `73cbaf6`,
-`dirty=False`) crashed before epoch 0 (`NeuralCDEFunc` has no
-`late_head`). Eval 29349048/29349049 found 0 NCDE seeds. Primary
-(prefix-60 tail vs LSTM ~1.014) and secondary (in-window inside
-[0.194, 0.246]) are **not scored**. `figures/ncde/` holds baseline
-drop/extrap only. Do not put those plots in the paper as an NCDE
-result.
+**D-017-close (2026-10-04).** Arm closed. No D-018. Not a lock
+headline.
+
+Oct 2 (`73cbaf6`): 10 trainers died on `late_head` before epoch 0.
+Oct 4 (`05e01d3`): 5/10 `COMPLETE` (in-window 0–2, prefix-60 0–1);
+5/10 `NFE_PAUSE`. PARTIAL diagnostic
+(`figures/ncdediagnostic/`, labeled, not promoted):
+
+- prefix-60 test tails **1.873 / 1.868** (n=2) vs LSTM 1.014 and vs
+  lock ODE **1.869**. Endpoint miss. Tail parity with the lock is
+  structural (control degenerates to the time channel; see
+  `research/conclusions/ncdearm.md`).
+- in-window test 0.198 / 0.269 / 0.240 (n=3). Not a 5-seed secondary.
+- No 5-seed mean, no Wilcoxon, no `beats_every_baseline`.
+
+`figures/ncde/` is the Oct 2 baseline-only leftover. Do not put NCDE
+plots in the paper Results.
 
 ## EMA vs raw weights
 
@@ -144,7 +158,8 @@ Last = best.
 - `figures/h1_lock/growth_curves.png`
 - `figures/h1_lock/irregular_sampling.png`
 - `figures/h1_lock/drop_curves.png`
-- `figures/h1_lock/extrap_curves.png` (baselines only until prefix-60 ODE finishes)
+- `figures/h1_lock/extrap_curves.png` (lock ODE + baselines; final)
+- `figures/ncdediagnostic/` (PARTIAL n=3/n=2; **not** a lock figure)
 
 ## Interpretability
 
