@@ -35,14 +35,6 @@ mkdir -p logs figures checkpoints
 
 export PYTHONPATH="${REPO_ROOT}"
 
-exec "${PYTHON}" -m ode.hypothesis_one_final \
-  --parquet "${PARQUET}" \
-  --sigma-mode z_score \
-  --species Maize \
-  --max-tracks 100 \
-  --split test \
-  --solver dopri5 \
-  --rtol 1e-7 \
-  --atol 1e-7 \
-  --output-dir figures \
-  "$@"
+echo "REFUSE: ode.hypothesis_one_final was sourceless bytecode and was deleted (D-017a)." >&2
+echo "Use eval/evaluateh1.py / the locked H1 battery instead." >&2
+exit 1

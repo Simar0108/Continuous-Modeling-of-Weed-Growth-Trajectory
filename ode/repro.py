@@ -1,9 +1,56 @@
-"""Git hash / dirty-tree guard for training jobs."""
+"""Git hash / dirty-tree guard and launch sentinels for training jobs."""
 
 from __future__ import annotations
 
 import subprocess
+import sys
 from pathlib import Path
+
+
+def assert_no_sourceless_bytecode(package: str = "ode") -> None:
+    """Refuse if any imported ``ode.*`` module is bytecode without a sibling .py."""
+    bad: list[str] = []
+    for name, mod in list(sys.modules.items()):
+        if name != package and not name.startswith(package + "."):
+            continue
+        path = getattr(mod, "__file__", None)
+        if not path:
+            continue
+        p = Path(path)
+        if p.suffix != ".pyc":
+            continue
+        if p.parent.name == "__pycache__":
+            stem = p.name.split(".cpython-")[0]
+            src = p.parent.parent / f"{stem}.py"
+        else:
+            src = p.with_suffix(".py")
+        if not src.is_file():
+            bad.append(f"{name} -> {p}")
+    if bad:
+        raise SystemExit(
+            "REFUSE: imported sourceless bytecode:\n  " + "\n  ".join(bad)
+        )
+
+
+def write_complete(out_dir: Path, extra: str = "") -> None:
+    """Write the COMPLETE sentinel after the final checkpoint is on disk."""
+    out_dir.mkdir(parents=True, exist_ok=True)
+    payload = "COMPLETE\n" + extra
+    (out_dir / "COMPLETE").write_text(payload)
+
+
+def require_complete_ckpts(ckpt_dirs: list[Path], ckpt_name: str = "best.ckpt") -> None:
+    """Eval refuse unless every seed dir has COMPLETE and the expected ckpt."""
+    if not ckpt_dirs:
+        raise SystemExit("REFUSE: no checkpoint directories to check")
+    missing: list[str] = []
+    for d in ckpt_dirs:
+        if not (d / "COMPLETE").is_file():
+            missing.append(f"{d}: missing COMPLETE")
+        if not (d / ckpt_name).is_file():
+            missing.append(f"{d}: missing {ckpt_name}")
+    if missing:
+        raise SystemExit("REFUSE: incomplete NCDE run\n  " + "\n  ".join(missing))
 
 
 def git_status(repo: Path) -> dict:
@@ -44,6 +91,7 @@ def assert_clean_or_allowed(repo: Path, allow_dirty: bool) -> dict:
         f"({status['git_message']})"
     )
     if status["git_ok"] or allow_dirty:
+        assert_no_sourceless_bytecode()
         return status
     raise SystemExit(
         "REFUSE: dirty or missing git tree. Commit, or pass --allow-dirty."

@@ -14,6 +14,7 @@
 #   sbatch scripts/run_pathreg.sh Thesis/metrics_with_features.parquet --pathreg-lambda 0.1
 
 conda activate venv
+set -euo pipefail
 PYTHON="${CONDA_PREFIX}/bin/python"
 REPO_ROOT="/rhome/ssing226/MastersThesis"
 cd "$REPO_ROOT"

@@ -30,7 +30,7 @@ from ode.data.datamodule import (
 from ode.data.dataset import PlantTrackStateDataset
 from ode.ncde import NCDELightning
 from ode.pathreg import PathRegDiagnosticsCallback
-from ode.repro import assert_clean_or_allowed
+from ode.repro import assert_clean_or_allowed, write_complete
 from ode.train_baselines import clip_tracks_to_time_frac, select_discrete_tracks
 from ode.train_h1_seed import H1_HP
 from ode.train_multi import EpochGatedModelCheckpoint
@@ -238,6 +238,16 @@ def main() -> None:
     trainer.fit(module, datamodule=dm)
     print(f"[ncde] done {name} val={trainer.callback_metrics.get(monitor)}")
     print(f"[ncde] ckpt dir {out_dir} monitor={monitor}")
+    best_ckpt = out_dir / "best.ckpt"
+    nfe_paused = nfe_cb.paused or (out_dir / "NFE_PAUSE").is_file()
+    if best_ckpt.is_file() and not nfe_paused:
+        write_complete(out_dir, extra=f"seed={args.seed} monitor={monitor}\n")
+        print(f"[ncde] wrote COMPLETE {out_dir / 'COMPLETE'}")
+    else:
+        print(
+            f"[ncde] COMPLETE withheld best_ckpt={best_ckpt.is_file()} "
+            f"nfe_paused={nfe_paused}"
+        )
     if args.wandb:
         try:
             import wandb

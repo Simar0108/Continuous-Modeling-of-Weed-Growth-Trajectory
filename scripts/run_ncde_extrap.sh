@@ -13,6 +13,7 @@
 # Usage: sbatch scripts/run_ncde_extrap.sh Thesis/metrics_with_features.parquet --seed N
 
 conda activate venv
+set -euo pipefail
 PYTHON="${CONDA_PREFIX}/bin/python"
 REPO_ROOT="/rhome/ssing226/MastersThesis"
 cd "$REPO_ROOT"
@@ -75,4 +76,4 @@ echo "[ncde-extrap] seed=${SEED} tag=${RUN_TAG}"
   --run-tag "${RUN_TAG}" \
   --name "h1-ncde-s${SEED}-extrap60" \
   "${EXTRA[@]}"
-echo "[ncde-extrap] seed ${SEED} done"
+echo "[ncde-extrap] seed ${SEED} trainer-exit"

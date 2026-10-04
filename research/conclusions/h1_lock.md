@@ -116,6 +116,16 @@ a dirty tree after evaluateh1 wrote these figure files. A new
 sequential train+eval is launched after this rewrite. **Do not put
 Step 10 ODE tails in the paper as the 11c result.**
 
+## Neural CDE (D-017)
+
+Jobs 29349037–29349047 (5 in-window + 5 prefix-60, commit `73cbaf6`,
+`dirty=False`) crashed before epoch 0 (`NeuralCDEFunc` has no
+`late_head`). Eval 29349048/29349049 found 0 NCDE seeds. Primary
+(prefix-60 tail vs LSTM ~1.014) and secondary (in-window inside
+[0.194, 0.246]) are **not scored**. `figures/ncde/` holds baseline
+drop/extrap only. Do not put those plots in the paper as an NCDE
+result.
+
 ## EMA vs raw weights
 
 Lightning `EMAWeightAveraging.on_save_checkpoint` writes the averaged

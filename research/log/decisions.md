@@ -221,3 +221,71 @@ the LSTM seed band [0.194, 0.246] (lstm_s0/s1/s2 test means).
 document. Do not retune the CDE after seeing the endpoints.
 
 **Pointer.** `ode/ncde.py`, `ode/train_ncde.py`, `scripts/run_ncde.sh`.
+
+### D-017 outcome — 2026-10-02 launch (jobs 29349037–29349049)
+
+**Verdict. Endpoints not scored.** All 10 training jobs (5 in-window +
+5 prefix-60) launched clean (`git_hash=73cbaf6`, `dirty=False`) on
+A100 and died in `configure_optimizers` before epoch 0. No
+`best.ckpt`, no `nfe_history.jsonl`, no `ode_nfe`. Eval jobs 29349048
+and 29349049 ran because `run_ncde.sh` / `run_ncde_extrap.sh` lack
+`set -e` and exit 0 after the Python crash; they discovered **0 NCDE
+seeds**. Wilcoxon, z0 cosine, and both D-017 endpoints are therefore
+undefined. Kill date remains 2026-10-25. This is a plumbing miss, not
+a CDE result — do not treat it as a failed endpoint.
+
+**Crash.** `AttributeError: 'NeuralCDEFunc' object has no attribute
+'late_head'` at `OverfitLightning.configure_optimizers` (bytecode
+`ode/__pycache__/overfit_test.cpython-310.pyc` line 152). The
+three-group Adam split unconditionally reads `ode.late_head`.
+`StableSigmoidalODEFunc` / Zwietering expose that alias;
+`NeuralCDEFunc` is a matrix field and does not.
+
+**Not written.** `h1_final_best` and `h1_stab` untouched. Lock SHA256
+unchanged.
+
+---
+
+## D-017a — Restore sourceless Step-6 modules; NCDE two-group Adam
+
+**Date.** 2026-10-04.
+
+**Hygiene.** `ode/__pycache__` had 10 orphaned `.pyc` files (no sibling
+`.py`): `model`, `training_loop`, `overfit_test`, `train_multi` (3.10
++ 3.9) and `hypothesis_one_final` (3.10 + 3.9). The four 3.10 files
+were the live trainer (`_pyc_bootstrap`). They were never in git.
+`decompyle3` / `uncompyle6` cannot read 3.9/3.10 here; `pycdc` gave a
+broken skeleton. Sources were reconstructed from 3.10 disassembly +
+inspect signatures + the pycdc docs, then checked against the archived
+bytecode.
+
+**Restored (committed).** `ode/model.py`, `ode/training_loop.py`,
+`ode/overfit_test.py`, `ode/train_multi.py`. CLI `main()` on overfit /
+train_multi is a refuse stub; classes used by H1/NCDE/pathreg are
+source-complete. `hybrid_loss` color_mask / pad_mask gating matches
+the archived pyc (oracle test). Affine scale/bias still start frozen.
+`xy_loss_weight` default stays 0. `normalize_z0` default stays True.
+
+**Archived, not imported.**
+`research/archive/step6_bytecode/{model,training_loop,overfit_test,train_multi}.cpython-310.pyc`
++ `SHA256SUMS`.
+
+**Deleted, not restored.** `hypothesis_one_final` 3.10/3.9 pyc (May
+2022 / 13:08 2026-09-24, not on the H1 path). `scripts/run_hypothesis_one.sh`
+now refuses. Stale 3.9 copies of the four restored modules deleted.
+
+**Launcher guard.** `assert_no_sourceless_bytecode()` runs from
+`assert_clean_or_allowed`. `_pyc_bootstrap` imports `.py` only.
+
+**Sentinel.** Train writes `COMPLETE` only after `best.ckpt` exists and
+NFE did not pause. Eval wrappers `set -euo pipefail` and refuse unless
+every seed has `COMPLETE` + `best.ckpt`. Mid-run kill leaves no
+`COMPLETE`; eval refuses.
+
+**Optimizer (D-017a).** `NCDELightning.configure_optimizers`: group 1 =
+encoder/decoder/affine (+ non-net CDE params) at `lr`; group 2 =
+`NeuralCDEFunc.net` at `lr`. No `late_head` group. Do not alias `net`
+as `late_head`.
+
+**Not a CDE retune.** Kill date still 2026-10-25. D-017 endpoints still
+unscored until this relaunch finishes.

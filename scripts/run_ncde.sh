@@ -13,6 +13,7 @@
 # Usage: sbatch scripts/run_ncde.sh Thesis/metrics_with_features.parquet --seed N
 
 conda activate venv
+set -euo pipefail
 PYTHON="${CONDA_PREFIX}/bin/python"
 REPO_ROOT="/rhome/ssing226/MastersThesis"
 cd "$REPO_ROOT"
@@ -73,4 +74,4 @@ echo "[ncde] in-window seed=${SEED} tag=${RUN_TAG}"
   --nfe-sustain 3 \
   --run-tag "${RUN_TAG}" \
   "${EXTRA[@]}"
-echo "[ncde] seed ${SEED} done"
+echo "[ncde] seed ${SEED} trainer-exit"

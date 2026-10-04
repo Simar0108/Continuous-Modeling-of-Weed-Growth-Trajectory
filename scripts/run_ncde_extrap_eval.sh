@@ -11,6 +11,7 @@
 
 # Prefix-60 NCDE eval. Writes figures/ncde/ (gitignored). Not figures/h1_lock.
 conda activate venv
+set -euo pipefail
 PYTHON="${CONDA_PREFIX}/bin/python"
 REPO_ROOT="/rhome/ssing226/MastersThesis"
 cd "$REPO_ROOT"
@@ -21,6 +22,14 @@ export MPLCONFIGDIR="${REPO_ROOT}/.mplconfig"
 RUN_TAG="h1_ncde_seed"
 OUT_DIR="${REPO_ROOT}/figures/ncde/${RUN_TAG}_extrap60"
 mkdir -p "${OUT_DIR}" logs
+
+for s in 0 1 2 3 4; do
+  d="${REPO_ROOT}/checkpoints/${RUN_TAG}${s}_extrap60"
+  if [[ ! -f "${d}/COMPLETE" || ! -f "${d}/best.ckpt" ]]; then
+    echo "REFUSE: incomplete ${d} (need COMPLETE and best.ckpt)" >&2
+    exit 1
+  fi
+done
 
 "${PYTHON}" eval/evaluate_extrap.py --device auto --run-tag "${RUN_TAG}" --n-seeds 5 --out-dir "${OUT_DIR}"
 "${PYTHON}" eval/collect_pathreg_z0.py \

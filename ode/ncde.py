@@ -227,3 +227,38 @@ class NCDELightning(MultiTrackLightning):
         )
         n_ctx = int(getattr(self.model.context_encoder, "n_context_frames", N_CONTEXT))
         attach_ncde_control(self.model, n_context=n_ctx)
+
+    def configure_optimizers(self):
+        """D-017a: two-group Adam. No late_head split — the CDE has none.
+
+        Group 1 = encoder / decoder / affine (and non-net CDE params) at ``lr``.
+        Group 2 = ``NeuralCDEFunc.net`` at ``lr``. Do not alias ``net`` as
+        ``late_head`` (parameter-overlap risk across groups).
+        """
+        import torch
+
+        ode = self.model.ode_func
+        net_ids = {id(p) for p in ode.net.parameters()}
+        rest = [p for p in self.model.parameters() if id(p) not in net_ids]
+        groups = [
+            {"params": rest, "lr": self.lr, "weight_decay": 0.0},
+            {
+                "params": list(ode.net.parameters()),
+                "lr": self.lr,
+                "weight_decay": getattr(self, "ode_weight_decay", 0.0),
+            },
+        ]
+        groups = [g for g in groups if len(g["params"]) > 0]
+        optimizer = torch.optim.Adam(groups, lr=self.lr)
+        scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
+            optimizer, mode="min", factor=0.5, patience=10, min_lr=1e-6,
+        )
+        return {
+            "optimizer": optimizer,
+            "lr_scheduler": {
+                "scheduler": scheduler,
+                "monitor": "val_loss",
+                "interval": "epoch",
+                "frequency": 1,
+            },
+        }

@@ -16,6 +16,7 @@
 #   sbatch scripts/run_h1_stab.sh Thesis/metrics_with_features.parquet --seed 0
 
 conda activate venv
+set -euo pipefail
 PYTHON="${CONDA_PREFIX}/bin/python"
 REPO_ROOT="/rhome/ssing226/MastersThesis"
 cd "$REPO_ROOT"
