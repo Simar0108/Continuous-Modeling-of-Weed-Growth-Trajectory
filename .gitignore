@@ -2,6 +2,7 @@ wandb/
 .mplconfig/
 __pycache__/
 *.py[cod]
+!research/archive/step6_bytecode/*.pyc
 *.ckpt
 checkpoints/
 *.parquet
