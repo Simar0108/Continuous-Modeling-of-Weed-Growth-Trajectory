@@ -394,3 +394,78 @@ Prefix `val_full` is in-window on the 60% prefix, not the tail.
 **Pointer.** `research/conclusions/ncdearm.md`.
 `figures/ncdediagnostic/` stays labeled PARTIAL. Do not promote it
 into `figures/h1_lock/` or the paper Results.
+
+---
+
+## D-019 — Encoder-collapse probes (pre-registered before launch)
+
+**Date.** 2026-10-04. **Written before Probe 1 or Probe 2 numbers.**
+
+**Context.** z0 off-diagonal cosine is ~0.996 on the lock ODE and
+0.96–0.98 on NCDE. Three hypotheses:
+
+- **H-enc-1 (shortcut).** Track-ID embeddings carry identity and
+  starve the encoder.
+- **H-enc-2 (objective indifference).** The decoder absorbs a shared
+  z0; the loss does not need identity.
+- **H-enc-3 (information ceiling).** The K=3 context frames
+  (`σ_w`, `σ_h`, `Δt`) do not contain track identity.
+
+**Probe 1.** Small probes, no ODE train. Features = first K=3 context
+frames as `[σ_w, σ_h, Δt]` (9-D). Maize 100-track official split.
+
+- **1a.** 100-way track ID. Logistic regression + a small MLP
+  (one hidden layer, 32 units). Chance = 1/n_tracks.
+  Official context is one vector per track: report in-sample
+  accuracy. Early-window protocol: consecutive triples inside the
+  first 20% of each timeline; 70/30 window split, stratified by
+  track. **Succeed** if official in-sample acc ≥ 0.20 **or**
+  early-window test acc ≥ 0.10. **Chance-level fail** if official
+  in-sample acc < 0.10 **and** early-window test acc < 0.05.
+- **1b.** Late-stage targets from the same official 9-D context:
+  final size `0.5(σ_w+σ_h)` at the last frame, and t_norm of the
+  max size increment. Ridge + the same small MLP. Track-wise
+  70/15/15. **Succeed** if val R² ≥ 0.20 on either target.
+  **Chance-level fail** if val R² ≤ 0.05 on both.
+
+Probe 1 **succeeds** if 1a or 1b succeeds. Probe 1 **fails at
+chance** if both fail.
+
+**Probe 2.** One in-window seed, stab recipe (EMA 0.999,
+`val_full_horizon_mse`, `normalize_z0` on, `xy_loss_weight=0`),
+with the track-embedding table removed. Report z0 cosine and
+`val_full_horizon_mse`. **Material drop:** cosine falls by ≥ 0.05
+from the lock (~0.996 → ≤ 0.946).
+
+The locked stab recipe already has `use_track_embed=False` and no
+`track_embedding` tensors (`h1_stab_seed0`). If that remains true
+at launch, **do not retrain an identical 400-epoch seed**. Probe 2
+is the existing stab seed 0 (eval-only z0 + recorded val). A
+duplicate train is not an ablation.
+
+**Gate (this paragraph is the decision rule).**
+
+1. Probe 1 fails at chance → **close the encoder thread**. H-enc-3
+   stands. H2 is species-as-input conditioning, not a richer
+   encoder. Write that as a finding. Do not launch a contrastive
+   z0 arm.
+2. Probe 1 succeeds **and** Probe 2 drops cosine by ≥ 0.05 → one
+   contrastive-z0 arm (TS2Vec-style instance discrimination), 3
+   seeds, kill date 2026-10-25. Bar: cosine < 0.90 **and**
+   in-window test inside the LSTM band [0.194, 0.246]. Not launched
+   until this gate is logged.
+3. Any other pattern (Probe 1 succeeds, Probe 2 does not drop;
+   or Probe 2 is the existing no-embed stab and cosine stays
+   ~0.996) → H-enc-1 is rejected. Do not launch contrastive z0.
+   Encoder identifiability remains unsolved; do not retune the
+   lock.
+
+**Invariants.** `hybrid_loss` color_mask, `xy_loss_weight=0`,
+affine freeze/scale, `normalize_z0` ON, default
+`StableSigmoidalODEFunc`, `h1_final_best` read-only SHA256
+`2498d033ea02e2df1e312a58179226b649a9d3d5c7143b2d040fc9341ef86222`.
+No sweeps. No training beyond Probe 2 until the verdict is written
+here.
+
+**Pointer.** `eval/probe_encoder_collapse.py`,
+`figures/encoder_probes/`.
