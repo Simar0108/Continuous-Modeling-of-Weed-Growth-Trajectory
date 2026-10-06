@@ -1,0 +1,38 @@
+label_id,botanical_name,family,genus,dicot,origin,n_records,n_tracks,n_trays,n_sown_folders,n_ga3_minus_tracks,n_ga3_plus_tracks,frames_mean,frames_median,frames_min,frames_max,frames_p25,frames_p75,n_ge15,frames_mean_ge15,frames_median_ge15,n_valid_track_h1,n_usable_h1_valid_and_ge15,clears_ge15_bar,clears_h1_full_bar,below_120_ge15,volunteer_in_foreign_tray
+ACHMI,Achillea millefolium,Asteraceae,Achillea,True,weed_sown,8953,153,25,1,153,0,58.51633986928105,61.0,1,214,18.0,77.0,122,70.81147540983606,68.0,105.0,105.0,True,False,False,0
+AGRRE,Elymus repens,Poaceae,Elymus,False,weed_sown,4229,177,12,1,177,0,23.89265536723164,21.0,1,59,14.0,36.0,132,29.174242424242426,26.0,,,True,False,False,0
+ALOMY,Alopecurus myosuroides,Poaceae,Alopecurus,False,weed_sown,8220,533,11,1,493,40,15.422138836772984,11.0,1,71,5.0,20.0,186,29.811827956989248,27.0,,,True,False,False,0
+ARTVU,Artemisia vulgaris,Asteraceae,Artemisia,True,weed_sown,14495,377,34,1,377,0,38.44827586206897,37.0,1,97,14.0,63.0,281,48.89679715302491,52.0,,,True,False,False,0
+CHEAL,Chenopodium album,Amaranthaceae,Chenopodium,True,weed_sown,5811,229,26,4,191,38,25.375545851528383,28.0,1,53,15.0,35.0,172,31.33139534883721,32.0,,,True,False,False,3
+CIRAR,Cirsium arvense,Asteraceae,Cirsium,True,weed_sown,3313,23,16,2,13,10,144.04347826086956,156.0,17,210,134.5,166.5,23,144.04347826086956,156.0,,,False,False,True,1
+CONAR,Convolvulus arvensis,Convolvulaceae,Convolvulus,True,weed_sown,7378,47,27,1,45,2,156.9787234042553,153.0,97,248,143.5,169.0,47,156.9787234042553,153.0,,,False,False,True,0
+ECHCG,Echinochloa crus-galli,Poaceae,Echinochloa,False,weed_sown,4895,284,25,1,266,18,17.235915492957748,16.0,2,79,6.0,24.0,145,27.46896551724138,24.0,,,True,False,False,0
+GALAP,Galium aparine,Rubiaceae,Galium,True,weed_sown,6035,265,38,7,207,58,22.77358490566038,24.0,1,62,16.0,31.0,211,26.86729857819905,26.0,,,True,False,False,41
+GASPA,Galinsoga parviflora,Asteraceae,Galinsoga,True,weed_sown,1500,34,18,3,30,4,44.11764705882353,36.5,10,118,32.0,52.75,32,46.21875,38.5,,,False,False,True,5
+LAMAL,Lamium album,Lamiaceae,Lamium,True,weed_sown,9507,156,37,2,117,39,60.94230769230769,47.5,1,218,9.0,108.0,104,88.20192307692308,63.0,,,False,False,True,2
+MATCH,Matricaria chamomilla,Asteraceae,Matricaria,True,weed_sown,4663,115,27,6,113,2,40.54782608695652,46.0,2,95,18.0,57.0,92,48.46739130434783,49.0,,,False,False,True,9
+PLAMA,Plantago major,Plantaginaceae,Plantago,True,weed_sown,16356,151,45,3,151,0,108.31788079470199,115.0,4,230,48.0,172.0,138,117.78985507246377,127.5,,,True,False,False,2
+POAAN,Poa annua,Poaceae,Poa,False,weed_sown,6653,277,11,1,277,0,24.018050541516246,22.0,2,84,9.0,34.0,186,32.68279569892473,31.0,,,True,False,False,0
+POLCO,Fallopia convolvulus,Polygonaceae,Fallopia,True,weed_sown,431,15,10,2,3,12,28.733333333333334,32.0,7,40,24.0,36.0,13,31.692307692307693,34.0,,,False,False,True,1
+POROL,Portulaca oleracea,Portulacaceae,Portulaca,True,weed_sown,12049,95,21,1,95,0,126.83157894736843,99.0,2,281,52.0,206.5,81,147.06172839506172,180.0,,,False,False,True,0
+PULDY,Pulicaria dysenterica,Asteraceae,Pulicaria,True,weed_sown,7869,274,22,2,261,13,28.71897810218978,13.0,2,87,7.0,52.0,130,51.96153846153846,54.0,,,True,False,False,1
+SOLNI,Solanum nigrum,Solanaceae,Solanum,True,weed_sown,6952,290,28,4,263,27,23.97241379310345,24.0,2,62,9.0,36.0,190,32.94736842105263,33.0,,,True,False,False,18
+SSYOF,Sisymbrium officinale,Brassicaceae,Sisymbrium,True,weed_sown,4057,29,15,2,19,10,139.89655172413794,155.0,14,206,119.0,165.0,28,144.39285714285714,155.0,,,False,False,True,1
+STEME,Stellaria media,Caryophyllaceae,Stellaria,True,weed_sown,6292,205,30,7,165,40,30.692682926829267,34.0,2,88,18.0,41.0,159,37.38364779874214,36.0,,,True,False,False,16
+THLAR,Thlaspi arvense,Brassicaceae,Thlaspi,True,weed_sown,5997,103,40,3,9,94,58.22330097087379,49.0,2,205,30.5,69.5,95,62.61052631578947,52.0,,,False,False,True,2
+VEROF,Veronica officinalis,Plantaginaceae,Veronica,True,weed_sown,12603,138,22,1,14,124,91.32608695652173,67.5,1,266,21.5,144.0,119,104.61344537815125,81.0,,,False,False,True,0
+VIOAR,Viola arvensis,Violaceae,Viola,True,weed_sown,4936,174,18,2,43,131,28.367816091954023,23.0,1,179,9.0,44.0,117,39.27350427350427,37.0,,,False,False,True,1
+AETCY,Aethusa cynapium,Apiaceae,Aethusa,True,weed_volunteer,110,4,2,2,4,0,27.5,30.5,16,33,26.5,31.5,4,27.5,30.5,,,False,False,True,4
+GERMO,Geranium molle,Geraniaceae,Geranium,True,weed_volunteer,139,4,4,1,4,0,34.75,34.5,27,43,27.0,42.25,4,34.75,34.5,,,False,False,True,4
+POLAM,Persicaria amphibia,Polygonaceae,Persicaria,True,weed_volunteer,2237,55,34,12,33,22,40.67272727272727,37.0,11,104,23.0,56.5,53,41.735849056603776,37.0,,,False,False,True,55
+POLAV,Polygonum aviculare,Polygonaceae,Polygonum,True,weed_volunteer,62,2,2,2,2,0,31.0,31.0,19,43,25.0,37.0,2,31.0,31.0,,,False,False,True,2
+VICVI,Vicia villosa,Fabaceae,Vicia,True,weed_volunteer,32,1,1,1,0,1,32.0,32.0,32,32,32.0,32.0,1,32.0,32.0,,,False,False,True,1
+SORFR,Sorghum bicolor cv. KWS Freya,Poaceae,Sorghum,False,crop_sorghum,10421,139,27,1,139,0,74.97122302158273,69.0,10,172,58.0,87.5,137,75.89781021897811,70.0,,,True,False,False,139
+SORHA,Sorghum bicolor cv. KWS Hannibal,Poaceae,Sorghum,False,crop_sorghum,1668,21,5,1,21,0,79.42857142857143,76.0,35,137,64.0,82.0,21,79.42857142857143,76.0,,,False,False,True,21
+SORKM,Sorghum bicolor cv. KWS Merlin,Poaceae,Sorghum,False,crop_sorghum,1423,17,5,1,17,0,83.70588235294117,78.0,58,127,60.0,101.0,17,83.70588235294117,78.0,,,False,False,True,17
+SORSA,Sorghum bicolor cv. KWS Sammos,Poaceae,Sorghum,False,crop_sorghum,4463,59,12,1,59,0,75.64406779661017,72.0,38,135,59.0,86.5,59,75.64406779661017,72.0,,,False,False,True,59
+SORKS,Sorghum bicolor cv. KWS Sole,Poaceae,Sorghum,False,crop_sorghum,1994,21,5,1,21,0,94.95238095238095,80.0,67,171,78.0,108.0,21,94.95238095238095,80.0,,,False,False,True,21
+SORRS,Sorghum bicolor cv. RAGT Swingg,Poaceae,Sorghum,False,crop_sorghum,2096,27,5,1,27,0,77.62962962962963,78.0,14,100,64.5,95.5,26,80.07692307692308,79.0,,,False,False,True,27
+ZEALP,Zea mays cv. Lidea Palladium,Poaceae,Zea,False,crop_maize,2310,194,38,1,194,0,11.907216494845361,12.0,3,55,5.0,13.0,43,25.11627906976744,18.0,,,False,False,True,194
+ZEAKJ,Zea mays cv. KWS Johaninio,Poaceae,Zea,False,crop_maize,3090,75,38,1,75,0,41.2,43.0,28,52,35.0,46.0,75,41.2,43.0,,,False,False,True,75
+Weed,unidentified weed,unknown,unknown,True,generic_weed,6909,305,139,25,236,69,22.652459016393443,15.0,1,134,7.0,30.0,161,36.8944099378882,30.0,,,True,False,False,305

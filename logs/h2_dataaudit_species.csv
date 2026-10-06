@@ -1,0 +1,29 @@
+eppo,botanical_name,family,genus,dicot,in_parquet,n_tracks_raw,n_tracks_valid,n_usable_min15,n_trays_with_usable,frames_sum_usable,frames_mean_usable,frames_std_usable,frames_min_usable,frames_p25_usable,frames_median_usable,frames_p75_usable,frames_p90_usable,frames_max_usable,below_120_usable,literature_n_images,literature_captured_trays,literature_n_plant_individuals,notes
+ACHMI,Achillea millefolium,Asteraceae,Achillea,True,True,153,105,105,25,8219,78.276,37.785,19,58.0,70.0,85.0,145.6,214,True,2893,25,,H1 lock species (docs say Maize; parquet has no species column; --species Maize is a no-op). EPPO label_id=ACHMI. 105 usable < 120 inclusion bar.
+AGRRE,Elymus repens,Poaceae,Elymus,False,False,0,0,0,0,0,0,0,0,0,0,0,0,0,True,2848,29,,ABSENT from metrics_with_features.parquet
+ALOMY,Alopecurus myosuroides,Poaceae,Alopecurus,False,False,0,0,0,0,0,0,0,0,0,0,0,0,0,True,3595,28,,ABSENT from metrics_with_features.parquet
+ARTVU,Artemisia vulgaris,Asteraceae,Artemisia,True,False,0,0,0,0,0,0,0,0,0,0,0,0,0,True,2881,34,,ABSENT from metrics_with_features.parquet
+CHEAL,Chenopodium album,Amaranthaceae,Chenopodium,True,False,0,0,0,0,0,0,0,0,0,0,0,0,0,True,1652,23,,ABSENT from metrics_with_features.parquet
+CIRAR,Cirsium arvense,Asteraceae,Cirsium,True,False,0,0,0,0,0,0,0,0,0,0,0,0,0,True,2546,15,,ABSENT from metrics_with_features.parquet
+CONAR,Convolvulus arvensis,Convolvulaceae,Convolvulus,True,False,0,0,0,0,0,0,0,0,0,0,0,0,0,True,4914,27,,ABSENT from metrics_with_features.parquet
+ECHCG,Echinochloa crus-galli,Poaceae,Echinochloa,False,False,0,0,0,0,0,0,0,0,0,0,0,0,0,True,2622,27,,ABSENT from metrics_with_features.parquet
+GALAP,Galium aparine,Rubiaceae,Galium,True,False,0,0,0,0,0,0,0,0,0,0,0,0,0,True,1513,23,,ABSENT from metrics_with_features.parquet
+GASPA,Galinsoga parviflora,Asteraceae,Galinsoga,True,False,0,0,0,0,0,0,0,0,0,0,0,0,0,True,847,13,,ABSENT from metrics_with_features.parquet
+LAMAL,Lamium album,Lamiaceae,Lamium,True,False,0,0,0,0,0,0,0,0,0,0,0,0,0,True,5276,36,,ABSENT from metrics_with_features.parquet
+MATCH,Matricaria chamomilla,Asteraceae,Matricaria,True,False,0,0,0,0,0,0,0,0,0,0,0,0,0,True,1681,21,,ABSENT from metrics_with_features.parquet
+PLAMA,Plantago major,Plantaginaceae,Plantago,True,False,0,0,0,0,0,0,0,0,0,0,0,0,0,True,7856,43,,ABSENT from metrics_with_features.parquet
+POAAN,Poa annua,Poaceae,Poa,False,False,0,0,0,0,0,0,0,0,0,0,0,0,0,True,2574,23,,ABSENT from metrics_with_features.parquet
+POLCO,Fallopia convolvulus,Polygonaceae,Fallopia,True,False,0,0,0,0,0,0,0,0,0,0,0,0,0,True,330,9,,ABSENT from metrics_with_features.parquet
+POROL,Portulaca oleracea,Portulacaceae,Portulaca,True,False,0,0,0,0,0,0,0,0,0,0,0,0,0,True,4435,21,,ABSENT from metrics_with_features.parquet
+PULDY,Pulicaria dysenterica,Asteraceae,Pulicaria,True,False,0,0,0,0,0,0,0,0,0,0,0,0,0,True,1745,21,,ABSENT from metrics_with_features.parquet
+SOLNI,Solanum nigrum,Solanaceae,Solanum,True,False,0,0,0,0,0,0,0,0,0,0,0,0,0,True,1472,22,,ABSENT from metrics_with_features.parquet
+SSYOF,Sisymbrium officinale,Brassicaceae,Sisymbrium,True,False,0,0,0,0,0,0,0,0,0,0,0,0,0,True,2477,14,,ABSENT from metrics_with_features.parquet
+STEME,Stellaria media,Caryophyllaceae,Stellaria,True,False,0,0,0,0,0,0,0,0,0,0,0,0,0,True,1887,22,,ABSENT from metrics_with_features.parquet
+THLAR,Thlaspi arvense,Brassicaceae,Thlaspi,True,False,0,0,0,0,0,0,0,0,0,0,0,0,0,True,4044,38,,ABSENT from metrics_with_features.parquet
+VEROF,Veronica officinalis,Plantaginaceae,Veronica,True,False,0,0,0,0,0,0,0,0,0,0,0,0,0,True,3987,22,,ABSENT from metrics_with_features.parquet
+VIOAR,Viola arvensis,Violaceae,Viola,True,False,0,0,0,0,0,0,0,0,0,0,0,0,0,True,1261,17,,ABSENT from metrics_with_features.parquet
+AETCY,Aethusa cynapium,Apiaceae,Aethusa,True,False,0,0,0,0,0,0,0,0,0,0,0,0,0,True,110,,4,Table 4 volunteer; not sown. Literature plant individuals=4.
+GERMO,Geranium molle,Geraniaceae,Geranium,True,False,0,0,0,0,0,0,0,0,0,0,0,0,0,True,139,,4,Table 4 volunteer; not sown. Literature plant individuals=4.
+POLAM,Persicaria amphibia,Polygonaceae,Persicaria,True,False,0,0,0,0,0,0,0,0,0,0,0,0,0,True,2237,,55,Table 4 volunteer; not sown. Literature plant individuals=55.
+POLAV,Polygonum aviculare,Polygonaceae,Polygonum,True,False,0,0,0,0,0,0,0,0,0,0,0,0,0,True,62,,2,Table 4 volunteer; not sown. Literature plant individuals=2. Paper excluded from classification split.
+VICVI,Vicia villosa,Fabaceae,Vicia,True,False,0,0,0,0,0,0,0,0,0,0,0,0,0,True,32,,1,Table 4 volunteer; not sown. Literature plant individuals=1. Paper excluded from classification split.

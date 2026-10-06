@@ -11,9 +11,11 @@ claims Wilcoxon vs LSTM as an ODE win. Neural CDE numbers live in
 ### Data and split
 
 MFWD tracks from `metrics_with_features.parquet`. Official H1 lock uses
-**Maize** only, the 100 richest valid tracks (`≥15` observations), split
+**ACHMI** (*Achillea millefolium*; docs previously said Maize; D-021)
+only, the 100 richest valid tracks (`≥15` observations), split
 deterministically by trajectory length into train 70 / val 15 / test 15
-(`ode.train_baselines.select_discrete_tracks`, `species="Maize"`). Shorter
+(`ode.train_baselines.select_discrete_tracks`). `--species Maize` was a
+no-op (no `species` column). Shorter
 tracks go to val/test. State is 5-D: tray-normalized $(x,y)$, z-scored
 $\sigma_w=\mathrm{width}/4$, $\sigma_h=\mathrm{height}/4$, and physiology $Z$
 (greenness × edge density) with a `color_mask`. The `GaussianStateTransformer`
@@ -49,7 +51,7 @@ $[\sigma_w,\sigma_h,Z,\Delta t_{\mathrm{norm}}]$ at each step; the
 Transformer also receives the target timestamp $t_{\mathrm{norm}}$.
 Training is teacher-forced on the observed sequence; validation and test
 are fully autoregressive from the $K=3$ context frames. They predict
-$[\sigma_w,\sigma_h,Z]$ only. Same Maize 70/15/15 split, 300 epochs,
+$[\sigma_w,\sigma_h,Z]$ only. Same ACHMI 70/15/15 split, 300 epochs,
 three seeds $\{0,1,2\}$, best-val checkpoint (`val_track_mse_mean`).
 
 This is the irregular-sampling handling for the discrete suite: time
@@ -59,7 +61,7 @@ via `dopri5`. Neither family fills missing camera frames.
 
 ### Step 10 add-on protocols (not the lock table)
 
-- **Clean ODE seeds.** Three new `StableSigmoidal` runs on Maize
+- **Clean ODE seeds.** Three new `StableSigmoidal` runs on ACHMI
   70/15/15 with the locked checkpoint hyperparameters
   (`phys_loss_weight=0.2`, no track embedding, horizon 0.3$\to$1.0 over
   epochs 100–250). `h1_final_best` stays frozen and is excluded from the
@@ -151,7 +153,7 @@ Numbers in this section are the lock tables. Every cell is final
 
 ### In-window size MSE (Table 1 v2)
 
-Full-horizon $(\sigma_w,\sigma_h)$ MSE on Maize 70/15/15. Val and test
+Full-horizon $(\sigma_w,\sigma_h)$ MSE on ACHMI 70/15/15. Val and test
 are short-track transfer (test tracks 53–65 frames). Source:
 `figures/h1_lock/table1_v2.csv`. Eval job 29203599.
 

@@ -506,3 +506,42 @@ retune the lock. Do not launch contrastive z0. H-enc-2
 (objective indifference) is the remaining live hypothesis; H-enc-3
 is live for late-stage targets and weakly falsified for track ID
 inside early windows.
+
+---
+
+## D-021 — H1 lock species is ACHMI, not maize
+
+**Date.** 2026-10-06. Provenance correction. Not an H2 pre-registration
+(D-020 stays unwritten). No retraining.
+
+**Fact.** `metrics_with_features.parquet` has no `species` column.
+`--species Maize` is a silent no-op. Every row is `label_id=ACHMI`
+(*Achillea millefolium*, yarrow). `gt.csv` ACHMI block is byte-count
+identical in rows/tracks/trays (8,953 / 153 / 25) and `bbox_id` set.
+SHA256 of the parquet remains
+`97d6c35ddb755fedeab7bf61c2364eaa3cd2a16de1ba777b9e061308ef9ad286`.
+
+**H1 results stand.** All lock comparisons are internal to the same
+100-track ACHMI split. Numbers in `figures/h1_lock/` do not change.
+Paper/docs that say “Maize 70/15/15” are wrong on the species name
+and must be corrected in text only. Do not retrain
+`h1_stab_seed{0..4}` or overwrite `h1_final_best`
+(SHA256 `2498d033ea02e2df1e312a58179226b649a9d3d5c7143b2d040fc9341ef86222`).
+
+**Tray leakage (stated limitation).** The official H1 length split is
+plant/`track_id`-disjoint (train∩val∩test empty) but **not
+tray-disjoint**: train∩test = 12 shared trays, train∩val = 8,
+val∩test = 5. D-020 (when written) will specify tray-aware splitting
+for H2. Do not retrofit the H1 lock split.
+
+**Pointers.** `logs/h2_dataaudit.md`, `logs/h2_data_auditfull.md`.
+
+**Extractor recovered (2026-10-06).** Source is GitHub
+`origin/main` commit `a538b36`, files `explore_achmi.py`,
+`explore_achmi_growth.py`, `explore_achmi_visuals.py`. SHA256 of
+`explore_achmi_growth.py`:
+`a829c6acba0abd9fe349cd45213d889f4a5af140c9339714d624d753d5d95ee3`.
+No-color rerun matches `valid_track` IDs (105) and geometry; parquet
+SHA256 `97d6c35d…9ad286` is **not** reproduced (needs JPEGs +
+skimage). Do not copy the parquet under `data/` until byte match.
+Not reconstructed. D-020 still unwritten.
