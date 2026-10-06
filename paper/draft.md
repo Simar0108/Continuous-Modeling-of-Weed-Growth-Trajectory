@@ -223,7 +223,9 @@ The lock ODE is a continuous-time interpolator that transfers to
 short tracks better than GRU and worse than LSTM, and it does not
 extrapolate the frozen tail. Matched-rollout asymmetry is ~0.01 MSE
 and does not explain the GRU gap. Encoder identifiability (z0 cosine
-~0.98–0.996) is unsolved; track embeddings stay H1-only.
+~0.98–0.996) is unsolved; track embeddings stay H1-only. D-019
+rejected the embedding-shortcut hypothesis: the lock already has
+embeddings off and eval-time cosine on seed 0 is still 0.964.
 
 ### Neural CDE (not a Results claim)
 

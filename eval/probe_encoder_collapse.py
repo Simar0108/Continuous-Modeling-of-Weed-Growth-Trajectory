@@ -22,12 +22,9 @@ from ode._pyc_bootstrap import bootstrap
 bootstrap()
 
 import numpy as np
-from sklearn.linear_model import LogisticRegression, Ridge
-from sklearn.metrics import accuracy_score, r2_score
-from sklearn.model_selection import train_test_split
-from sklearn.neural_network import MLPClassifier, MLPRegressor
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import StandardScaler
+import torch
+import torch.nn as nn
+from torch.nn import functional as F
 
 from ode.data.datamodule import PlantTrackDataModule
 from ode.data.dataset import PlantTrackStateDataset
@@ -91,40 +88,103 @@ def _collect(ds) -> list[dict]:
     return rows
 
 
+def _standardize(X_train: np.ndarray, X: np.ndarray) -> np.ndarray:
+    mu = X_train.mean(axis=0)
+    sd = X_train.std(axis=0)
+    sd = np.where(sd < 1e-8, 1.0, sd)
+    return (X - mu) / sd
+
+
+def _accuracy(y_true: np.ndarray, y_pred: np.ndarray) -> float:
+    return float((y_true == y_pred).mean()) if y_true.size else float("nan")
+
+
+def _r2(y_true: np.ndarray, y_pred: np.ndarray) -> float:
+    ss_res = float(np.sum((y_true - y_pred) ** 2))
+    ss_tot = float(np.sum((y_true - y_true.mean()) ** 2))
+    if ss_tot < 1e-12:
+        return 0.0
+    return 1.0 - ss_res / ss_tot
+
+
+def _train_test_split_stratified(X, y, test_size: float, seed: int):
+    rng = np.random.default_rng(seed)
+    classes = np.unique(y)
+    tr_idx, te_idx = [], []
+    for c in classes:
+        idx = np.where(y == c)[0]
+        rng.shuffle(idx)
+        n_te = max(1, int(round(len(idx) * test_size))) if len(idx) > 1 else 0
+        if n_te >= len(idx):
+            n_te = len(idx) - 1
+        te_idx.extend(idx[:n_te].tolist())
+        tr_idx.extend(idx[n_te:].tolist())
+    return X[tr_idx], X[te_idx], y[tr_idx], y[te_idx]
+
+
 def _fit_cls(X, y, seed: int, kind: str):
+    classes, y_idx = np.unique(y, return_inverse=True)
+    Xs = _standardize(X, X)
+    xt = torch.tensor(Xs, dtype=torch.float32)
+    yt = torch.tensor(y_idx, dtype=torch.long)
+    torch.manual_seed(seed)
+    n_in, n_out = xt.shape[1], int(classes.size)
     if kind == "logreg":
-        clf = make_pipeline(
-            StandardScaler(),
-            LogisticRegression(
-                max_iter=400, solver="lbfgs",
-                random_state=seed,
-            ),
-        )
+        net = nn.Linear(n_in, n_out)
+        epochs, lr = 400, 0.2
     else:
-        clf = make_pipeline(
-            StandardScaler(),
-            MLPClassifier(
-                hidden_layer_sizes=(32,), activation="relu",
-                max_iter=400, random_state=seed,
-            ),
-        )
-    clf.fit(X, y)
-    return clf
+        net = nn.Sequential(nn.Linear(n_in, 32), nn.ReLU(), nn.Linear(32, n_out))
+        epochs, lr = 400, 1e-2
+    opt = torch.optim.Adam(net.parameters(), lr=lr)
+    net.train()
+    for _ in range(epochs):
+        opt.zero_grad()
+        loss = F.cross_entropy(net(xt), yt)
+        loss.backward()
+        opt.step()
+    net.eval()
+
+    def predict(Xq: np.ndarray) -> np.ndarray:
+        Xqs = _standardize(X, Xq)
+        with torch.no_grad():
+            pred = net(torch.tensor(Xqs, dtype=torch.float32)).argmax(dim=1).numpy()
+        return classes[pred]
+
+    return predict
 
 
 def _fit_reg(X, y, seed: int, kind: str):
+    Xs = _standardize(X, X)
     if kind == "ridge":
-        reg = make_pipeline(StandardScaler(), Ridge(alpha=1.0))
-    else:
-        reg = make_pipeline(
-            StandardScaler(),
-            MLPRegressor(
-                hidden_layer_sizes=(32,), activation="relu",
-                max_iter=400, random_state=seed,
-            ),
-        )
-    reg.fit(X, y)
-    return reg
+        xt = np.concatenate([Xs, np.ones((Xs.shape[0], 1))], axis=1)
+        a = xt.T @ xt + 1.0 * np.eye(xt.shape[1])
+        w = np.linalg.solve(a, xt.T @ y)
+
+        def predict(Xq: np.ndarray) -> np.ndarray:
+            Xqs = _standardize(X, Xq)
+            xq = np.concatenate([Xqs, np.ones((Xqs.shape[0], 1))], axis=1)
+            return xq @ w
+
+        return predict
+    torch.manual_seed(seed)
+    xt = torch.tensor(Xs, dtype=torch.float32)
+    yt = torch.tensor(y, dtype=torch.float32).reshape(-1, 1)
+    net = nn.Sequential(nn.Linear(xt.shape[1], 32), nn.ReLU(), nn.Linear(32, 1))
+    opt = torch.optim.Adam(net.parameters(), lr=1e-2)
+    net.train()
+    for _ in range(400):
+        opt.zero_grad()
+        loss = F.mse_loss(net(xt), yt)
+        loss.backward()
+        opt.step()
+    net.eval()
+
+    def predict(Xq: np.ndarray) -> np.ndarray:
+        Xqs = _standardize(X, Xq)
+        with torch.no_grad():
+            return net(torch.tensor(Xqs, dtype=torch.float32)).reshape(-1).numpy()
+
+    return predict
 
 
 def main() -> None:
@@ -156,14 +216,14 @@ def main() -> None:
         r["split"] = split_of.get(int(r["track_id"]), "train")
     n_tracks = len(rows)
     chance = 1.0 / n_tracks if n_tracks else float("nan")
-    print(f"[probe1] n_tracks={n_tracks} chance={chance:.4f} {LABEL}")
+    print(f"[probe1] n_tracks={n_tracks} chance={chance:.4f} {LABEL}", flush=True)
 
     X_off = np.stack([r["feat"] for r in rows])
     y_id = np.array([r["track_id"] for r in rows])
     id_in = {}
     for kind in ("logreg", "mlp"):
-        clf = _fit_cls(X_off, y_id, args.seed, kind)
-        acc = float(accuracy_score(y_id, clf.predict(X_off)))
+        predict = _fit_cls(X_off, y_id, args.seed, kind)
+        acc = _accuracy(y_id, predict(X_off))
         id_in[kind] = acc
         print(f"[probe1] 1a official in-sample {kind} acc={acc:.4f} chance={chance:.4f}")
 
@@ -174,14 +234,14 @@ def main() -> None:
             win_y.append(r["track_id"])
     win_X = np.stack(win_X)
     win_y = np.array(win_y)
-    Xtr, Xte, ytr, yte = train_test_split(
-        win_X, win_y, test_size=0.30, random_state=args.seed, stratify=win_y,
+    Xtr, Xte, ytr, yte = _train_test_split_stratified(
+        win_X, win_y, test_size=0.30, seed=args.seed,
     )
     id_early = {}
     for kind in ("logreg", "mlp"):
-        clf = _fit_cls(Xtr, ytr, args.seed, kind)
-        tr = float(accuracy_score(ytr, clf.predict(Xtr)))
-        te = float(accuracy_score(yte, clf.predict(Xte)))
+        predict = _fit_cls(Xtr, ytr, args.seed, kind)
+        tr = _accuracy(ytr, predict(Xtr))
+        te = _accuracy(yte, predict(Xte))
         id_early[kind] = {"train": tr, "test": te, "n_train": int(len(ytr)), "n_test": int(len(yte))}
         print(f"[probe1] 1a early-window {kind} train={tr:.4f} test={te:.4f}")
 
@@ -198,12 +258,12 @@ def main() -> None:
         Xs, ys = split_xy(target)
         late[target] = {}
         for kind in ("ridge", "mlp"):
-            reg = _fit_reg(Xs["train"], ys["train"], args.seed, kind)
+            predict = _fit_reg(Xs["train"], ys["train"], args.seed, kind)
             block = {}
             for split in ("train", "val", "test"):
-                pred = reg.predict(Xs[split])
+                pred = predict(Xs[split])
                 block[split] = {
-                    "r2": float(r2_score(ys[split], pred)),
+                    "r2": _r2(ys[split], pred),
                     "n": int(ys[split].size),
                 }
             late[target][kind] = block

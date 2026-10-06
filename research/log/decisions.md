@@ -468,4 +468,41 @@ No sweeps. No training beyond Probe 2 until the verdict is written
 here.
 
 **Pointer.** `eval/probe_encoder_collapse.py`,
-`figures/encoder_probes/`.
+`eval/probe_embed_ablation.py`, `figures/encoder_probes/`.
+
+---
+
+## D-019 outcome — H-enc-1 rejected; no contrastive arm
+
+**Date.** 2026-10-04 (probes). **Logged.** 2026-10-06. Numbers from
+`figures/encoder_probes/probe1.json` and `probe2.json`. Not a lock
+headline. **Gate 3.** Contrastive-z0 is **not launched**.
+
+**Probe 1.** n=100 Maize tracks. Chance 1a = 0.01.
+
+| Protocol | Statistic | Bar | Call |
+|---|---|---|---|
+| 1a official in-sample | logreg = 1.0, MLP = 1.0 | succeed ≥ 0.20 | succeed (memorization: one 9-D vector per track) |
+| 1a early-window test | logreg = 0.050, MLP = 0.118 (n_test=440) | succeed ≥ 0.10 | succeed on MLP only |
+| 1b val R² final size | ridge = −1.58, MLP = −12.7 | succeed ≥ 0.20; fail ≤ 0.05 | chance-fail |
+| 1b val R² t_max_growth | ridge = −0.54, MLP = −17.7 | same | chance-fail |
+
+Probe 1 **succeeds** on 1a. 1b is a chance-level fail: K=3 context
+does not predict held-out late size or growth timing.
+
+**Probe 2.** Existing `h1_stab_seed0` (`use_track_embed=False`, no
+`track_embedding` tensors, **not retrained**). Eval-time z0
+off-diagonal cosine **0.964** (median 0.981, n=70). Lock reference
+0.996. Drop 0.032 < 0.05 bar → **not a material drop**.
+`train_dz_dt_size_std` = 0.004. Recorded seed-0 `val_full_horizon_mse`
+mean 0.147 (lock table; not remeasured). `h1_final_best` SHA256
+`2498d033ea02e2df1e312a58179226b649a9d3d5c7143b2d040fc9341ef86222`
+untouched.
+
+**Verdict.** Probe 1 succeeds and Probe 2 does not drop cosine.
+**H-enc-1 is rejected.** Embeddings were already off on the lock and
+z0 stays collapsed. Encoder identifiability remains unsolved. Do not
+retune the lock. Do not launch contrastive z0. H-enc-2
+(objective indifference) is the remaining live hypothesis; H-enc-3
+is live for late-stage targets and weakly falsified for track ID
+inside early windows.

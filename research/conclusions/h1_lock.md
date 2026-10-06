@@ -10,7 +10,10 @@ the **clean 5-seed mean** on Maize 70/15/15
 only (D-009, D-010). Val/test are **short-track transfer** (test tracks
 53–65 frames).
 
-Interpretability is closed (D-008).
+Interpretability is closed (D-008). Encoder-collapse probes are
+closed (D-019 outcome, gate 3): H-enc-1 rejected, no contrastive
+arm; see `research/conclusions/encoder.md`. The lock tables below
+are unchanged.
 
 ## Banner
 
