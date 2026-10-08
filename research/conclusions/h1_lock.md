@@ -164,6 +164,27 @@ Last = best.
 - `figures/h1_lock/extrap_curves.png` (lock ODE + baselines; final)
 - `figures/ncdediagnostic/` (PARTIAL n=3/n=2; **not** a lock figure)
 
+## Limitations
+
+**Tray leakage.** The H1 100-track split is plant/`track_id`-disjoint
+but not tray-disjoint: train∩test = 12 shared trays. Same-tray plants
+share treatment, microclimate, and imaging conditions. Fairness is
+preserved (all baselines saw the identical split); generalization
+claims are correspondingly bounded. H2 will use tray-aware splitting
+(D-020). Do not retrofit the H1 lock split.
+
+**Multiple comparisons.** The battery ran many comparisons (3 baselines
+× 2 splits × protocols). Headline claims rest on tests that survive
+conservative correction: GRU test win $p_{\mathrm{two}}=6.1\times 10^{-5}$;
+LSTM test difference $p_{\mathrm{two}}=0.048$ is the marginal one and
+is reported as such.
+
+**Single-species scope.** The lock is yarrow (ACHMI) only. Per-track
+encoder identifiability is a closed negative result
+(`research/conclusions/encoder.md`): D-019 rejected H-enc-1, did not
+launch contrastive $z_0$, and left $z_0$ cosine collapsed
+(~0.96–0.996).
+
 ## Interpretability
 
 Closed. D-008. 0/6 early-ckpt gates. Latent size dynamics remain

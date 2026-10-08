@@ -136,8 +136,26 @@ $K\sim 279$ px vs latent bound 2; Zwietering sat on init, $t_0\sim 40$ h
 vs 1597 h peak-spread) are in `research/log/negativeresults.md`. Const-$Z$
 tables do not transfer to unseen tracks (`val_mse_Z` identically 1.066).
 The observation window covers the accelerating / pre-saturation phase
-only. Encoder identifiability is unsolved; track embeddings are an H1
-known-track device. H2 is out of scope for this lock.
+only. H2 is out of scope for this lock.
+
+The H1 100-track split is plant/`track_id`-disjoint but not tray-disjoint:
+train and test share 12 trays. Same-tray plants share treatment,
+microclimate, and imaging conditions. Fairness is preserved (all
+baselines saw the identical split); generalization claims are
+correspondingly bounded. H2 will use tray-aware splitting (D-020).
+
+The evaluation battery ran many comparisons (3 baselines × 2 splits ×
+protocols). Headline claims rest on tests that survive conservative
+correction: the GRU test win ($p_{\mathrm{two}}=6.1\times 10^{-5}$) does;
+the LSTM test difference ($p_{\mathrm{two}}=0.048$) is the marginal one
+and is reported as such.
+
+Scope is a single species (yarrow / ACHMI). Per-track encoder
+identifiability is a closed negative result
+(`research/conclusions/encoder.md`): D-019 rejected the embedding
+shortcut, did not launch contrastive $z_0$, and left $z_0$ cosine
+collapsed ($\sim$0.96–0.996). Track embeddings remain an H1 known-track
+device.
 
 The locked file `h1_final_best` is a leaked 80/20 seed (epoch 20,
 D-009). The H1 model of record is the clean 5-seed EMA mean
