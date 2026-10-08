@@ -15,8 +15,8 @@ contrastive z0, do not retune the lock.
 
 ## Probe 1 — does K=3 context contain identity?
 
-Features: first three frames as `[σ_w, σ_h, Δt]` (9-D). Maize
-100-track official split. Chance for 100-way ID = 0.01.
+Features: first three frames as `[σ_w, σ_h, Δt]` (9-D). Yarrow
+(ACHMI) 100-track official split. Chance for 100-way ID = 0.01.
 
 | Call | Number |
 |---|---|

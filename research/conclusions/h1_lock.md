@@ -4,7 +4,7 @@
 3-seed mean (test 0.582) mixed two epoch-0 `best.ckpt` files into the
 architecture comparison (D-014). Those numbers are quarantined in
 `figures/h1_lock/step10_quarantined/`. The H1 model of record is now
-the **clean 5-seed mean** on Maize 70/15/15
+the **clean 5-seed mean** on yarrow (ACHMI) 70/15/15
 (`checkpoints/h1_stab_seed{0..4}/`, EMA `state_dict`, selected on
 `val_full_horizon_mse`). `h1_final_best` is a leaked 80/20 reference
 only (D-009, D-010). Val/test are **short-track transfer** (test tracks

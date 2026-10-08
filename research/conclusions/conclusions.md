@@ -115,7 +115,7 @@ Small-N and single-seed results are not believed. The first confirmatory
 step after this grid is:
 
 ```
-100-track Maize, train70 / val15 / test15, 3 seeds
+100-track yarrow (ACHMI), train70 / val15 / test15, 3 seeds
 eval/evaluateh1.py <winner> --vs <reference> --seeds 3
 ```
 
@@ -143,7 +143,7 @@ interpretability arm. That thread is closed in
 Full write-up: `research/conclusions/h1_lock.md`. D-008–D-013 in
 `research/log/decisions.md`. **Step 9 pairwise claims are superseded.**
 
-**Model of record.** Clean 3-seed mean on Maize 70/15/15
+**Model of record.** Clean 3-seed mean on yarrow (ACHMI) 70/15/15
 (`checkpoints/h1_seed{0,1,2}/best.ckpt`). `h1_final_best` is a leaked
 80/20 reference only (SHA256
 `2498d033ea02e2df1e312a58179226b649a9d3d5c7143b2d040fc9341ef86222`).

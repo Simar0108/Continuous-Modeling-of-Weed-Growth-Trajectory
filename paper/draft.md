@@ -10,10 +10,12 @@ claims Wilcoxon vs LSTM as an ODE win. Neural CDE numbers live in
 
 ### Data and split
 
-MFWD tracks from `metrics_with_features.parquet`. Official H1 lock uses
-**ACHMI** (*Achillea millefolium*; docs previously said Maize; D-021)
-only, the 100 richest valid tracks (`≥15` observations), split
-deterministically by trajectory length into train 70 / val 15 / test 15
+MFWD tracks from `metrics_with_features.parquet`. Provenance (D-021): the
+dataset is MFWD yarrow (*Achillea millefolium*, ACHMI), 105 usable tracks,
+H1 cap 100; the label “maize-100” is a mislabel and all comparisons were
+internal to the same 100 tracks. Official H1 lock uses ACHMI only, the
+100 richest valid tracks (`≥15` observations), split deterministically by
+trajectory length into train 70 / val 15 / test 15
 (`ode.train_baselines.select_discrete_tracks`). `--species Maize` was a
 no-op (no `species` column). Shorter
 tracks go to val/test. State is 5-D: tray-normalized $(x,y)$, z-scored
