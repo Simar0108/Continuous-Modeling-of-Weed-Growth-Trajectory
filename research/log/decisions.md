@@ -602,3 +602,13 @@ they inventory it and are not inside the tagged tree.
 `2498d033ea02e2df1e312a58179226b649a9d3d5c7143b2d040fc9341ef86222`.
 
 **Pointer.** `research/log/h1_archivemanifest.md`.
+
+### D-022 addendum — remote push (2026-10-08)
+
+`origin/main` advanced `704d841..4bf7fb7`
+(`4bf7fb7e4e99652692510fa9fd420d33c0c47b96`). Annotated tag
+`v-h1-final` pushed. Remote peel `refs/tags/v-h1-final^{}` =
+`72d3009ada7730ed281bab0de187be59bdfe9d94`. Tag object
+`538c2eeb3d4ab6de00e55ee5b0f59952445cd014`.
+`v-thesis-freeze-candidate` left in place at `c563024`; not deleted
+or moved.

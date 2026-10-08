@@ -174,7 +174,8 @@ Numbers in this section are the lock tables. Every cell is final
 ### In-window size MSE (Table 1 v2)
 
 Full-horizon $(\sigma_w,\sigma_h)$ MSE on ACHMI 70/15/15. Val and test
-are short-track transfer (test tracks 53–65 frames). Source:
+are short-track transfer (test tracks 53–65 frames, per the Phase 0
+data audit, `logs/h2_dataaudit.md`). Source:
 `figures/h1_lock/table1_v2.csv`. Eval job 29203599.
 
 | Model | Val mean / median | Test mean / median |
@@ -268,16 +269,3 @@ thesis, is a **Linear Neural CDE** (Kidger–Morrill line / Log-ODE
 reduction): the vector field is linear in $z$, so the integral is a
 linear functional of the control and NFE does not track interpolant
 roughness. That is future work. It is not a claim of this lock.
-
-## COMMENTS
-
-Task 3 Results audit (2026-10-08). Allowed sources for this pass:
-`figures/h1_lock/table1_v2.csv`, `table2_v2.csv`, lock CSVs cited in
-Results, and receipts in `research/log/decisions.md`. No checkpoints
-were scored.
-
-Unsourced numbers:
-
-- Results / In-window: “test tracks 53–65 frames.” Not present in
-  `table1_v2.csv` or `decisions.md`. Left as written; no source
-  invented.
