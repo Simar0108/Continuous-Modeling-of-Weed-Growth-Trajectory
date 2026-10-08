@@ -57,13 +57,10 @@ tray-aware or tray-disjoint splitting for H2.
 
 ## Download
 
-JPEG pull on scratch (`pid` 2561724 at launch, ~10 s/zip, 640 zips).
-Do not interrupt. Verify manifest completeness when it finishes.
-Image type verified JPEG (`FF D8`) on ACHMI `133801.zip`.
-
-**2026-10-06 follow-up (skylark).** `/scratch` is node-local. This
-host does not have pid 2561724 or the JPEG tree. Re-pull to a
-shared path (or the same node) before color verification.
+JPEG pull **complete** on `bluejay` `/scratch/ssing226/mfwd/`.
+Manifest `640/640` `ok` (ended 2026-10-06T15:38:51). ACHMI 25 zips
+unzipped to `/scratch/ssing226/mfwd/extracted/ACHMI/` (2,868 JPEGs,
+paths 1:1 with parquet `filename` + `.jpeg`). Do not re-download.
 
 ## Extractor (recovered into the local tree)
 
@@ -84,7 +81,8 @@ SHA256 `explore_achmi_growth.py`:
 
 No-color rerun vs lock parquet: 8,953 rows, 153 tracks, 122 `≥15`,
 **105 `valid_track` IDs identical**, geometry/timestamps 1:1.
-`track_quality_score` does **not** match (color missing-rate term).
-Full parquet byte match needs JPEGs + skimage. Not committed to
-`data/` until that run matches. `*.parquet` stays gitignored.
+
+**2026-10-08 color+skimage verify (pid 79128, finished).** Branch B
+resolved. See D-021 addendum. `data/explore_achmi_growth.py` holds the
+verified copy + `postprocess_lock_parity()`. H2 jobs leave parity off.
 

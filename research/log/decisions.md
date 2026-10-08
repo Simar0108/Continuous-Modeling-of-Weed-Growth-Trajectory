@@ -545,3 +545,28 @@ No-color rerun matches `valid_track` IDs (105) and geometry; parquet
 SHA256 `97d6c35d…9ad286` is **not** reproduced (needs JPEGs +
 skimage). Do not copy the parquet under `data/` until byte match.
 Not reconstructed. D-020 still unwritten.
+
+**D-021 addendum — extractor verification, Branch B (2026-10-08).**
+Color+skimage rerun on `bluejay` (pid 79128, finished). Raw output
+`/scratch/ssing226/mfwd/verify/metrics_with_features.parquet`.
+
+| Check | Lock | Verify | Match |
+|---|---|---|---|
+| SHA256 | `97d6c35d…9ad286` | `fbc64576…9b37b2` | no (parquet footer) |
+| rows / tracks | 8953 / 153 | 8953 / 153 | yes |
+| n≥15 | 122 | 122 | yes |
+| valid_track IDs | 105 | 105 | **identical** |
+| valid frames | 8219 | 8219 | yes |
+| geometry + timestamps + derived size | — | — | yes (atol 1e-8) |
+| color on 3884 lock-non-NA rows | — | — | yes (exact) |
+| color on 5069 lock-NA rows | NA | filled | lock IMAGE_ROOT had 11/25 trays |
+| `track_quality_score` | 0.6–1.4 | 1.4–1.8 | object-bool `~` quirk |
+
+`valid_track` / geometry match ⇒ not Branch C. File hash and raw
+quality/color differ ⇒ not Branch A. **Branch B resolved:**
+`postprocess_lock_parity()` in `data/explore_achmi_growth.py` masks
+the 14 trays the lock never saw and replays object-bool `~`
+(`~True==-2`, `~False==-1`). After that, all 50 columns match lock
+at value equality. The postprocess is **off** for H2 extraction
+(complete images). Quality scores are not an inclusion input;
+`valid_track` + `≥15` is. D-020 still unwritten.
