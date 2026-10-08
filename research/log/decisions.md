@@ -570,3 +570,35 @@ the 14 trays the lock never saw and replays object-bool `~`
 at value equality. The postprocess is **off** for H2 extraction
 (complete images). Quality scores are not an inclusion input;
 `valid_track` + `≥15` is. D-020 still unwritten.
+
+---
+
+## D-022 — H1 textual freeze tagged `v-h1-final`
+
+**Date.** 2026-10-08. Docs only. No retraining. D-020 still unwritten.
+
+**Decision.** Tag the H1 textual-finalization commit as the H1
+model-of-record freeze. Checkpoints stay on disk; this decision
+records identity only.
+
+| Field | Value |
+|---|---|
+| Tag | `v-h1-final` (annotated) |
+| Message | `H1 model of record, textual finalization` |
+| Commit | `72d3009ada7730ed281bab0de187be59bdfe9d94` |
+| Tag object | `538c2eeb3d4ab6de00e55ee5b0f59952445cd014` |
+| Prior freeze | `v-thesis-freeze-candidate` → `c563024c7e6d0ce119c5fcba33951f2e07c1dada` |
+| Decision log SHA256 at tag | `fe02c17a2d3d3a3b735ce316684005085a47772c7159426dd0e029006ee359b1` |
+
+HEAD at the tag is a descendant of `c563024` (NCDE close), `17fdb1f`
+(`h1-lock`), D-019, and D-021. The tree advanced after the candidate
+freeze with encoder probes, the ACHMI species correction, and Tasks
+1–3 of the H1 textual pass. This D-022 entry and
+`research/log/h1_archivemanifest.md` are committed *after* the tag;
+they inventory it and are not inside the tagged tree.
+
+**Not written.** No file under `checkpoints/`. D-020 unwritten.
+`h1_final_best` SHA256 unchanged
+`2498d033ea02e2df1e312a58179226b649a9d3d5c7143b2d040fc9341ef86222`.
+
+**Pointer.** `research/log/h1_archivemanifest.md`.
